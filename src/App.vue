@@ -1,10 +1,16 @@
 <template>
-    <router-view />
+    <div class="app">
+        <left-panel></left-panel>
+        <router-view />
+        <right-panel></right-panel>
+    </div>
 </template>
 
 <script>
+import LeftPanel from '@/components/LeftPanel.vue'
+import RightPanel from '@/components/RightPanel.vue'
 export default {
-
+    components: { LeftPanel, RightPanel },
 }
 </script>
 
@@ -18,5 +24,12 @@ html {
     padding: 0;
     font-family: Inter;
     font-size: 1.4rem;
+}
+.app {
+    height: 100%;
+    min-height: 720px;
+    position: relative;
+    padding: 0 370px 0 90px;
+    background: #f8f8f8;
 }
 </style>

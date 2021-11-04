@@ -14,15 +14,17 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .left-panel {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 90px;
     height: 100%;
+    display: flex;
+    flex-direction: column;
     padding: 35px 14px;
-    background: teal;
+    background: #ffffff;
 }
 .logo {
     max-width: 53px;
