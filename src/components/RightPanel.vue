@@ -10,11 +10,9 @@ export default {
 
 <style lang="scss" scoped>
 .right-panel {
-    position: absolute;
     top: 0;
     right: 0;
-    width: 370px;
-    height: 100%;
+    flex: 0 0 370px;
     background: teal;
 }
 </style>

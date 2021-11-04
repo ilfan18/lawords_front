@@ -16,19 +16,17 @@ export default {
 
 <style lang="scss">
 .left-panel {
-    position: absolute;
     top: 0;
     left: 0;
-    width: 90px;
-    height: 100%;
+    flex: 0 0 90px;
     display: flex;
     flex-direction: column;
     padding: 35px 14px;
     background: #ffffff;
 }
 .logo {
-    max-width: 53px;
-    max-height: 31px;
+    max-width: 50px;
+    max-height: 50px;
     margin: 0 auto;
     display: flex;
     justify-content: center;

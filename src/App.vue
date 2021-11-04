@@ -28,8 +28,8 @@ html {
 .app {
     height: 100%;
     min-height: 720px;
-    position: relative;
-    padding: 0 370px 0 90px;
     background: #f8f8f8;
+    display: flex;
+    align-items: stretch;
 }
 </style>
