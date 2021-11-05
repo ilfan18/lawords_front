@@ -11,7 +11,7 @@
 
 <script>
 import LeftPanel from '@/components/LeftPanel'
-import RightPanel from '@/components/RightPanel.vue'
+import RightPanel from '@/components/RightPanel'
 export default {
     components: { LeftPanel, RightPanel },
 }

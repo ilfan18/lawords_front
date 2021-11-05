@@ -2,7 +2,7 @@
     <li class="nav__item">
         <router-link
             @click="menuClick"
-            :to="href"
+            :to="url"
             class="nav__link"
             :class="{ round: round }"
             active-class="active"
@@ -27,7 +27,7 @@ export default {
             type: String,
             required: true
         },
-        href: {
+        url: {
             type: String,
             required: true
         },
@@ -41,20 +41,15 @@ export default {
         }
     },
     methods: {
-        menuClick() {
-            this.isActive = true
-            this.stroke = '#FFFFFF'
-        }
+
     },
     computed: {
-        strokeColor() {
-            return this.isActive ? '#FFFFFF' : '#262626'
-        }
+
     }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .nav__item {
     margin-bottom: 16px;
 }
@@ -64,17 +59,23 @@ export default {
     justify-content: center;
     width: 60px;
     height: 60px;
-
     text-decoration: none;
     &.active.round {
         background: linear-gradient(92.51deg, #262626 0.36%, #1b1651 98.43%);
-        .vue-feather__content {
-            stroke: #fff;
-        }
     }
     &.round {
         border-radius: 50%;
         background-color: #efefef;
+    }
+}
+</style>
+// ! Придумаешь лучше - сделай лучше
+<style lang="scss">
+.nav__link {
+    &.active.round {
+        .vue-feather__content {
+            stroke: #fff;
+        }
     }
 }
 </style>

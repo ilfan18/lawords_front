@@ -14,10 +14,8 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .left-panel {
-    top: 0;
-    left: 0;
     flex: 0 0 90px;
     display: flex;
     flex-direction: column;

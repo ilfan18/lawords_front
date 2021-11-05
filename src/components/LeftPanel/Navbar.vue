@@ -1,14 +1,14 @@
 <template>
     <nav class="nav">
         <ul class="nav__top">
-            <navbar-item href="/" title="Главная" type="home"></navbar-item>
-            <navbar-item href="/about" title="#" type="clock"></navbar-item>
-            <navbar-item href="/about" :round="false" title="#" type="download"></navbar-item>
-            <navbar-item href="/about" :round="false" title="#" type="bookmark"></navbar-item>
+            <navbar-item url="/" title="Главная" type="home"></navbar-item>
+            <navbar-item url="/about" title="#" type="clock"></navbar-item>
+            <navbar-item url="/about" :round="false" title="#" type="download"></navbar-item>
+            <navbar-item url="/about" :round="false" title="#" type="bookmark"></navbar-item>
         </ul>
         <ul class="nav__bottom">
-            <navbar-item href="/about" :round="false" title="Настройки" type="settings"></navbar-item>
-            <navbar-item href="/about" :round="false" title="Выйти" type="log-out"></navbar-item>
+            <navbar-item url="/about" :round="false" title="Настройки" type="settings"></navbar-item>
+            <navbar-item url="/about" :round="false" title="Выйти" type="log-out"></navbar-item>
         </ul>
     </nav>
 </template>
