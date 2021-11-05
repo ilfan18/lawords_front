@@ -1,13 +1,16 @@
 <template>
     <div class="app">
         <left-panel></left-panel>
-        <router-view />
+        <div class="app__main">
+            <router-view />
+        </div>
+
         <right-panel></right-panel>
     </div>
 </template>
 
 <script>
-import LeftPanel from '@/components/LeftPanel.vue'
+import LeftPanel from '@/components/LeftPanel'
 import RightPanel from '@/components/RightPanel.vue'
 export default {
     components: { LeftPanel, RightPanel },
@@ -31,5 +34,8 @@ html {
     background: #f8f8f8;
     display: flex;
     align-items: stretch;
+    &__main {
+        flex: 1 1 auto;
+    }
 }
 </style>

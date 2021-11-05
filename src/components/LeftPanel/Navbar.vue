@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import NavbarItem from '@/components/NavbarItem.vue'
+import NavbarItem from './NavbarItem.vue'
 export default {
     components: { NavbarItem },
 }
