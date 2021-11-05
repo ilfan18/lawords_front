@@ -1,8 +1,9 @@
 import { createStore } from 'vuex';
+import { coursesModule } from './coursesModule';
 
 export default createStore({
 	state: {},
 	mutations: {},
 	actions: {},
-	modules: {},
+	modules: { courses: coursesModule },
 });

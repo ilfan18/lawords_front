@@ -1,7 +1,6 @@
 <template>
     <li class="nav__item">
         <router-link
-            @click="menuClick"
             :to="url"
             class="nav__link"
             :class="{ round: round }"
