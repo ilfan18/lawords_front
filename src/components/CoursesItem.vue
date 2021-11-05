@@ -2,23 +2,40 @@
     <li class="courses-item">
         <div class="courses-item__header">
             <div class="courses-item__left">
-                <h2 class="courses-item__title">Курс</h2>
-                <h3 class="courses-item__name">Название курса</h3>
+                <h2 class="courses-item__title">{{ id }} Курс</h2>
+                <h3 class="courses-item__name">{{ name }}</h3>
             </div>
             <div class="courses-item__right">
                 <div class="courses-item__icon">
-                    <img src="@/assets/book.png" alt="Курс 1" />
+                    <img :src="icon" alt="Курс 1" />
                 </div>
             </div>
         </div>
-        <div class="courses-item__fraction">16/25</div>
+        <div class="courses-item__fraction">(1) / {{ lessons_count }}</div>
         <div class="courses-item__progress"></div>
     </li>
 </template>
 
 <script>
 export default {
-
+    props: {
+        id: {
+            type: Number,
+            required: true
+        },
+        name: {
+            type: String,
+            required: true
+        },
+        icon: {
+            type: String,
+            required: true
+        },
+        lessons_count: {
+            type: Number,
+            required: true
+        },
+    }
 }
 </script>
 
@@ -57,6 +74,13 @@ export default {
     }
 
     &__icon {
+        width: 48px;
+        height: 48px;
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
     }
 
     &__fraction {

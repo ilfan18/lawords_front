@@ -2,14 +2,14 @@
     <div class="courses">
         <courses-header></courses-header>
         <div class="courses__list">
-            <courses-item></courses-item>
-            <courses-item></courses-item>
-            <courses-item></courses-item>
-            <courses-item></courses-item>
-            <courses-item></courses-item>
-            <courses-item></courses-item>
-            <courses-item></courses-item>
-            <courses-item></courses-item>
+            <courses-item
+                v-for="course in courses"
+                :key="course.id"
+                :id="course.id"
+                :name="course.name"
+                :icon="course.icon"
+                :lessons_count="course.lessons.length"
+            ></courses-item>
         </div>
     </div>
 </template>
@@ -20,6 +20,11 @@ import CoursesHeader from '@/components/CoursesHeader.vue'
 import CoursesItem from '@/components/CoursesItem.vue'
 export default {
     components: { CoursesHeader, CoursesItem },
+    computed: {
+        ...mapState({
+            courses: state => state.courses.courses_list,
+        })
+    },
     methods: {
         ...mapActions({
             fetchCourses: 'courses/fetchCourses',

@@ -3,11 +3,11 @@ import axios from 'axios';
 export const coursesModule = {
 	namespaced: true,
 	state: () => ({
-		courses: [],
+		courses_list: [],
 	}),
 	mutations: {
 		setCourses(state, courses) {
-			state.courses = courses;
+			state.courses_list = courses;
 		},
 	},
 	actions: {
