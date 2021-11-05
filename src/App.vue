@@ -26,6 +26,7 @@ html {
     margin: 0;
     padding: 0;
     font-family: Inter;
+    color: #000000;
     font-size: 1.4rem;
 }
 html,
