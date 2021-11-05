@@ -28,9 +28,17 @@ html {
     font-family: Inter;
     font-size: 1.4rem;
 }
+html,
+body {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+#app {
+    height: 100vh;
+}
 .app {
     height: 100%;
-    min-height: 720px;
     background: #f8f8f8;
     display: flex;
     align-items: stretch;

@@ -21,6 +21,14 @@ export default {
     flex-direction: column;
     padding: 35px 14px;
     background: #ffffff;
+    overflow-x: auto;
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: #ededed;
+        border-radius: 10px;
+    }
 }
 .logo {
     max-width: 50px;

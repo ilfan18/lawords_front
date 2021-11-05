@@ -12,5 +12,13 @@ export default {
 .right-panel {
     flex: 0 0 370px;
     background: #ffffff;
+    overflow-x: auto;
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: #ededed;
+        border-radius: 10px;
+    }
 }
 </style>
