@@ -7,7 +7,7 @@
             active-class="active"
             :title="title"
         >
-            <vue-feather size="28" :type="type" stroke="#262626" scoped></vue-feather>
+            <vue-feather size="28" :type="type" stroke="#262626"></vue-feather>
         </router-link>
     </li>
 </template>

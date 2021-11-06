@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../views/Main.vue';
-import Login from '../views/LoginPage.vue';
+import LoginPage from '../views/LoginPage.vue';
 
 const routes = [
 	{
@@ -11,7 +11,7 @@ const routes = [
 	{
 		path: '/login',
 		name: 'Login',
-		component: Login,
+		component: LoginPage,
 	},
 	{
 		path: '/courses',
@@ -41,17 +41,17 @@ const router = createRouter({
 	routes,
 });
 
-router.beforeEach((to, from, next) => {
-	// redirect to login page if not logged in and trying to access a restricted page
-	const publicPages = ['/login'];
-	const authRequired = !publicPages.includes(to.path);
-	const loggedIn = localStorage.getItem('user');
+// router.beforeEach((to, from, next) => {
+// 	// redirect to login page if not logged in and trying to access a restricted page
+// 	const publicPages = ['/login'];
+// 	const authRequired = !publicPages.includes(to.path);
+// 	const loggedIn = localStorage.getItem('user');
 
-	if (authRequired && !loggedIn) {
-		return next('/login');
-	}
+// 	if (authRequired && !loggedIn) {
+// 		return next('/login');
+// 	}
 
-	next();
-});
+// 	next();
+// });
 
 export default router;
