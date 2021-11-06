@@ -12,12 +12,12 @@
 import LeftPanel from '@/components/LeftPanel'
 import RightPanel from '@/components/RightPanel'
 export default {
+    components: { LeftPanel, RightPanel },
     data() {
         return {
             isAuth: false
         }
     },
-    components: { LeftPanel, RightPanel },
 }
 </script>
 

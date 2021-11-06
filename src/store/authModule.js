@@ -1,3 +1,9 @@
-import axios from 'axios';
+import { userService } from '@/services';
+import router from '@/router';
 
-export const authModule = {};
+export const authModule = {
+	namespaced: true,
+	state: {},
+	actions: {},
+	mutations: {},
+};
