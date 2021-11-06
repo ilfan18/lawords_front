@@ -1,11 +1,10 @@
 <template>
     <div class="app">
-        <left-panel></left-panel>
+        <left-panel v-if="isAuth"></left-panel>
         <div class="app__main">
             <router-view />
         </div>
-
-        <right-panel></right-panel>
+        <right-panel v-if="isAuth"></right-panel>
     </div>
 </template>
 
@@ -13,6 +12,11 @@
 import LeftPanel from '@/components/LeftPanel'
 import RightPanel from '@/components/RightPanel'
 export default {
+    data() {
+        return {
+            isAuth: false
+        }
+    },
     components: { LeftPanel, RightPanel },
 }
 </script>
