@@ -4,7 +4,27 @@ import axios from 'axios';
 export const userServices = {
 	login,
 	logout,
+	register,
 };
+
+function register(email, username, password) {
+	const request_url = process.env.VUE_APP_API_URL + 'auth/users/';
+	const request_body = {
+		email,
+		username,
+		password,
+	};
+	return axios
+		.post(request_url, request_body)
+		.then(handleResponse)
+		.then((user) => {
+			return user;
+		})
+		.catch((error) => {
+			console.log(error);
+			return Promise.reject(error);
+		});
+}
 
 function login(username, password) {
 	const request_url = process.env.VUE_APP_API_URL + 'auth/jwt/create/';
@@ -33,7 +53,9 @@ function logout() {
 
 function handleResponse(response) {
 	const data = response.data;
-	if (response.status != 200) {
+	// ! Подумать над условием
+	if (response.status != 200 && response.status != 201) {
+		console.log('object');
 		if (response.status == 401) {
 			logout();
 			location.reload(true);

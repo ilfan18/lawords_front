@@ -1,5 +1,5 @@
 <template>
-    <div class="form form-register">
+    <div class="form">
         <div class="form__title">
             Войдите в
             <span class="red">la</span>words
@@ -26,6 +26,11 @@
                 :submitted="submitted"
             ></form-item>
             <form-button :submitting="logingIn">Войти</form-button>
+            <div class="register">
+                или
+                <br />
+                <router-link to="/register">Зарегистрироваться</router-link>
+            </div>
         </form>
     </div>
 </template>
@@ -90,7 +95,18 @@ export default {
     }
     &__form {
     }
-}
-.form-register {
+    .register {
+        margin-top: 5px;
+        color: #9fa2b4;
+        font-size: 15px;
+        line-height: 22px;
+        text-align: center;
+        letter-spacing: 0.323577px;
+        a {
+            text-decoration: none;
+            font: inherit;
+            color: #3751ff;
+        }
+    }
 }
 </style>

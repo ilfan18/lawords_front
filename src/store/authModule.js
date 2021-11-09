@@ -15,7 +15,7 @@ export const authModule = {
 			userServices.login(username, password).then(
 				(user) => {
 					commit('loginSuccess', user);
-					router.push('/');
+					router.push('/courses');
 				},
 				(error) => {
 					commit('loginFailure', error);
@@ -26,6 +26,20 @@ export const authModule = {
 		logout({ commit }) {
 			userServices.logout();
 			commit('logout');
+		},
+		register({ dispatch, commit }, { email, username, password }) {
+			commit('registerRequest', { username });
+			userServices.register(email, username, password).then(
+				(user) => {
+					dispatch('login', { username, password });
+					commit('registerSuccess', user);
+					router.push('/courses');
+				},
+				(error) => {
+					commit('registerFailure', error);
+					// Тут еще alert
+				}
+			);
 		},
 	},
 	mutations: {
@@ -42,6 +56,18 @@ export const authModule = {
 			state.user = null;
 		},
 		logout(state) {
+			state.status = {};
+			state.user = null;
+		},
+		registerRequest(state, user) {
+			state.status = { regestering: true };
+			state.user = user;
+		},
+		registerSuccess(state, user) {
+			state.status = { loggedIn: true };
+			state.user = user;
+		},
+		registerFailure(state) {
 			state.status = {};
 			state.user = null;
 		},
