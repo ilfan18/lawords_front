@@ -6,7 +6,7 @@
             <span class="red">.</span>
         </div>
         <div class="form__subtitle">Введите вашу почту и пароль ниже</div>
-        <form @submit.prevent="handleSubmit" class="form__form">
+        <form @submit.prevent="handleLoginSubmit" class="form__form">
             <form-item
                 v-model="username"
                 name="username"
@@ -25,7 +25,7 @@
                 style="margin-bottom: 26px;"
                 :submitted="submitted"
             ></form-item>
-            <form-button>Войти</form-button>
+            <form-button :submitting="logingIn">Войти</form-button>
         </form>
     </div>
 </template>
@@ -43,12 +43,24 @@ export default {
         }
     },
     methods: {
-        handleSubmit(e) {
-            this.submitted = true
-            const { username, password } = this
-            console.log(username, password);
+        handleLoginSubmit(e) {
+            this.submitted = true;
+            const { username, password } = this;
+            const { dispatch } = this.$store;
+            if (username && password) {
+                dispatch('auth/login', { username, password });
+            }
         }
-    }
+    },
+    computed: {
+        logingIn() {
+            return this.$store.state.auth.loggingIn ? true : null;
+        }
+    },
+    created() {
+        // Снять статус аутентифицированного
+        this.$store.dispatch('auth/logout');
+    },
 }
 </script>
 
@@ -70,14 +82,12 @@ export default {
             color: #f05555;
         }
     }
-
     &__subtitle {
         font-size: 15px;
         text-align: center;
         line-height: 22px;
         margin-bottom: 40px;
     }
-
     &__form {
     }
 }

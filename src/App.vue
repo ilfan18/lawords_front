@@ -12,12 +12,19 @@
 import LeftPanel from '@/components/LeftPanel'
 import RightPanel from '@/components/RightPanel'
 export default {
+    name: 'app',
     components: { LeftPanel, RightPanel },
     data() {
-        return {
-            isAuth: false
-        }
+        return {}
     },
+    computed: {
+        isAuth() {
+            return this.$store.state.auth.status.loggedIn;
+        },
+        user() {
+            return this.$store.state.auth.user;
+        }
+    }
 }
 </script>
 

@@ -1,12 +1,17 @@
 <template>
-    <button type="submit" class="form-button">
+    <button :disabled="submitting" type="submit" class="form-button">
         <slot></slot>
     </button>
 </template>
 
 <script>
 export default {
-
+    props: {
+        submitting: {
+            type: Boolean,
+            default: null
+        }
+    }
 }
 </script>
 
@@ -25,5 +30,8 @@ export default {
     text-align: center;
     letter-spacing: 0.215718px;
     color: #ffffff;
+    &:disabled {
+        background: #686767;
+    }
 }
 </style>
