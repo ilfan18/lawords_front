@@ -1,7 +1,7 @@
 import { userServices } from '@/services';
 import router from '@/router';
 
-const user = JSON.parse(localStorage.getItem('item'));
+const user = JSON.parse(localStorage.getItem('user'));
 const initialState = user
 	? { status: { loggedIn: true }, user }
 	: { status: {}, user: null };
