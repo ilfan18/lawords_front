@@ -1,2 +1,3 @@
-import VSpoilerVue from './VSpoiler.vue';
-export default [VSpoilerVue];
+import VSpoiler from './VSpoiler.vue';
+
+export default [VSpoiler];

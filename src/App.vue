@@ -37,7 +37,6 @@ html {
     margin: 0;
     padding: 0;
     font-family: Inter;
-    color: #000000;
     font-size: 1.4rem;
 }
 html,
@@ -51,11 +50,29 @@ body {
 }
 .app {
     height: 100%;
-    background: #f8f8f8;
     display: flex;
     align-items: stretch;
     &__main {
         flex: 1 1 auto;
     }
+    --background-primary: #ffffff;
+    --background-secandary: #f8f8f8;
+    --text-primary: #000000;
+    --text-secandary: #737373;
+    --scrollbar-color: #ededed;
+    --nav-item-round: #ececec;
+    &.dark-theme {
+        --background-primary: #1c1c1c;
+        --background-secandary: #000000;
+        --text-primary: #ffffff;
+        --text-secandary: #737373;
+        --scrollbar-color: #5b5b5b;
+        --nav-item-round: #101010;
+    }
+    background: var(--background-secandary);
+    color: var(--text-primary);
+}
+.main-content {
+    padding: 30px 40px;
 }
 </style>

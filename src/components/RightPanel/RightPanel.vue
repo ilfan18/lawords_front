@@ -11,13 +11,13 @@ export default {
 <style lang="scss" scoped>
 .right-panel {
     flex: 0 0 370px;
-    background: #ffffff;
+    background: var(--background-primary);
     overflow-x: auto;
     &::-webkit-scrollbar {
         width: 10px;
     }
     &::-webkit-scrollbar-thumb {
-        background: #ededed;
+        background: var(--scrollbar-color);
         border-radius: 10px;
     }
 }

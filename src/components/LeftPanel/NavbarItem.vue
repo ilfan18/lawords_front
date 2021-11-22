@@ -1,3 +1,4 @@
+<!-- !Цвет иконок от темы сделать  -->
 <template>
     <li class="nav__item">
         <router-link
@@ -60,11 +61,11 @@ export default {
     height: 60px;
     text-decoration: none;
     &.active.round {
-        background: linear-gradient(92.51deg, #262626 0.36%, #1b1651 98.43%);
+        background: #3bafda;
     }
     &.round {
         border-radius: 50%;
-        background-color: #efefef;
+        background-color: var(--nav-item-round);
     }
 }
 </style>

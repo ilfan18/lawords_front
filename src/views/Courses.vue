@@ -1,6 +1,6 @@
 <template>
-    <div class="courses">
-        <courses-header></courses-header>
+    <div class="courses main-content">
+        <v-header>Мои курсы</v-header>
         <div class="courses__list">
             <courses-item
                 v-for="course in courses"
@@ -16,10 +16,10 @@
 
 <script>
 import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
-import CoursesHeader from '@/components/CoursesHeader.vue'
+import VHeader from '@/components/VHeader.vue'
 import CoursesItem from '@/components/CoursesItem.vue'
 export default {
-    components: { CoursesHeader, CoursesItem },
+    components: { VHeader, CoursesItem },
     computed: {
         ...mapState({
             courses: state => state.courses.courses_list,
@@ -38,7 +38,6 @@ export default {
 
 <style lang="scss" scoped>
 .courses {
-    padding: 30px 40px;
     &__list {
         list-style: none;
         display: flex;
@@ -51,7 +50,7 @@ export default {
             width: 10px;
         }
         &::-webkit-scrollbar-thumb {
-            background: #ededed;
+            background: var(--scrollbar-color);
             border-radius: 10px;
         }
     }

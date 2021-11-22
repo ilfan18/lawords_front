@@ -2,8 +2,7 @@
     <nav class="nav">
         <ul class="nav__top">
             <navbar-item url="/" title="Главная" type="home"></navbar-item>
-            <navbar-item url="/courses" title="Курсы" type="book"></navbar-item>
-            <navbar-item url="/about" title="#" type="align-justify"></navbar-item>
+            <navbar-item url="/courses" title="Курсы" type="book-open"></navbar-item>
             <navbar-item url="/about" :round="false" title="#" type="bookmark"></navbar-item>
         </ul>
         <ul class="nav__bottom">

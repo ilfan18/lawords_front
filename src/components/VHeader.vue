@@ -1,6 +1,8 @@
 <template>
     <header class="header">
-        <h1 class="header__title">Мои курсы</h1>
+        <h1 class="header__title">
+            <slot></slot>
+        </h1>
     </header>
 </template>
 

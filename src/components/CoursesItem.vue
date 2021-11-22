@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="courses-item__fraction">(1) / {{ lessons_count }}</div>
-        <div class="courses-item__progress"></div>
+        <div class="courses-item__progress">Прогресс</div>
     </li>
 </template>
 
@@ -41,8 +41,7 @@ export default {
 
 <style lang="scss" scoped>
 .courses-item {
-    background: #ffffff;
-    box-shadow: 0px 10px 30px rgba(123, 87, 226, 0.1);
+    background: var(--background-primary);
     border-radius: 20px;
     padding: 25px 30px;
     flex: 0 1 calc(50% - 30px);

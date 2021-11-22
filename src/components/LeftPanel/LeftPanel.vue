@@ -20,13 +20,13 @@ export default {
     display: flex;
     flex-direction: column;
     padding: 35px 14px;
-    background: #ffffff;
+    background: var(--background-primary);
     overflow-x: auto;
     &::-webkit-scrollbar {
         width: 10px;
     }
     &::-webkit-scrollbar-thumb {
-        background: #ededed;
+        background: var(--scrollbar-color);
         border-radius: 10px;
     }
 }
