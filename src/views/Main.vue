@@ -1,5 +1,5 @@
 <template>
-    <div class="main">
+    <div class="main main-content">
         <v-header>Доброе утро, Олег</v-header>
     </div>
 </template>
