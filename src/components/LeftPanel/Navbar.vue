@@ -3,11 +3,11 @@
         <ul class="nav__top">
             <navbar-item url="/" title="Главная" type="home"></navbar-item>
             <navbar-item url="/courses" title="Курсы" type="book-open"></navbar-item>
-            <navbar-item url="/about" :round="false" title="#" type="bookmark"></navbar-item>
+            <navbar-item url="/about" title="#" type="bookmark"></navbar-item>
         </ul>
         <ul class="nav__bottom">
-            <navbar-item url="/settings" :round="false" title="Настройки" type="settings"></navbar-item>
-            <navbar-item url="/about" :round="false" title="Выйти" type="log-out"></navbar-item>
+            <navbar-item url="/settings" title="Настройки" type="settings"></navbar-item>
+            <navbar-item url="/about" title="Выйти" type="log-out"></navbar-item>
         </ul>
     </nav>
 </template>

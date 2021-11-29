@@ -1,13 +1,7 @@
 <!-- !Цвет иконок от темы сделать  -->
 <template>
     <li class="nav__item">
-        <router-link
-            :to="url"
-            class="nav__link"
-            :class="{ round: round }"
-            active-class="active"
-            :title="title"
-        >
+        <router-link :to="url" class="nav__link" active-class="active" :title="title">
             <vue-feather size="28" :type="type" stroke="#262626"></vue-feather>
         </router-link>
     </li>
@@ -35,10 +29,6 @@ export default {
             type: String,
             required: true
         },
-        round: {
-            type: Boolean,
-            default: true
-        }
     },
     methods: {
 
@@ -60,19 +50,22 @@ export default {
     width: 60px;
     height: 60px;
     text-decoration: none;
-    &.active.round {
-        background: #3bafda;
+    border-radius: 50%;
+    &.active {
+        background-color: #3bafda;
     }
-    &.round {
-        border-radius: 50%;
+    &:hover {
         background-color: var(--nav-item-round);
+    }
+    &.active:hover {
+        background-color: #3bafda;
     }
 }
 </style>
 // ! Придумаешь лучше - сделай лучше
 <style lang="scss">
 .nav__link {
-    &.active.round {
+    &.active {
         .vue-feather__content {
             stroke: #fff;
         }
