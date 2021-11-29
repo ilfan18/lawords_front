@@ -5,11 +5,6 @@ export const coursesModule = {
 	state: () => ({
 		courses_list: [],
 	}),
-	mutations: {
-		setCourses(state, courses) {
-			state.courses_list = courses;
-		},
-	},
 	actions: {
 		async fetchCourses({ state, commit }) {
 			try {
@@ -20,6 +15,11 @@ export const coursesModule = {
 			} catch (e) {
 				console.log(e);
 			}
+		},
+	},
+	mutations: {
+		setCourses(state, courses) {
+			state.courses_list = courses;
 		},
 	},
 };
