@@ -23,8 +23,8 @@ export default {
         },
         user() {
             return this.$store.state.auth.user;
-        }
-    }
+        },
+    },
 }
 </script>
 
@@ -74,5 +74,14 @@ body {
 }
 .main-content {
     padding: 30px 40px;
+    height: 100%;
+    overflow-x: auto;
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: var(--scrollbar-color);
+        border-radius: 10px;
+    }
 }
 </style>

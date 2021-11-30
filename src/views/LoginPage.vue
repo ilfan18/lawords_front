@@ -23,7 +23,7 @@ export default {
 
 <style lang="scss" scoped>
 .login {
-    background: #f8f8f8;
+    background: var(--background-secandary);
     width: 100%;
     height: 100%;
     overflow-x: auto;
@@ -31,7 +31,7 @@ export default {
         width: 10px;
     }
     &::-webkit-scrollbar-thumb {
-        background: #cccccc;
+        background: var(--scrollbar-color);
         border-radius: 10px;
     }
     &__content {
