@@ -5,6 +5,7 @@ export const userServices = {
 	login,
 	logout,
 	register,
+	getToken,
 };
 
 function register(email, username, password) {
@@ -50,4 +51,42 @@ function login(username, password) {
 
 function logout() {
 	localStorage.removeItem('user');
+}
+
+function getToken() {
+	const request_url = process.env.VUE_APP_API_URL + 'auth/jwt/verify/';
+	let user = JSON.parse(localStorage.getItem('user'));
+	const request_body = {
+		token: user.access,
+	};
+	return axios
+		.post(request_url, request_body)
+		.then((response) => {
+			return user.access;
+		})
+		.catch((error) => {
+			console.log(error);
+			return refreshToken();
+		});
+}
+
+function refreshToken() {
+	const request_url = process.env.VUE_APP_API_URL + 'auth/jwt/refresh/';
+	let user = JSON.parse(localStorage.getItem('user'));
+	const request_body = {
+		refresh: user.refresh,
+	};
+	return axios
+		.post(request_url, request_body)
+		.then((response) => {
+			user.access = response.data.access;
+			if (user.access) {
+				localStorage.setItem('user', JSON.stringify(user));
+			}
+			return user.access;
+		})
+		.catch((error) => {
+			console.log(error);
+			return Promise.reject('Неверный refresh.');
+		});
 }

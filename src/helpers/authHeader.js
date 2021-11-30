@@ -1,10 +1,14 @@
+import { userServices } from '@/services';
+
 export function authHeader() {
 	// Возвращает заголовок авторизации с токеном
-	const user = JSON.parse(localStorage.getItem('user'));
-
-	if (user && user.token) {
-		return { Authorization: 'JWT ' + user.token };
-	} else {
-		return {};
-	}
+	return userServices.getToken().then(
+		(token) => {
+			return { Authorization: 'JWT ' + token };
+		},
+		(error) => {
+			console.log(error);
+			return {};
+		}
+	);
 }

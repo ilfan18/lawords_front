@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { authHeader } from '@/helpers';
 
 export const coursesModule = {
 	namespaced: true,
@@ -7,14 +8,14 @@ export const coursesModule = {
 	}),
 	actions: {
 		async fetchCourses({ state, commit }) {
-			try {
-				const response = await axios.get(
-					process.env.VUE_APP_API_URL + 'api/v1/courses/'
-				);
-				commit('setCourses', response.data);
-			} catch (e) {
-				console.log(e);
-			}
+			const headers = await authHeader();
+			const response = await axios.get(
+				process.env.VUE_APP_API_URL + 'api/v1/courses/',
+				{
+					headers: headers,
+				}
+			);
+			commit('setCourses', response.data);
 		},
 	},
 	mutations: {
