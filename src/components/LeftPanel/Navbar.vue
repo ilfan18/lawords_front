@@ -7,7 +7,7 @@
         </ul>
         <ul class="nav__bottom">
             <navbar-item url="/settings" title="Настройки" type="settings"></navbar-item>
-            <navbar-item url="/about" title="Выйти" type="log-out"></navbar-item>
+            <navbar-item @click="handleLogout" url="/logout" title="Выйти" type="log-out"></navbar-item>
         </ul>
     </nav>
 </template>
@@ -16,6 +16,11 @@
 import NavbarItem from './NavbarItem.vue'
 export default {
     components: { NavbarItem },
+    methods: {
+        handleLogout() {
+            console.log(object);
+        }
+    }
 }
 </script>
 
