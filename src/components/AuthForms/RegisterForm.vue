@@ -3,6 +3,7 @@
         <div class="form__title">Создайте новый аккаунт</div>
         <div class="form__subtitle">Введите ваши данные ниже</div>
         <form @submit.prevent="handleRegisterSubmit" class="form__form">
+            <div v-if="alert.message" :class="`alert ${alert.type}`">{{ alert.message }}</div>
             <form-item
                 v-model="username"
                 name="username"
@@ -32,6 +33,11 @@
             ></form-item>
             <form-button :submitting="regestering">Войти</form-button>
         </form>
+        <div class="login">
+            или
+            <br />
+            <router-link to="/login">Войти</router-link>
+        </div>
     </div>
 </template>
 
@@ -61,12 +67,21 @@ export default {
     computed: {
         regestering() {
             return this.$store.state.auth.regestering ? true : null;
+        },
+        alert() {
+            return this.$store.state.alert
         }
     },
     created() {
         // Снять статус аутентифицированного
         this.$store.dispatch('auth/logout');
     },
+    watch: {
+        $route(to, from) {
+            // clear alert on location change
+            this.$store.dispatch('alert/clear');
+        }
+    }
 }
 </script>
 
@@ -95,6 +110,26 @@ export default {
         margin-bottom: 40px;
     }
     &__form {
+    }
+    .login {
+        margin-top: 5px;
+        color: #9fa2b4;
+        font-size: 15px;
+        line-height: 22px;
+        text-align: center;
+        letter-spacing: 0.323577px;
+        a {
+            text-decoration: none;
+            font: inherit;
+            color: #3751ff;
+        }
+    }
+    .alert {
+        color: #f05555;
+        font-size: 14px;
+        line-height: 17px;
+        letter-spacing: 0.323577px;
+        margin-bottom: 10px;
     }
 }
 </style>

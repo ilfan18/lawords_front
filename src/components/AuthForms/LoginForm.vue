@@ -7,6 +7,7 @@
         </div>
         <div class="form__subtitle">Введите вашу почту и пароль ниже</div>
         <form @submit.prevent="handleLoginSubmit" class="form__form">
+            <div v-if="alert.message" :class="`alert ${alert.type}`">{{ alert.message }}</div>
             <form-item
                 v-model="username"
                 name="username"
@@ -26,12 +27,12 @@
                 :submitted="submitted"
             ></form-item>
             <form-button :submitting="logingIn">Войти</form-button>
-            <div class="register">
-                или
-                <br />
-                <router-link to="/register">Зарегистрироваться</router-link>
-            </div>
         </form>
+        <div class="register">
+            или
+            <br />
+            <router-link to="/register">Зарегистрироваться</router-link>
+        </div>
     </div>
 </template>
 
@@ -60,12 +61,21 @@ export default {
     computed: {
         logingIn() {
             return this.$store.state.auth.loggingIn ? true : null;
+        },
+        alert() {
+            return this.$store.state.alert
         }
     },
     created() {
         // Снять статус аутентифицированного
         this.$store.dispatch('auth/logout');
     },
+    watch: {
+        $route(to, from) {
+            // clear alert on location change
+            this.$store.dispatch('alert/clear');
+        }
+    }
 }
 </script>
 
@@ -107,6 +117,13 @@ export default {
             font: inherit;
             color: #3751ff;
         }
+    }
+    .alert {
+        color: #f05555;
+        font-size: 14px;
+        line-height: 17px;
+        letter-spacing: 0.323577px;
+        margin-bottom: 10px;
     }
 }
 </style>

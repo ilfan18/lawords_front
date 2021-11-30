@@ -19,7 +19,7 @@ export const authModule = {
 				},
 				(error) => {
 					commit('loginFailure', error);
-					// Тут еще alert
+					dispatch('alert/error', error, { root: true });
 				}
 			);
 		},
@@ -37,7 +37,7 @@ export const authModule = {
 				},
 				(error) => {
 					commit('registerFailure', error);
-					// Тут еще alert
+					dispatch('alert/error', error, { root: true });
 				}
 			);
 		},

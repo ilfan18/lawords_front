@@ -14,10 +14,11 @@ function register(email, username, password) {
 		username,
 		password,
 	};
+	console.log(request_body);
 	return axios
 		.post(request_url, request_body)
-		.then(handleResponse)
-		.then((user) => {
+		.then((response) => {
+			const user = response.data;
 			return user;
 		})
 		.catch((error) => {
@@ -34,8 +35,8 @@ function login(username, password) {
 	};
 	return axios
 		.post(request_url, request_body)
-		.then(handleResponse)
-		.then((user) => {
+		.then((response) => {
+			const user = response.data;
 			if (user.access) {
 				localStorage.setItem('user', JSON.stringify(user));
 			}
@@ -43,25 +44,10 @@ function login(username, password) {
 		})
 		.catch((error) => {
 			console.log(error);
-			return Promise.reject(error);
+			return Promise.reject('Неверный логин или пароль.');
 		});
 }
 
 function logout() {
 	localStorage.removeItem('user');
-}
-
-function handleResponse(response) {
-	const data = response.data;
-	// ! Подумать над условием
-	if (response.status != 200 && response.status != 201) {
-		console.log('object');
-		if (response.status == 401) {
-			logout();
-			location.reload(true);
-		}
-		const error = (data && data.message) || response.statusText;
-		return Promise.reject(error);
-	}
-	return data;
 }
