@@ -1,10 +1,10 @@
 <template>
     <div class="app">
-        <left-panel v-if="isAuth"></left-panel>
+        <left-panel v-if="isAuth" />
         <div class="app__main">
             <router-view />
         </div>
-        <right-panel v-if="isAuth"></right-panel>
+        <right-panel v-if="isAuth" />
     </div>
 </template>
 

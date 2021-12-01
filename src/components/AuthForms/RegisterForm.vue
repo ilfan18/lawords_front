@@ -12,7 +12,7 @@
                 placeholder="Введите имя пользователя"
                 style="margin-bottom: 26px;"
                 :submitted="submitted"
-            ></form-item>
+            />
             <form-item
                 v-model="email"
                 name="email"
@@ -21,7 +21,7 @@
                 placeholder="Введите почту"
                 style="margin-bottom: 26px;"
                 :submitted="submitted"
-            ></form-item>
+            />
             <form-item
                 v-model="password"
                 name="password"
@@ -30,7 +30,7 @@
                 placeholder="Введите пароль"
                 style="margin-bottom: 26px;"
                 :submitted="submitted"
-            ></form-item>
+            />
             <form-button :submitting="regestering">Войти</form-button>
         </form>
         <div class="login">
@@ -45,6 +45,7 @@
 import FormButton from './FormButton.vue'
 import FormItem from './FormItem.vue'
 export default {
+    name: 'register-form',
     components: { FormButton, FormItem },
     data() {
         return {
@@ -53,6 +54,24 @@ export default {
             password: '',
             submitted: false
         }
+    },
+    computed: {
+        regestering() {
+            return this.$store.state.auth.regestering ? true : null;
+        },
+        alert() {
+            return this.$store.state.alert
+        }
+    },
+    watch: {
+        $route(to, from) {
+            // clear alert on location change
+            this.$store.dispatch('alert/clear');
+        }
+    },
+    created() {
+        // Снять статус аутентифицированного
+        this.$store.dispatch('auth/logout');
     },
     methods: {
         handleRegisterSubmit(e) {
@@ -64,24 +83,6 @@ export default {
             }
         }
     },
-    computed: {
-        regestering() {
-            return this.$store.state.auth.regestering ? true : null;
-        },
-        alert() {
-            return this.$store.state.alert
-        }
-    },
-    created() {
-        // Снять статус аутентифицированного
-        this.$store.dispatch('auth/logout');
-    },
-    watch: {
-        $route(to, from) {
-            // clear alert on location change
-            this.$store.dispatch('alert/clear');
-        }
-    }
 }
 </script>
 

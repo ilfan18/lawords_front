@@ -8,8 +8,8 @@
                 :id="course.id"
                 :name="course.name"
                 :icon="course.icon"
-                :lessons_count="course.lessons.length"
-            ></courses-item>
+                :lessons-count="course.lessons.length"
+            />
         </div>
     </div>
 </template>
@@ -25,13 +25,13 @@ export default {
             courses: state => state.courses.courses_list,
         })
     },
+    mounted() {
+        this.fetchCourses()
+    },
     methods: {
         ...mapActions({
             fetchCourses: 'courses/fetchCourses',
         }),
-    },
-    mounted() {
-        this.fetchCourses()
     },
 }
 </script>

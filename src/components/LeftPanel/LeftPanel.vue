@@ -3,13 +3,14 @@
         <div class="logo">
             <img src="@/assets/logo.png" alt />
         </div>
-        <navbar></navbar>
+        <navbar />
     </div>
 </template>
 
 <script>
 import navbar from './Navbar.vue'
 export default {
+    name: 'left-panel',
     components: { navbar },
 }
 </script>

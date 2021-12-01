@@ -2,7 +2,7 @@
     <div class="login">
         <div class="login__content">
             <div class="login__left">
-                <register-form></register-form>
+                <register-form />
             </div>
             <div class="login__right">
                 <div class="login__title">

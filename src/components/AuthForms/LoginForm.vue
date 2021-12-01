@@ -16,7 +16,7 @@
                 placeholder="Введите имя пользователя"
                 style="margin-bottom: 26px;"
                 :submitted="submitted"
-            ></form-item>
+            />
             <form-item
                 v-model="password"
                 name="password"
@@ -25,7 +25,7 @@
                 placeholder="Введите пароль"
                 style="margin-bottom: 26px;"
                 :submitted="submitted"
-            ></form-item>
+            />
             <form-button :submitting="logingIn">Войти</form-button>
         </form>
         <div class="register">
@@ -40,6 +40,7 @@
 import FormButton from './FormButton.vue'
 import FormItem from './FormItem.vue'
 export default {
+    name: 'login-form',
     components: { FormButton, FormItem },
     data() {
         return {
@@ -47,6 +48,24 @@ export default {
             password: '',
             submitted: false
         }
+    },
+    computed: {
+        logingIn() {
+            return this.$store.state.auth.loggingIn ? true : null;
+        },
+        alert() {
+            return this.$store.state.alert
+        }
+    },
+    watch: {
+        $route(to, from) {
+            // clear alert on location change
+            this.$store.dispatch('alert/clear');
+        }
+    },
+    created() {
+        // Снять статус аутентифицированного
+        this.$store.dispatch('auth/logout');
     },
     methods: {
         handleLoginSubmit(e) {
@@ -58,24 +77,6 @@ export default {
             }
         }
     },
-    computed: {
-        logingIn() {
-            return this.$store.state.auth.loggingIn ? true : null;
-        },
-        alert() {
-            return this.$store.state.alert
-        }
-    },
-    created() {
-        // Снять статус аутентифицированного
-        this.$store.dispatch('auth/logout');
-    },
-    watch: {
-        $route(to, from) {
-            // clear alert on location change
-            this.$store.dispatch('alert/clear');
-        }
-    }
 }
 </script>
 

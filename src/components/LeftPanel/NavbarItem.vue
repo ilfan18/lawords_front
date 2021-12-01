@@ -2,7 +2,7 @@
 <template>
     <li class="nav__item">
         <router-link :to="url" class="nav__link" active-class="active" :title="title">
-            <vue-feather size="28" :type="type" stroke="#262626"></vue-feather>
+            <vue-feather size="28" :type="type" stroke="#262626" />
         </router-link>
     </li>
 </template>
@@ -10,12 +10,8 @@
 <script>
 import VueFeather from 'vue-feather';
 export default {
+    name: 'navbar-item',
     components: { VueFeather },
-    data() {
-        return {
-            isActive: false
-        }
-    },
     props: {
         type: {
             type: String,
@@ -30,12 +26,11 @@ export default {
             required: true
         },
     },
-    methods: {
-
+    data() {
+        return {
+            isActive: false
+        }
     },
-    computed: {
-
-    }
 }
 </script>
 

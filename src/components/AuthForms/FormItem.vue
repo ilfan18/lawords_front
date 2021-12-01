@@ -33,13 +33,8 @@
 <script>
 import VueFeather from 'vue-feather';
 export default {
-    components: { VueFeather },
     name: 'form-input',
-    data() {
-        return {
-            internalInputType: this.type,
-        }
-    },
+    components: { VueFeather },
     props: {
         placeholder: {
             type: String,
@@ -61,6 +56,11 @@ export default {
             type: Boolean,
         },
         modelValue: [String, Number]
+    },
+    data() {
+        return {
+            internalInputType: this.type,
+        }
     },
     methods: {
         updateInput(event) {

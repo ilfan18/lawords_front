@@ -1,13 +1,13 @@
 <template>
     <nav class="nav">
         <ul class="nav__top">
-            <navbar-item url="/" title="Главная" type="home"></navbar-item>
-            <navbar-item url="/courses" title="Курсы" type="book-open"></navbar-item>
-            <navbar-item url="/about" title="#" type="bookmark"></navbar-item>
+            <navbar-item url="/" title="Главная" type="home" />
+            <navbar-item url="/courses" title="Курсы" type="book-open" />
+            <navbar-item url="/about" title="#" type="bookmark" />
         </ul>
         <ul class="nav__bottom">
-            <navbar-item url="/settings" title="Настройки" type="settings"></navbar-item>
-            <navbar-item @click="handleLogout" url="/logout" title="Выйти" type="log-out"></navbar-item>
+            <navbar-item url="/settings" title="Настройки" type="settings" />
+            <navbar-item @click="handleLogout" url="/logout" title="Выйти" type="log-out" />
         </ul>
     </nav>
 </template>
@@ -15,6 +15,7 @@
 <script>
 import NavbarItem from './NavbarItem.vue'
 export default {
+    name: 'navbar',
     components: { NavbarItem },
     methods: {
         handleLogout() {

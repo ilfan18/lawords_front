@@ -11,13 +11,14 @@
                 </div>
             </div>
         </div>
-        <div class="courses-item__fraction">(1) / {{ lessons_count }}</div>
+        <div class="courses-item__fraction">(1) / {{ lessonsCount }}</div>
         <div class="courses-item__progress">Прогресс</div>
     </li>
 </template>
 
 <script>
 export default {
+    name: 'courses-item',
     props: {
         id: {
             type: Number,
@@ -31,7 +32,7 @@ export default {
             type: String,
             required: true
         },
-        lessons_count: {
+        lessonsCount: {
             type: Number,
             required: true
         },

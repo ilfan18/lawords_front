@@ -6,6 +6,7 @@
 
 <script>
 export default {
+    name: 'form-button',
     props: {
         submitting: {
             type: Boolean,
