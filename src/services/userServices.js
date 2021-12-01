@@ -65,7 +65,7 @@ function getToken() {
 			return user.access;
 		})
 		.catch((error) => {
-			console.log(error);
+			// console.log(error);
 			return refreshToken();
 		});
 }
