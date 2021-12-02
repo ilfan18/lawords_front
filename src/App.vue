@@ -1,5 +1,5 @@
 <template>
-    <div class="app">
+    <div class="app" :class="theme">
         <left-panel v-if="isAuth" />
         <div class="app__main">
             <router-view />
@@ -24,6 +24,9 @@ export default {
         user() {
             return this.$store.state.auth.user;
         },
+        theme() {
+            return this.$store.state.ui.theme == 'light' ? '' : 'dark-theme';
+        }
     },
 }
 </script>

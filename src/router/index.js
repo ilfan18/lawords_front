@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Main from '../views/Main.vue';
+import MainPage from '../views/MainPage.vue';
 import LoginPage from '../views/LoginPage.vue';
 import RegisterPage from '../views/RegisterPage.vue';
 
@@ -7,7 +7,7 @@ const routes = [
 	{
 		path: '/',
 		name: 'Main',
-		component: Main,
+		component: MainPage,
 	},
 	{
 		path: '/login',
@@ -22,23 +22,22 @@ const routes = [
 	{
 		path: '/courses',
 		name: 'Courses',
-		component: () =>
-			import(/* webpackChunkName: "settings" */ '@/views/Courses.vue'),
+		component: () => import('@/views/CoursesPage.vue'),
+	},
+	{
+		path: '/profile',
+		name: 'Profile',
+		component: () => import('@/views/ProfilePage.vue'),
 	},
 	{
 		path: '/about',
 		name: 'About',
-		// route level code-splitting
-		// this generates a separate chunk (about.[hash].js) for this route
-		// which is lazy-loaded when the route is visited.
-		component: () =>
-			import(/* webpackChunkName: "about" */ '@/views/About.vue'),
+		component: () => import('@/views/AboutPage.vue'),
 	},
 	{
 		path: '/settings',
 		name: 'Settings',
-		component: () =>
-			import(/* webpackChunkName: "settings" */ '@/views/Settings.vue'),
+		component: () => import('@/views/SettingsPage.vue'),
 	},
 ];
 

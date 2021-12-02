@@ -2,7 +2,7 @@
 <template>
     <li class="nav__item">
         <router-link :to="url" class="nav__link" active-class="active" :title="title">
-            <vue-feather size="28" :type="type" stroke="#262626" />
+            <vue-feather size="28" :type="type" :stroke="stroke" />
         </router-link>
     </li>
 </template>
@@ -31,6 +31,11 @@ export default {
             isActive: false
         }
     },
+    computed: {
+        stroke() {
+            return this.$store.state.ui.theme == 'light' ? '#262626' : '#FFFFFF';
+        }
+    }
 }
 </script>
 
