@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
 import LeftPanel from '@/components/LeftPanel'
 import RightPanel from '@/components/RightPanel'
 export default {
@@ -27,6 +28,14 @@ export default {
         theme() {
             return this.$store.state.ui.theme == 'light' ? '' : 'dark-theme';
         }
+    },
+    mounted() {
+        this.setProfile()
+    },
+    methods: {
+        ...mapActions({
+            setProfile: 'user/setProfile',
+        }),
     },
 }
 </script>

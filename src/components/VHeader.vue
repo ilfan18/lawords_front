@@ -21,13 +21,14 @@
                 />
             </button>
             <a class="profile-link" href="/profile">
-                <img src="@/assets/ava.png" alt />
+                <img :src="profileImage" alt="Ваш аватар" />
             </a>
         </div>
     </header>
 </template>
 
 <script>
+import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
 import VueFeather from 'vue-feather';
 export default {
     name: 'v-header',
@@ -35,7 +36,10 @@ export default {
     computed: {
         themeIcon() {
             return this.$store.state.ui.theme == 'light' ? true : false;
-        }
+        },
+        ...mapState({
+            profileImage: state => state.user.profile.image,
+        })
     },
     methods: {
         handleThemeToggle() {
@@ -51,6 +55,7 @@ export default {
 .header {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 25px;
     &__title {
         font-weight: bold;
         font-size: 24px;

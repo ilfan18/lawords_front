@@ -1,8 +1,21 @@
 import { userServices } from '@/services';
 
-export const user = {
+export const userModule = {
 	namespaced: true,
-	state: {},
-	actions: {},
-	mutations: {},
+	state: { profile: {} },
+	actions: {
+		setProfile({ commit }) {
+			userServices.getUserInfo().then(
+				(profile) => {
+					commit('setProfile', profile);
+				},
+				(error) => {}
+			);
+		},
+	},
+	mutations: {
+		setProfile(state, profile) {
+			state.profile = profile;
+		},
+	},
 };

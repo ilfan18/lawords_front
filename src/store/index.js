@@ -1,7 +1,7 @@
 import { createStore } from 'vuex';
 import { coursesModule } from './coursesModule';
 import { authModule } from './authModule';
-import { user } from './userModule';
+import { userModule } from './userModule';
 import { alertModule } from './alertModule';
 import { UIModule } from './UIModule';
 
@@ -12,7 +12,7 @@ export default createStore({
 	modules: {
 		courses: coursesModule,
 		auth: authModule,
-		user: user,
+		user: userModule,
 		alert: alertModule,
 		ui: UIModule,
 	},

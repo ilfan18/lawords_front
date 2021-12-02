@@ -54,8 +54,5 @@ export default {
             border-radius: 10px;
         }
     }
-    .header {
-        margin-bottom: 25px;
-    }
 }
 </style>
