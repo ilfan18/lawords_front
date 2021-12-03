@@ -20,9 +20,9 @@
                     stroke="#FFFFFF"
                 />
             </button>
-            <a class="profile-link" href="/profile">
+            <router-link class="profile-link" to="/profile">
                 <img :src="profileImage" alt="Ваш аватар" />
-            </a>
+            </router-link>
         </div>
     </header>
 </template>
@@ -85,6 +85,7 @@ export default {
     overflow: hidden;
     img {
         width: 100%;
+        height: 100%;
         object-fit: cover;
     }
 }
