@@ -45,7 +45,8 @@ export default {
     background: var(--background-primary);
     border-radius: 20px;
     padding: 25px 30px;
-    flex: 0 1 calc(50% - 30px);
+    // flex: 0 1 calc(50% - 30px);
+    flex: 1 1 355px;
     margin: 13px 15px;
     cursor: pointer;
     &__header {

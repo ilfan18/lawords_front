@@ -41,10 +41,11 @@ export default {
     &__list {
         list-style: none;
         display: flex;
+        justify-content: space-between;
         flex-wrap: wrap;
         margin: -13px -15px 0;
         padding-bottom: 17px;
-        max-height: 400px;
+        max-height: 420px;
         overflow-x: auto;
         &::-webkit-scrollbar {
             width: 10px;
