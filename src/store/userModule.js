@@ -2,7 +2,19 @@ import { userServices } from '@/services';
 
 export const userModule = {
 	namespaced: true,
-	state: { profile: {} },
+	state: {
+		profile: {
+			age: null,
+			image: '',
+			level: '',
+			user: {
+				email: '',
+				first_name: '',
+				last_name: '',
+				username: '',
+			},
+		},
+	},
 	actions: {
 		setProfile({ commit }) {
 			userServices.getUserInfo().then(
