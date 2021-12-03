@@ -70,14 +70,16 @@ body {
     --background-primary: #ffffff;
     --background-secandary: #f8f8f8;
     --text-primary: #000000;
-    --text-secandary: #737373;
+    --text-second: #737373;
+    --text-third: #2e2e2e;
     --scrollbar-color: #ededed;
     --nav-item-round: #ececec;
     &.dark-theme {
         --background-primary: #1c1c1c;
         --background-secandary: #000000;
         --text-primary: #ffffff;
-        --text-secandary: #737373;
+        --text-second: #737373;
+        --text-third: #b8b8b8;
         --scrollbar-color: #5b5b5b;
         --nav-item-round: #101010;
     }
