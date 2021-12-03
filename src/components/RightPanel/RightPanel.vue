@@ -1,10 +1,16 @@
 <template>
-    <div class="right-panel"></div>
+    <div v-if="isVisible" class="right-panel"></div>
 </template>
 
 <script>
+import { computed } from '@vue/reactivity'
 export default {
-    name: 'right-panel'
+    name: 'right-panel',
+    computed: {
+        isVisible() {
+            return false
+        }
+    }
 }
 </script>
 
