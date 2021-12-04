@@ -10,7 +10,7 @@
                 <div class="profile-card__info-item-content">{{ profile.age }}</div>
             </div>
             <div class="profile-card__info-item">
-                <div class="profile-card__info-item-title">Уроовень</div>
+                <div class="profile-card__info-item-title">Уровень</div>
                 <div class="profile-card__info-item-content">{{ profile.level }}</div>
             </div>
             <button class="profile-card__button" :class="theme">Редактировать профиль</button>
