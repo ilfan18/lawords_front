@@ -4,7 +4,7 @@
             <slot></slot>
         </h1>
         <div class="header__controls">
-            <button class="theme-button">
+            <button class="theme-button" title="Тема">
                 <vue-feather
                     v-if="themeIcon"
                     @click="handleThemeToggle"
@@ -21,7 +21,7 @@
                 />
             </button>
             <router-link class="profile-link" to="/profile">
-                <img :src="profileImage" alt="Ваш аватар" />
+                <img :src="profileImage" alt="Ваш аватар" title="Ваш профиль" />
             </router-link>
         </div>
     </header>

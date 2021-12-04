@@ -9,6 +9,7 @@
 
 <script>
 import VueFeather from 'vue-feather';
+
 export default {
     name: 'navbar-item',
     components: { VueFeather },
