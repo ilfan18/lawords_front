@@ -5,26 +5,15 @@
         </div>
         <div class="profile-card__content">
             <div class="profile-card__name">{{ displayName }}</div>
-            <div class="profile-card__info-item profile-card__email">
-                <div class="profile-card__info-item-title">
-                    <vue-feather size="24" type="mail" :stroke="stroke" />
-                    <span>email</span>
-                </div>
-                <div class="profile-card__info-item-content">{{ profile.user.email }}</div>
+            <div class="profile-card__info-item">
+                <div class="profile-card__info-item-title">Возраст</div>
+                <div class="profile-card__info-item-content">{{ profile.age }}</div>
             </div>
-            <div class="profile-card__info-item profile-card__nick">
-                <div class="profile-card__info-item-title">nickname</div>
-                <div class="profile-card__info-item-content">{{ profile.user.username }}</div>
+            <div class="profile-card__info-item">
+                <div class="profile-card__info-item-title">Уроовень</div>
+                <div class="profile-card__info-item-content">{{ profile.level }}</div>
             </div>
-            <!-- <div class="profile-card__info-item">
-            <div class="profile-card__info-item-title"></div>
-            <div class="profile-card__password"></div>
-            </div>-->
-            <a
-                href="profile-edit/"
-                class="profile-card__button"
-                :class="theme"
-            >Редактировать профиль</a>
+            <button class="profile-card__button" :class="theme">Редактировать профиль</button>
         </div>
     </div>
 </template>
@@ -107,27 +96,8 @@ export default {
         margin-right: 23px;
         text-transform: uppercase;
     }
-    &__info-item-content {
-    }
-    .vue-feather {
-        position: absolute;
-        left: 0;
-        top: -3px;
-    }
-    &__email {
-        .profile-card__info-item-title {
-            padding-left: 35px;
-        }
-    }
-
-    &__nick {
-    }
-
-    &__password {
-    }
 
     &__button {
-        display: inline-block;
         padding: 20px 35px;
         text-align: center;
         width: 100%;
@@ -136,7 +106,8 @@ export default {
         font-size: 16px;
         line-height: 19px;
         color: #ffffff;
-        text-decoration: none;
+        border: none;
+        cursor: pointer;
         &.light {
             background: linear-gradient(
                 92.51deg,
