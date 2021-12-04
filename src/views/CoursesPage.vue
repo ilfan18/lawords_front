@@ -6,7 +6,7 @@
                 v-for="course in courses"
                 :key="course.id"
                 :course="course"
-                :class="finished_courses.includes(course.id) ? '' : 'not-active'"
+                :class="active_courses.includes(course.id) ? 'active' : 'not-active'"
             />
         </div>
     </div>
@@ -21,7 +21,7 @@ export default {
     computed: {
         ...mapState({
             courses: state => state.courses.courses_list,
-            finished_courses: state => state.user.profile.courses,
+            active_courses: state => state.user.profile.courses,
         })
     },
     mounted() {

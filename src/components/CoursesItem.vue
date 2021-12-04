@@ -1,5 +1,5 @@
 <template>
-    <li class="courses-item">
+    <li class="courses-item" :class="theme">
         <div class="courses-item__header">
             <div class="courses-item__left">
                 <h2 class="courses-item__title">{{ course.id }} Курс</h2>
@@ -11,25 +11,34 @@
                 </div>
             </div>
         </div>
-        <div class="courses-item__fraction">(1) / {{ lessonsCount }}</div>
-        <div class="courses-item__progress">Прогресс</div>
+        <div class="courses-item__progress">
+            <div class="courses-item__progress-bar">Прогресс</div>
+            <div class="courses-item__fraction">{{ lessonsFinishedCount }} / {{ lessonsCount }}</div>
+        </div>
     </li>
 </template>
 
 <script>
+import VueFeather from 'vue-feather';
 export default {
     name: 'courses-item',
+    components: { VueFeather },
     props: {
         course: {
             type: Object,
             required: true
-        },
+        }
     },
     computed: {
         lessonsCount() {
             return this.course.lessons.length
-        }
-
+        },
+        lessonsFinishedCount() {
+            return 1
+        },
+        theme() {
+            return this.$store.state.ui.theme;
+        },
     }
 }
 </script>
@@ -42,6 +51,11 @@ export default {
     flex: 1 1 355px;
     margin: 13px 15px;
     cursor: pointer;
+    position: relative;
+    border: 1px solid rgba(58, 58, 58, 0);
+    &.dark {
+        border: 1px solid rgba(58, 58, 58, 1);
+    }
     &.not-active {
         color: var(--text-second);
         .courses-item__icon {
@@ -52,9 +66,6 @@ export default {
         display: flex;
         justify-content: space-between;
         margin-bottom: 40px;
-    }
-
-    &__left {
     }
 
     &__title {
@@ -68,9 +79,6 @@ export default {
         font-weight: 700;
         font-size: 20px;
         line-height: 24px;
-    }
-
-    &__right {
     }
 
     &__icon {
@@ -88,6 +96,10 @@ export default {
     }
 
     &__progress {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__progress-bar {
     }
 }
 </style>
