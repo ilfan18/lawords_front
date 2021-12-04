@@ -5,6 +5,7 @@ export const userModule = {
 	state: {
 		profile: {
 			age: null,
+			courses: [],
 			image: '',
 			level: '',
 			user: {

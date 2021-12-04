@@ -2,12 +2,12 @@
     <li class="courses-item">
         <div class="courses-item__header">
             <div class="courses-item__left">
-                <h2 class="courses-item__title">{{ id }} Курс</h2>
-                <h3 class="courses-item__name">{{ name }}</h3>
+                <h2 class="courses-item__title">{{ course.id }} Курс</h2>
+                <h3 class="courses-item__name">{{ course.name }}</h3>
             </div>
             <div class="courses-item__right">
                 <div class="courses-item__icon">
-                    <img :src="icon" alt="Курс 1" />
+                    <img :src="course.icon" alt="Курс 1" />
                 </div>
             </div>
         </div>
@@ -20,22 +20,16 @@
 export default {
     name: 'courses-item',
     props: {
-        id: {
-            type: Number,
+        course: {
+            type: Object,
             required: true
         },
-        name: {
-            type: String,
-            required: true
-        },
-        icon: {
-            type: String,
-            required: true
-        },
-        lessonsCount: {
-            type: Number,
-            required: true
-        },
+    },
+    computed: {
+        lessonsCount() {
+            return this.course.lessons.length
+        }
+
     }
 }
 </script>
@@ -45,10 +39,15 @@ export default {
     background: var(--background-primary);
     border-radius: 20px;
     padding: 25px 30px;
-    // flex: 0 1 calc(50% - 30px);
     flex: 1 1 355px;
     margin: 13px 15px;
     cursor: pointer;
+    &.not-active {
+        color: var(--text-second);
+        .courses-item__icon {
+            opacity: 0.5;
+        }
+    }
     &__header {
         display: flex;
         justify-content: space-between;

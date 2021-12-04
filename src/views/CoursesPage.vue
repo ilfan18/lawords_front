@@ -5,10 +5,8 @@
             <courses-item
                 v-for="course in courses"
                 :key="course.id"
-                :id="course.id"
-                :name="course.name"
-                :icon="course.icon"
-                :lessons-count="course.lessons.length"
+                :course="course"
+                :class="finished_courses.includes(course.id) ? '' : 'not-active'"
             />
         </div>
     </div>
@@ -23,6 +21,7 @@ export default {
     computed: {
         ...mapState({
             courses: state => state.courses.courses_list,
+            finished_courses: state => state.user.profile.courses,
         })
     },
     mounted() {
