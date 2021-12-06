@@ -27,16 +27,16 @@ export default {
             required: true
         },
     },
+    computed: {
+        stroke() {
+            return this.$store.state.ui.theme == 'light' ? '#262626' : '#FFFFFF';
+        }
+    },
     data() {
         return {
             isActive: false
         }
     },
-    computed: {
-        stroke() {
-            return this.$store.state.ui.theme == 'light' ? '#262626' : '#FFFFFF';
-        }
-    }
 }
 </script>
 
