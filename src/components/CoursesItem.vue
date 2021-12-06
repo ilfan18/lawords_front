@@ -1,5 +1,9 @@
 <template>
-    <li class="courses-item" :class="theme">
+    <li
+        @click="showRightPanel(course.id)"
+        class="courses-item"
+        :class="[{ active: is_active }, theme]"
+    >
         <div class="courses-item__header">
             <div class="courses-item__left">
                 <h2 class="courses-item__title">{{ course.id }} Курс</h2>
@@ -27,6 +31,10 @@ export default {
         course: {
             type: Object,
             required: true
+        },
+        is_active: {
+            type: Boolean,
+            required: true
         }
     },
     computed: {
@@ -39,6 +47,13 @@ export default {
         theme() {
             return this.$store.state.ui.theme;
         },
+    },
+    methods: {
+        showRightPanel(course_id) {
+            this.$store.dispatch('ui/showRightPanel')
+            this.$store.dispatch('ui/showRightPanelCourseInfo', course_id)
+
+        }
     }
 }
 </script>

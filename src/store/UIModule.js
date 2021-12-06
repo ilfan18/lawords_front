@@ -4,6 +4,8 @@ export const UIModule = {
 	namespaced: true,
 	state: {
 		theme: default_theme,
+		right_panel_visible: false,
+		right_panel_show_course_id: null,
 	},
 	actions: {
 		setTheme({ commit }, theme) {
@@ -12,10 +14,25 @@ export const UIModule = {
 			setCookie('theme', theme, { samesite: true, expires: expires });
 			commit('setTheme', theme);
 		},
+		showRightPanel({ commit }) {
+			commit('setRightPanel', true);
+		},
+		showRightPanelCourseInfo({ commit }, course_id) {
+			commit('setRightPanelShowCourseId', course_id);
+		},
+		hideRightPanel({ commit }) {
+			commit('setRightPanel', false);
+		},
 	},
 	mutations: {
 		setTheme(state, theme) {
 			state.theme = theme;
+		},
+		setRightPanel(state, visibility) {
+			state.right_panel_visible = visibility;
+		},
+		setRightPanelShowCourseId(state, course_id) {
+			state.right_panel_show_course_id = course_id;
 		},
 	},
 };

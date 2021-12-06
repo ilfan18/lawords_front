@@ -6,7 +6,7 @@
                 v-for="course in courses"
                 :key="course.id"
                 :course="course"
-                :class="active_courses.includes(course.id) ? 'active' : 'not-active'"
+                :is_active="active_courses.includes(course.id)"
             />
         </div>
     </div>
