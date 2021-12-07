@@ -29,7 +29,6 @@ export default {
 <style lang="scss" scoped>
 .right-panel {
     flex: 0 0 370px;
-    padding: 30px 35px;
     background: var(--background-primary);
     overflow-x: auto;
     transition: all 0.3s linear;

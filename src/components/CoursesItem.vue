@@ -2,7 +2,7 @@
     <li
         @click="showRightPanel(course.id)"
         class="courses-item"
-        :class="[{ active: is_active }, theme]"
+        :class="[{ 'not-active': !is_active }, theme]"
     >
         <div class="courses-item__header">
             <div class="courses-item__left">
@@ -11,7 +11,7 @@
             </div>
             <div class="courses-item__right">
                 <div class="courses-item__icon">
-                    <img :src="course.icon" alt="Курс 1" />
+                    <img :src="course.icon" :alt="course.name" />
                 </div>
             </div>
         </div>
@@ -100,8 +100,8 @@ export default {
         width: 48px;
         height: 48px;
         img {
-            max-width: 100%;
-            max-height: 100%;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
         }
     }
