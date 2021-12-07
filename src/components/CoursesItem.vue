@@ -6,7 +6,7 @@
     >
         <div class="courses-item__header">
             <div class="courses-item__left">
-                <h2 class="courses-item__title">{{ course.id }} Курс</h2>
+                <h2 class="courses-item__title">{{ course_num }} Курс</h2>
                 <h3 class="courses-item__name">{{ course.name }}</h3>
             </div>
             <div class="courses-item__right">
@@ -30,6 +30,10 @@ export default {
     props: {
         course: {
             type: Object,
+            required: true
+        },
+        course_num: {
+            type: Number,
             required: true
         },
         is_active: {

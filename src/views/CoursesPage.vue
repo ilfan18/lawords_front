@@ -3,9 +3,10 @@
         <v-header>Мои курсы</v-header>
         <div class="courses__list">
             <courses-item
-                v-for="course in courses"
+                v-for="(course,index) in courses"
                 :key="course.id"
                 :course="course"
+                :course_num="index + 1"
                 :is_active="active_courses.includes(course.id)"
             />
         </div>
