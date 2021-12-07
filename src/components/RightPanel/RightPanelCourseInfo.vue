@@ -187,6 +187,7 @@ export default {
         margin: 40px auto 20px;
         cursor: pointer;
         text-decoration: underline;
+        color: var(--text-primary);
         &:hover {
             text-decoration: none;
         }

@@ -31,7 +31,7 @@ export default {
     flex: 0 0 370px;
     background: var(--background-primary);
     overflow-x: auto;
-    transition: all 0.3s linear;
+    transition: flex 0.3s linear;
     &.visible {
         flex: 0 0 370px;
         .right-panel__inner {

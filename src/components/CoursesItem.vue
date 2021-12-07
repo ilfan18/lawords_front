@@ -50,8 +50,10 @@ export default {
     },
     methods: {
         showRightPanel(course_id) {
-            this.$store.dispatch('ui/showRightPanel')
-            this.$store.dispatch('ui/showRightPanelCourseInfo', course_id)
+            if (this.is_active) {
+                this.$store.dispatch('ui/showRightPanel')
+                this.$store.dispatch('ui/showRightPanelCourseInfo', course_id)
+            }
 
         }
     }
