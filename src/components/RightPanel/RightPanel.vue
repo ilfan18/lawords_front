@@ -6,7 +6,11 @@
                 v-if="courseInfoIsVisible"
                 :course_id="CourseInfoId"
             />
-            <right-panel-lessons-list v-if="lessonsListIsVisible" :course_id="CourseInfoId" />
+            <right-panel-lessons-list
+                v-on:go-to-course-info="goToCourseInfo"
+                v-if="lessonsListIsVisible"
+                :course_id="CourseInfoId"
+            />
         </div>
     </transition>
 </template>
@@ -35,6 +39,10 @@ export default {
         showLessonsList() {
             this.courseInfoIsVisible = false
             this.lessonsListIsVisible = true
+        },
+        goToCourseInfo() {
+            this.courseInfoIsVisible = true
+            this.lessonsListIsVisible = false
         }
     }
 }

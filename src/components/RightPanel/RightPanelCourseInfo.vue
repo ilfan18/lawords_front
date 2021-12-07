@@ -1,8 +1,8 @@
 <template>
     <div class="course-info">
         <div class="course-info__header">
-            <button class="course-info__close">
-                <vue-feather @click="hideRightPanel" type="arrow-left" size="24" :stroke="stroke" />
+            <button @click="hideRightPanel" class="course-info__close">
+                <vue-feather type="arrow-left" size="24" :stroke="stroke" />
             </button>
             <div class="course-info__icon">
                 <img :src="course.icon" :alt="course.name" />
