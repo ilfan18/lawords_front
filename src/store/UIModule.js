@@ -5,7 +5,7 @@ export const UIModule = {
 	state: {
 		theme: default_theme,
 		right_panel_visible: false,
-		right_panel_show_course_id: null,
+		show_course_info_id: null,
 	},
 	actions: {
 		setTheme({ commit }, theme) {
@@ -32,7 +32,7 @@ export const UIModule = {
 			state.right_panel_visible = visibility;
 		},
 		setRightPanelShowCourseId(state, course_id) {
-			state.right_panel_show_course_id = course_id;
+			state.show_course_info_id = course_id;
 		},
 	},
 };

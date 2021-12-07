@@ -2,27 +2,41 @@
     <transition name="right-panel">
         <div v-if="isVisible" class="right-panel">
             <right-panel-course-info
-                v-if="rightPanelShowCourseId"
-                :course_id="rightPanelShowCourseId"
+                v-on:show-lessons-list="showLessonsList"
+                v-if="courseInfoIsVisible"
+                :course_id="showCourseInfoId"
             />
+            <right-panel-lessons-list v-if="lessonsListIsVisible" :course_id="showCourseInfoId" />
         </div>
     </transition>
 </template>
 
 <script>
-import { computed } from '@vue/reactivity'
 import RightPanelCourseInfo from './RightPanelCourseInfo.vue'
+import RightPanelLessonsList from './RightPanelLessonsList.vue';
 export default {
     name: "right-panel",
+    components: { RightPanelCourseInfo, RightPanelLessonsList },
+    data() {
+        return {
+            courseInfoIsVisible: true,
+            lessonsListIsVisible: false
+        }
+    },
     computed: {
         isVisible() {
             return this.$store.state.ui.right_panel_visible;
         },
-        rightPanelShowCourseId() {
-            return this.$store.state.ui.right_panel_show_course_id;
-        }
+        showCourseInfoId() {
+            return this.$store.state.ui.show_course_info_id;
+        },
     },
-    components: { RightPanelCourseInfo }
+    methods: {
+        showLessonsList() {
+            this.courseInfoIsVisible = false
+            this.lessonsListIsVisible = true
+        }
+    }
 }
 </script>
 

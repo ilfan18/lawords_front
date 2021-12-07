@@ -1,41 +1,19 @@
 <template>
-    <div class="course-info">
-        <div class="course-info__header">
-            <button class="course-info__close">
-                <vue-feather @click="hideRightPanel" type="arrow-left" size="24" :stroke="stroke" />
+    <div class="lessons-list">
+        <div class="lessons-list__header">
+            <button class="lessons-list__close">
+                <vue-feather type="arrow-left" size="24" :stroke="stroke" />
             </button>
-            <div class="course-info__icon">
+            <div class="lessons-list__icon">
                 <img :src="course.icon" :alt="course.name" />
             </div>
-            <div class="course-info__title">{{ course.id }} Курс</div>
+            <div class="lessons-list__title">{{ course.id }} Курс</div>
         </div>
-        <div class="course-info__cover">
-            <img :src="course.cover" :alt="course.name" />
-        </div>
-        <div class="course-info__name">{{ course.name }}</div>
-        <div class="course-info__info-item course-info__level">
-            <div class="course-info__info-icon">
-                <vue-feather type="eye" size="17" stroke="#D94A4A" />
-            </div>
-            <div class="course-info__info-txt">Уровень: {{ course.level }}</div>
-        </div>
-        <div class="course-info__info-item course-info__words">
-            <div class="course-info__info-icon">
-                <vue-feather type="book" size="17" stroke="#2D9B32" />
-            </div>
-            <div class="course-info__info-txt">Новых слов: {{ course.new_words }}</div>
-        </div>
-        <div class="course-info__info-item course-info__lessons">
-            <div class="course-info__info-icon">
-                <vue-feather type="map" size="17" stroke="#504EBA" />
-            </div>
-            <div class="course-info__info-txt">Уроков: {{ course.lessons.length }}</div>
-        </div>
-        <button @click="showLessonsList" class="course-info__all-lessons">Перейти к урокам</button>
-        <button class="course-info__continue">
-            <vue-feather type="play-circle" size="24" stroke="#FFFFFF" />
-            <span>Продолжить урок</span>
-        </button>
+        <ul class="lessons-list__list">
+            <li v-for="lesson in lessons" :key="lesson" class="lessons-list__item">
+                <a href="#">{{ lesson.name }}</a>
+            </li>
+        </ul>
     </div>
 </template>
 
@@ -56,23 +34,19 @@ export default {
                 return item.id == this.course_id
             })
         },
+        lessons() {
+
+            return this.course.lessons
+        },
         stroke() {
             return this.$store.state.ui.theme == 'light' ? '#272727' : '#FFFFFF';
-        }
-    },
-    methods: {
-        hideRightPanel() {
-            this.$store.dispatch('ui/hideRightPanel')
-        },
-        showLessonsList() {
-            this.$emit('showLessonsList')
         }
     }
 }
 </script>
 
 <style lang="scss" scoped>
-.course-info {
+.lessons-list {
     padding: 35px 30px;
     &__header {
         display: flex;
