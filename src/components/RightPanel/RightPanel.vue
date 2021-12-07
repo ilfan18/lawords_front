@@ -4,9 +4,9 @@
             <right-panel-course-info
                 v-on:show-lessons-list="showLessonsList"
                 v-if="courseInfoIsVisible"
-                :course_id="showCourseInfoId"
+                :course_id="CourseInfoId"
             />
-            <right-panel-lessons-list v-if="lessonsListIsVisible" :course_id="showCourseInfoId" />
+            <right-panel-lessons-list v-if="lessonsListIsVisible" :course_id="CourseInfoId" />
         </div>
     </transition>
 </template>
@@ -27,8 +27,8 @@ export default {
         isVisible() {
             return this.$store.state.ui.right_panel_visible;
         },
-        showCourseInfoId() {
-            return this.$store.state.ui.show_course_info_id;
+        CourseInfoId() {
+            return this.$store.state.ui.course_info_id;
         },
     },
     methods: {
