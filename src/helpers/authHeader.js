@@ -1,8 +1,8 @@
-import { userServices } from '@/services';
+import { userAuthServices } from '@/services';
 
 export function authHeader() {
 	// Возвращает заголовок авторизации с токеном
-	return userServices.getToken().then(
+	return userAuthServices.getToken().then(
 		(token) => {
 			return { Authorization: 'JWT ' + token };
 		},

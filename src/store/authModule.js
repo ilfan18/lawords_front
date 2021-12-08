@@ -1,4 +1,4 @@
-import { userServices } from '@/services';
+import { userAuthServices } from '@/services';
 import router from '@/router';
 
 const user = JSON.parse(localStorage.getItem('user'));
@@ -12,7 +12,7 @@ export const authModule = {
 	actions: {
 		login({ dispatch, commit }, { username, password }) {
 			commit('loginRequest', { username });
-			userServices.login(username, password).then(
+			userAuthServices.login(username, password).then(
 				(user) => {
 					commit('loginSuccess', user);
 					router.push('/courses');
@@ -24,12 +24,12 @@ export const authModule = {
 			);
 		},
 		logout({ commit }) {
-			userServices.logout();
+			userAuthServices.logout();
 			commit('logout');
 		},
 		register({ dispatch, commit }, { email, username, password }) {
 			commit('registerRequest', { username });
-			userServices.register(email, username, password).then(
+			userAuthServices.register(email, username, password).then(
 				(user) => {
 					dispatch('login', { username, password });
 					commit('registerSuccess', user);

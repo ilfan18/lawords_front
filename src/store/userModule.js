@@ -1,4 +1,4 @@
-import { userServices } from '@/services';
+import { userInfoServices } from '@/services';
 
 export const userModule = {
 	namespaced: true,
@@ -18,7 +18,7 @@ export const userModule = {
 	},
 	actions: {
 		setProfile({ commit }) {
-			userServices.getUserInfo().then(
+			userInfoServices.getUserInfo().then(
 				(profile) => {
 					commit('setProfile', profile);
 				},
