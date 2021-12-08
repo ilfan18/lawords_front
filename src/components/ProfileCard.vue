@@ -13,13 +13,19 @@
                 <div class="profile-card__info-item-title">Уровень</div>
                 <div class="profile-card__info-item-content">{{ profile.level }}</div>
             </div>
-            <button class="profile-card__button" :class="theme">Редактировать профиль</button>
+            <button
+                @click.prevent="editProfile"
+                class="profile-card__button"
+                :class="theme"
+                title="Перейти в настройки"
+            >Редактировать профиль</button>
         </div>
     </div>
 </template>
 
 <script>
 import VueFeather from 'vue-feather';
+import router from '@/router';
 export default {
     name: 'profile-card',
     components: { VueFeather },
@@ -45,6 +51,11 @@ export default {
             return this.$store.state.ui.theme == 'light' ? '#2E2E2E' : '#B8B8B8';
         }
 
+    },
+    methods: {
+        editProfile() {
+            router.push('/settings');
+        }
     }
 }
 </script>
