@@ -1,5 +1,5 @@
 <template>
-    <div class="profile main-content">
+    <div class="profile content">
         <v-header>Мой профиль</v-header>
         <div class="profile__cover"></div>
         <div class="profile__content">
