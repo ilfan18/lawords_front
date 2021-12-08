@@ -1,5 +1,5 @@
 <template>
-    <form class="age-form"></form>
+    <form class="email-form"></form>
 </template>
 
 <script>
