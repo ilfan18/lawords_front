@@ -56,6 +56,7 @@ export default {
 <style lang="scss" scoped>
 .lessons-list {
     padding: 35px 30px;
+    transition: opacity 0.2s linear;
     &__header {
         display: flex;
         align-items: center;

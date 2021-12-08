@@ -1,16 +1,21 @@
 <template>
     <transition name="right-panel">
         <div v-if="isVisible" class="right-panel">
-            <right-panel-course-info
-                v-on:show-lessons-list="showLessonsList"
-                v-if="courseInfoIsVisible"
-                :course_id="CourseInfoId"
-            />
-            <right-panel-lessons-list
-                v-on:go-to-course-info="goToCourseInfo"
-                v-if="lessonsListIsVisible"
-                :course_id="CourseInfoId"
-            />
+            <transition name="course-info">
+                <right-panel-course-info
+                    v-on:show-lessons-list="showLessonsList"
+                    v-if="courseInfoIsVisible"
+                    :course_id="CourseInfoId"
+                />
+            </transition>
+
+            <transition name="lessons-list">
+                <right-panel-lessons-list
+                    v-on:go-to-course-info="goToCourseInfo"
+                    v-if="lessonsListIsVisible"
+                    :course_id="CourseInfoId"
+                />
+            </transition>
         </div>
     </transition>
 </template>
@@ -75,5 +80,13 @@ export default {
 .right-panel-enter-from,
 .right-panel-leave-to {
     flex: 0 0 0;
+}
+.lessons-list-enter-from,
+.lessons-list-leave-to {
+    opacity: 0;
+}
+.course-info-enter-from,
+.course-info-leave-to {
+    opacity: 0;
 }
 </style>

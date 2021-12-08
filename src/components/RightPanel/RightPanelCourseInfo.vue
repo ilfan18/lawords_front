@@ -74,6 +74,7 @@ export default {
 <style lang="scss" scoped>
 .course-info {
     padding: 35px 30px;
+    transition: opacity 0.2s linear;
     &__header {
         display: flex;
         align-items: center;
