@@ -1,5 +1,5 @@
 <template>
-    <div class="courses main-content">
+    <div class="courses content">
         <v-header>Мои курсы</v-header>
         <div class="courses__list">
             <courses-item

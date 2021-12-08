@@ -1,5 +1,5 @@
 <template>
-    <div class="about main-content">
+    <div class="about content">
         <v-header>О нас</v-header>
     </div>
 </template>

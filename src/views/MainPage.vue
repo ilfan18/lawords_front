@@ -1,6 +1,7 @@
 <template>
-    <div class="main main-content">
-        <v-header>Доброе утро, Олег</v-header>
+    <div class="main content">
+        <v-header>Привет, {{ user_name }}</v-header>
+        <div class="main__content"></div>
     </div>
 </template>
 
@@ -8,6 +9,11 @@
 import VHeader from '@/components/VHeader.vue'
 export default {
     components: { VHeader },
+    computed: {
+        user_name() {
+            return this.$store.state.user.profile.user.first_name
+        }
+    }
 }
 </script>
 

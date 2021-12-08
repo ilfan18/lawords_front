@@ -89,7 +89,7 @@ body {
     background: var(--background-secandary);
     color: var(--text-primary);
 }
-.main-content {
+.content {
     padding: 30px 40px;
     height: 100%;
     overflow-x: auto;
