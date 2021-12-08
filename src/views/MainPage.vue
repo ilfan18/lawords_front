@@ -1,6 +1,6 @@
 <template>
     <div class="main content">
-        <v-header>Привет, {{ user_name }}</v-header>
+        <v-header>Привет, {{ user_name }}!</v-header>
         <div class="main__content"></div>
     </div>
 </template>
