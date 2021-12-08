@@ -1,7 +1,7 @@
 <template>
     <div class="settings content">
         <v-header>Настройки</v-header>
-        <div class="settings__content"></div>
+        <div class="settings__body"></div>
     </div>
 </template>
 
