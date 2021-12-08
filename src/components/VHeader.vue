@@ -7,7 +7,7 @@
             <button class="theme-button" title="Тема">
                 <vue-feather
                     v-if="themeIcon"
-                    @click="handleThemeToggle"
+                    @click.prevent="handleThemeToggle"
                     type="sun"
                     size="24"
                     stroke="#000000"

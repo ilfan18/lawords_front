@@ -1,7 +1,7 @@
 <template>
     <div class="course-info">
         <div class="course-info__header">
-            <button @click="hideRightPanel" class="course-info__close">
+            <button @click.prevent="hideRightPanel" class="course-info__close">
                 <vue-feather type="arrow-left" size="24" :stroke="stroke" />
             </button>
             <div class="course-info__icon">
@@ -31,7 +31,7 @@
             </div>
             <div class="course-info__info-txt">Уроков: {{ course.lessons.length }}</div>
         </div>
-        <button @click="showLessonsList" class="course-info__all-lessons">Перейти к урокам</button>
+        <button @click.prevent="showLessonsList" class="course-info__all-lessons">Перейти к урокам</button>
         <button class="course-info__continue">
             <vue-feather type="play-circle" size="24" stroke="#FFFFFF" />
             <span>Продолжить урок</span>

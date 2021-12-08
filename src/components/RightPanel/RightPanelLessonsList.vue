@@ -1,7 +1,7 @@
 <template>
     <div class="lessons-list">
         <div class="lessons-list__header">
-            <button @click="goToCourseInfo" class="lessons-list__close" title="К курсу">
+            <button @click.prevent="goToCourseInfo" class="lessons-list__close" title="К курсу">
                 <vue-feather type="arrow-left" size="24" :stroke="stroke" />
             </button>
             <div class="lessons-list__title">Все уроки</div>
