@@ -2,15 +2,16 @@
     <div class="name-form">
         <div class="name-form__heading">Имя</div>
         <div class="name-form__body">
-            <form class="name-form__form">
+            <form @submit.prevent="handleNameSubmit" class="name-form__form">
                 <div class="name-form__item">
-                    <label for="first_name"></label>
-                    <input type="text" id="first_name" />
+                    <label for="first_name">Имя</label>
+                    <input v-model="firstName" type="text" id="first_name" />
                 </div>
                 <div class="name-form__item">
-                    <label for="last_name"></label>
-                    <input type="text" id="last_name" />
+                    <label for="last_name">Фамилия</label>
+                    <input v-model="lastName" type="text" id="last_name" />
                 </div>
+                <button class="name-form__button">Сохранить</button>
             </form>
         </div>
     </div>
@@ -18,7 +19,39 @@
 
 <script>
 export default {
-
+    name: 'name-edit-form',
+    data() {
+        return {
+            firstName: this.$store.state.user.profile.user.first_name,
+            lastName: this.$store.state.user.profile.user.last_name
+        }
+    },
+    // !Похоже вся эта лабуда временная, до того как я сделаю loader
+    computed: {
+        firstNameInternal() {
+            return this.$store.state.user.profile.user.first_name
+        },
+        lastNameInternal() {
+            return this.$store.state.user.profile.user.first_name
+        }
+    },
+    watch: {
+        firstNameInternal(newFirstName, oldFirstName) {
+            this.firstName = newFirstName
+        },
+        lastNameInternal(newLastName, oldLastName) {
+            this.lastName = newLastName
+        }
+    },
+    mounted() {
+        console.log(this.firstName);
+        // 
+    },
+    methods: {
+        handleNameSubmit() {
+            console.log('дада');
+        }
+    }
 }
 </script>
 
