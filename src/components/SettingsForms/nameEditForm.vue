@@ -43,10 +43,6 @@ export default {
             this.lastName = newLastName
         }
     },
-    mounted() {
-        console.log(this.firstName);
-        // 
-    },
     methods: {
         handleNameSubmit() {
             console.log('дада');
