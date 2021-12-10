@@ -2,7 +2,7 @@
     <div
         class="loader"
         :class="themeClass"
-        :style="{ with: loaderWith, height: loaderHeight, 'border-radius': loaderRadius }"
+        :style="{ width: width, height: height, 'border-radius': radius }"
     >
         <slot></slot>
     </div>
@@ -12,15 +12,15 @@
 export default {
     name: 'skeleton-loader',
     props: {
-        loaderWith: {
+        width: {
             type: String,
             default: '100%'
         },
-        loaderHeight: {
+        height: {
             type: String,
             default: '2rem'
         },
-        loaderRadius: {
+        radius: {
             type: String,
             default: '5px'
         },
@@ -57,10 +57,10 @@ export default {
     }
     @keyframes skeleton-loading-dark {
         0% {
-            background-color: rgba(28, 28, 28, 0.5);
+            background-color: rgba(13, 13, 13, 0.5);
         }
         100% {
-            background-color: #1c1c1c;
+            background-color: rgba(13, 13, 13, 1);
         }
     }
 }
