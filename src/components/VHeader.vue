@@ -29,10 +29,8 @@
 
 <script>
 import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
-import VueFeather from 'vue-feather';
 export default {
     name: 'v-header',
-    components: { VueFeather },
     computed: {
         themeIcon() {
             return this.$store.state.ui.theme == 'light' ? true : false;

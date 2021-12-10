@@ -24,11 +24,9 @@
 </template>
 
 <script>
-import VueFeather from 'vue-feather';
 import router from '@/router';
 export default {
     name: 'profile-card',
-    components: { VueFeather },
     props: {
         profile: {
             type: Object,

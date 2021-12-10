@@ -40,10 +40,8 @@
 </template>
 
 <script>
-import VueFeather from 'vue-feather';
 export default {
     name: 'right-panel-course-info',
-    components: { VueFeather },
     props: {
         course_id: {
             type: Number,

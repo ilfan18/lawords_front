@@ -8,11 +8,8 @@
 </template>
 
 <script>
-import VueFeather from 'vue-feather';
-
 export default {
     name: 'navbar-item',
-    components: { VueFeather },
     props: {
         type: {
             type: String,

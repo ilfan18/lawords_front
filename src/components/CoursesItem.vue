@@ -23,10 +23,8 @@
 </template>
 
 <script>
-import VueFeather from 'vue-feather';
 export default {
     name: 'courses-item',
-    components: { VueFeather },
     props: {
         course: {
             type: Object,

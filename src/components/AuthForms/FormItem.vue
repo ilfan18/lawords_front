@@ -31,10 +31,8 @@
 </template>
 
 <script>
-import VueFeather from 'vue-feather';
 export default {
     name: 'form-input',
-    components: { VueFeather },
     props: {
         placeholder: {
             type: String,
