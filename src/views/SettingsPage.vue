@@ -4,6 +4,7 @@
         <div class="settings__body">
             <name-edit-form />
         </div>
+        <skeleton-loader width="200" height="200" />
     </div>
 </template>
 
