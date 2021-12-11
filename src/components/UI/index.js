@@ -1,2 +1,3 @@
 import SkeletonLoader from './SkeletonLoader.vue';
-export default [SkeletonLoader];
+import ImageLoader from './ImageLoader.vue';
+export default [SkeletonLoader, ImageLoader];
