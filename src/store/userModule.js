@@ -26,6 +26,7 @@ export const userModule = {
 				},
 				(error) => {}
 			);
+			commit('profileLoding', false);
 		},
 	},
 	mutations: {
