@@ -1,6 +1,6 @@
 <template>
-    <img v-show="!isLoading" :src="src" :alt="alt" @load="onImageLoad" />
-    <skeleton-loader v-if="isLoading" width="48px" height="48px" radius="50%" />
+    <img v-show="!isLoading" :src="src" :alt="alt" :title="title" @load="onImageLoad" />
+    <skeleton-loader v-if="isLoading" :width="width" :height="height" :radius="radius" />
 </template>
 
 <script>
@@ -14,7 +14,23 @@ export default {
         alt: {
             type: String,
             default: ''
-        }
+        },
+        title: {
+            type: String,
+            default: ''
+        },
+        width: {
+            type: String,
+            default: '100%'
+        },
+        height: {
+            type: String,
+            default: '2rem'
+        },
+        radius: {
+            type: String,
+            default: '5px'
+        },
     },
     data() {
         return {
