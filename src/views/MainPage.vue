@@ -1,6 +1,6 @@
 <template>
     <div class="main content">
-        <v-header>Привет, {{ user_name }}!</v-header>
+        <v-header>{{ greeting }}</v-header>
         <div class="main__content"></div>
     </div>
 </template>
@@ -10,8 +10,13 @@ import VHeader from '@/components/VHeader.vue'
 export default {
     components: { VHeader },
     computed: {
-        user_name() {
-            return this.$store.state.user.profile.user.first_name
+        greeting() {
+            const first_name = this.$store.state.user.profile.user.first_name
+            if (first_name) {
+                return `Привет, ${first_name}!`
+            }
+            return 'Привет!'
+
         }
     }
 }
