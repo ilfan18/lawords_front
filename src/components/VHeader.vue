@@ -21,7 +21,7 @@
                 />
             </button>
             <router-link class="profile-link" to="/profile">
-                <img :src="profileImage" alt="Ваш аватар" title="Ваш профиль" />
+                <image-loader :src="profileImage" alt="Ваш аватар" />
             </router-link>
         </div>
     </header>
@@ -82,10 +82,5 @@ export default {
     font-size: 0;
     border-radius: 50%;
     overflow: hidden;
-    img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
 }
 </style>
