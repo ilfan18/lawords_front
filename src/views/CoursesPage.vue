@@ -48,8 +48,8 @@ export default {
     components: { VHeader, CoursesItem },
     computed: {
         ...mapState({
-            courses: state => state.courses.courses_list,
             isCoursesLoading: state => state.courses.isCoursesLoding,
+            courses: state => state.courses.courses_list,
             active_courses: state => state.user.profile.courses,
         })
     },
