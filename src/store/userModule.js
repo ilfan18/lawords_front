@@ -15,9 +15,11 @@ export const userModule = {
 				username: '',
 			},
 		},
+		isProfileLoding: false,
 	},
 	actions: {
 		setProfile({ commit }) {
+			commit('profileLoding', true);
 			userInfoServices.getUserInfo().then(
 				(profile) => {
 					commit('setProfile', profile);
@@ -29,6 +31,9 @@ export const userModule = {
 	mutations: {
 		setProfile(state, profile) {
 			state.profile = profile;
+		},
+		profileLoding(state, isLoading) {
+			state.isCoursesLoding = isLoading;
 		},
 	},
 };
