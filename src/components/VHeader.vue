@@ -20,9 +20,10 @@
                     stroke="#FFFFFF"
                 />
             </button>
-            <router-link class="profile-link" to="/profile">
+            <router-link v-if="profileImage" class="profile-link" to="/profile">
                 <img :src="profileImage" alt="Ваш аватар" title="Ваш профиль" />
             </router-link>
+            <skeleton-loader class="profile-link" v-else width="45px" height="45px" radius="50%" />
         </div>
     </header>
 </template>
@@ -36,6 +37,7 @@ export default {
             return this.$store.state.ui.theme == 'light' ? true : false;
         },
         ...mapState({
+            isProfileImageLoading: state => state.user.isProfileLoding,
             profileImage: state => state.user.profile.image,
         })
     },
