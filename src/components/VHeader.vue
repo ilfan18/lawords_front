@@ -21,7 +21,14 @@
                 />
             </button>
             <router-link class="profile-link" to="/profile">
-                <image-loader :src="profileImage" alt="Ваш аватар" />
+                <image-loader
+                    :src="profileImage"
+                    alt="Ваш аватар"
+                    title="Перейти в профиль"
+                    width="48px"
+                    height="48px"
+                    radius="50%"
+                />
             </router-link>
         </div>
     </header>

@@ -11,7 +11,13 @@
             </div>
             <div class="courses-item__right">
                 <div class="courses-item__icon">
-                    <img :src="course.icon" :alt="course.name" />
+                    <image-loader
+                        :src="course.icon"
+                        :alt="course.name"
+                        width="48px"
+                        height="48px"
+                        radius="50%"
+                    />
                 </div>
             </div>
         </div>
