@@ -109,6 +109,8 @@ export default {
     &__icon {
         width: 48px;
         height: 48px;
+        border-radius: 15px;
+        overflow: hidden;
         img {
             width: 100%;
             height: 100%;
