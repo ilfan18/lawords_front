@@ -23,7 +23,7 @@
                     </div>
                     <div class="courses-item__right">
                         <div class="courses-item__icon">
-                            <skeleton-loader width="48px" height="48px" radius="50%" />
+                            <skeleton-loader width="48px" height="48px" radius="10px" />
                         </div>
                     </div>
                 </div>

@@ -16,7 +16,7 @@
                         :alt="course.name"
                         width="48px"
                         height="48px"
-                        radius="50%"
+                        radius="10px"
                     />
                 </div>
             </div>
@@ -109,7 +109,7 @@ export default {
     &__icon {
         width: 48px;
         height: 48px;
-        border-radius: 15px;
+        border-radius: 10px;
         overflow: hidden;
         img {
             width: 100%;
