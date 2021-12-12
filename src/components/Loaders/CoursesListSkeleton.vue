@@ -30,7 +30,7 @@
 
 <script>
 export default {
-    name: 'courses-list'
+    name: 'courses-list-skeleton'
 }
 </script>
 

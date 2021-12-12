@@ -10,7 +10,7 @@
                 :is_active="active_courses.includes(course.id)"
             />
         </div>
-        <courses-list v-else />
+        <courses-list-skeleton v-else />
     </div>
 </template>
 
@@ -18,9 +18,9 @@
 import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
 import VHeader from '@/components/VHeader.vue'
 import CoursesItem from '@/components/CoursesItem.vue'
-import CoursesList from '@/components/Loaders/CoursesList.vue'
+import CoursesListSkeleton from '@/components/Loaders/CoursesListSkeleton.vue'
 export default {
-    components: { VHeader, CoursesItem, CoursesList },
+    components: { VHeader, CoursesItem, CoursesListSkeleton },
     computed: {
         ...mapState({
             isCoursesLoading: state => state.courses.isCoursesLoding,

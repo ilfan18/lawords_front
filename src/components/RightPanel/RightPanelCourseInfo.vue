@@ -1,16 +1,28 @@
 <template>
-    <div class="course-info">
+    <div v-if="!isCoursesLoading" class="course-info">
         <div class="course-info__header">
             <button @click.prevent="hideRightPanel" class="course-info__close">
                 <vue-feather type="arrow-left" size="24" :stroke="stroke" />
             </button>
             <div class="course-info__icon">
-                <img :src="course.icon" :alt="course.name" />
+                <image-loader
+                    :src="course.icon"
+                    :alt="course.name"
+                    width="44px"
+                    height="44px"
+                    radius="10px"
+                />
             </div>
             <div class="course-info__title">{{ course.id }} Курс</div>
         </div>
         <div class="course-info__cover">
-            <img :src="course.cover" :alt="course.name" />
+            <image-loader
+                :src="course.cover"
+                :alt="course.name"
+                width="300px"
+                height="180px"
+                radius="10px"
+            />
         </div>
         <div class="course-info__name">{{ course.name }}</div>
         <div class="course-info__info-item course-info__level">
@@ -37,10 +49,14 @@
             <span>Продолжить урок</span>
         </button>
     </div>
+    <course-info-skeleton v-else />
 </template>
 
 <script>
+import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
+import CourseInfoSkeleton from '../Loaders/CourseInfoSkeleton.vue';
 export default {
+    components: { CourseInfoSkeleton },
     name: 'right-panel-course-info',
     props: {
         course_id: {
@@ -49,6 +65,9 @@ export default {
         }
     },
     computed: {
+        ...mapState({
+            isCoursesLoading: state => state.courses.isCoursesLoding,
+        }),
         course() {
             return this.$store.state.courses.courses_list.find((item) => {
                 return item.id == this.course_id
@@ -90,6 +109,8 @@ export default {
     &__icon {
         width: 44px;
         height: 44px;
+        border-radius: 10px;
+        overflow: hidden;
         margin-right: 5px;
         img {
             width: 100%;
