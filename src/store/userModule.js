@@ -15,7 +15,7 @@ export const userModule = {
 				username: '',
 			},
 		},
-		isProfileLoding: false,
+		isProfileLoading: null,
 	},
 	actions: {
 		setProfile({ commit }) {
@@ -23,10 +23,10 @@ export const userModule = {
 			userInfoServices.getUserInfo().then(
 				(profile) => {
 					commit('setProfile', profile);
+					commit('profileLoding', false);
 				},
 				(error) => {}
 			);
-			commit('profileLoding', false);
 		},
 	},
 	mutations: {
@@ -34,7 +34,7 @@ export const userModule = {
 			state.profile = profile;
 		},
 		profileLoding(state, isLoading) {
-			state.isCoursesLoding = isLoading;
+			state.isProfileLoading = isLoading;
 		},
 	},
 };

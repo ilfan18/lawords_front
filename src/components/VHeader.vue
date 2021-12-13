@@ -43,7 +43,6 @@ export default {
             return this.$store.state.ui.theme == 'light' ? true : false;
         },
         ...mapState({
-            isProfileImageLoading: state => state.user.isProfileLoding,
             profileImage: state => state.user.profile.image,
         })
     },

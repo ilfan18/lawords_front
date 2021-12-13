@@ -1,7 +1,13 @@
 <template>
-    <div class="profile-card">
+    <div v-if="!isProfileLoading" class="profile-card">
         <div class="profile-card__image">
-            <img :src="profile.image" alt="Ваш аватар" />
+            <image-loader
+                :src="profile.image"
+                alt="Ваш аватар"
+                width="340px"
+                height="145px"
+                radius="0px"
+            />
         </div>
         <div class="profile-card__content">
             <div class="profile-card__name">{{ displayName }}</div>
@@ -21,11 +27,15 @@
             >Редактировать профиль</button>
         </div>
     </div>
+    <profile-card-skeleton v-else />
 </template>
 
 <script>
+import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
 import router from '@/router';
+import ProfileCardSkeleton from '@/components/Loaders/ProfileCardSkeleton.vue';
 export default {
+    components: { ProfileCardSkeleton },
     name: 'profile-card',
     props: {
         profile: {
@@ -34,6 +44,9 @@ export default {
         }
     },
     computed: {
+        ...mapState({
+            isProfileLoading: state => state.user.isProfileLoading,
+        }),
         displayName() {
             if (this.profile.user.first_name) {
                 return this.profile.user.first_name + ' ' + this.profile.user.last_name
