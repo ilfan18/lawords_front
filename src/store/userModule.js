@@ -29,7 +29,7 @@ export const userModule = {
 			);
 		},
 		nameEdit({ commit, dispatch }, first_name) {
-			userEditServices.editName(first_name).then(
+			userEditServices.nameEdit(first_name).then(
 				(user) => {
 					console.log(user);
 				},
@@ -37,7 +37,7 @@ export const userModule = {
 			);
 		},
 		usernameEdit({ commit, dispatch }, username) {
-			userEditServices.editUsername(username).then(
+			userEditServices.usernameEdit(username).then(
 				(user) => {
 					dispatch('getUserInfo');
 				},
@@ -45,9 +45,17 @@ export const userModule = {
 			);
 		},
 		emailEdit({ commit }, email) {
-			userEditServices.editEmail(email).then(
+			userEditServices.emailEdit(email).then(
 				(user) => {
 					console.log(user);
+				},
+				(error) => {}
+			);
+		},
+		passwordEdit({ commit, dispatch }, new_password, current_password) {
+			userEditServices.passwordEdit(username).then(
+				(user) => {
+					dispatch('getUserInfo');
 				},
 				(error) => {}
 			);
