@@ -36,6 +36,14 @@ export const userModule = {
 				(error) => {}
 			);
 		},
+		editUserName({ commit }, username) {
+			userEditServices.editUserName(username).then(
+				(user) => {
+					console.log(user);
+				},
+				(error) => {}
+			);
+		},
 		editEmail({ commit }, email) {
 			userEditServices.editEmail(email).then(
 				(user) => {
