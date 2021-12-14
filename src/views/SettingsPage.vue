@@ -4,6 +4,7 @@
         <div v-if="!isUserLoading" class="settings__body">
             <name-edit-form />
             <username-edit-form />
+            <password-edit-form />
         </div>
         <settings-page-loader v-else />
     </div>
@@ -15,8 +16,9 @@ import VHeader from '@/components/VHeader.vue'
 import SettingsPageLoader from '../components/Loaders/SettingsPageLoader.vue'
 import NameEditForm from '@/components/SettingsForms/NameEditForm.vue'
 import UsernameEditForm from '@/components/SettingsForms/UsernameEditForm.vue'
+import PasswordEditForm from '@/components/SettingsForms/PasswordEditForm.vue'
 export default {
-    components: { VHeader, NameEditForm, SettingsPageLoader, UsernameEditForm },
+    components: { VHeader, NameEditForm, SettingsPageLoader, UsernameEditForm, PasswordEditForm },
     computed: {
         ...mapState({
             isUserLoading: state => state.user.isUserLoading,

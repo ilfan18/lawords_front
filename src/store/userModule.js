@@ -52,8 +52,8 @@ export const userModule = {
 				(error) => {}
 			);
 		},
-		passwordEdit({ commit, dispatch }, new_password, current_password) {
-			userEditServices.passwordEdit(username).then(
+		passwordEdit({ commit, dispatch }, { new_password, current_password }) {
+			userEditServices.passwordEdit(new_password, current_password).then(
 				(user) => {
 					dispatch('getUserInfo');
 				},
