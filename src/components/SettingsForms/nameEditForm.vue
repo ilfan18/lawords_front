@@ -11,7 +11,7 @@
                     <label for="last_name">Фамилия:</label>
                     <input v-model="lastName" type="text" id="last_name" />
                 </div>
-                <button class="settings-form__button">Сохранить</button>
+                <button @click.prevent="editName" class="settings-form__button">Сохранить</button>
             </form>
         </div>
     </div>
@@ -27,10 +27,11 @@ export default {
         }
     },
     methods: {
-        handleNameSubmit() {
-            console.log('дада');
+        editName() {
+            console.log('object');
+            this.$store.dispatch('user/editName', this.first_name);
         }
-    }
+    },
 }
 </script>
 

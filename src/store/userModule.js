@@ -1,4 +1,4 @@
-import { userInfoServices } from '@/services';
+import { userInfoServices, userEditServices } from '@/services';
 
 export const userModule = {
 	namespaced: true,
@@ -24,6 +24,14 @@ export const userModule = {
 				(profile) => {
 					commit('setProfile', profile);
 					commit('profileLoding', false);
+				},
+				(error) => {}
+			);
+		},
+		editName({ commit }, first_name) {
+			userEditServices.editName(first_name).then(
+				(profile) => {
+					console.log(profile);
 				},
 				(error) => {}
 			);
