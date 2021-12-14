@@ -1,7 +1,7 @@
 <template>
     <div class="settings content">
         <v-header>Настройки</v-header>
-        <div v-if="!isProfileLoading" class="settings__body">
+        <div v-if="!isUserLoading" class="settings__body">
             <name-edit-form />
             <username-edit-form />
         </div>
@@ -19,7 +19,7 @@ export default {
     components: { VHeader, NameEditForm, SettingsPageLoader, UsernameEditForm },
     computed: {
         ...mapState({
-            isProfileLoading: state => state.user.isProfileLoading,
+            isUserLoading: state => state.user.isUserLoading,
         }),
     }
 }
