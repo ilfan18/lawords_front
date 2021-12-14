@@ -27,22 +27,6 @@ export default {
         }
     },
     // !Похоже вся эта лабуда временная, до того как я сделаю loader
-    computed: {
-        firstNameInternal() {
-            return this.$store.state.user.profile.user.first_name
-        },
-        lastNameInternal() {
-            return this.$store.state.user.profile.user.first_name
-        }
-    },
-    watch: {
-        firstNameInternal(newFirstName, oldFirstName) {
-            this.firstName = newFirstName
-        },
-        lastNameInternal(newLastName, oldLastName) {
-            this.lastName = newLastName
-        }
-    },
     methods: {
         handleNameSubmit() {
             console.log('дада');
