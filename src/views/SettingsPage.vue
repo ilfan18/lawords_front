@@ -73,7 +73,7 @@ export default {
             font-size: 15px;
             line-height: 22px;
             letter-spacing: 0.323577px;
-            color: #4b506d;
+            color: inherit;
             &:focus,
             &:active,
             &:focus-visible {
@@ -92,6 +92,7 @@ export default {
         border-radius: 10px;
         padding: 10px 30px;
         margin-left: 150px;
+        color: inherit;
         font-weight: 500;
         font-size: 14px;
         line-height: 17px;
