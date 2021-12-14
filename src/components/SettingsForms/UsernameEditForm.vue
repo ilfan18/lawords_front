@@ -22,7 +22,6 @@ export default {
     },
     methods: {
         handleUsernameSubmit() {
-            console.log('object');
             this.$store.dispatch('user/usernameEdit', this.username);
         }
     },

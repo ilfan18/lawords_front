@@ -48,7 +48,6 @@ async function editUsername(username) {
 		// !Это убрать
 		current_password: '123',
 	};
-	console.log(request_body);
 	return axios
 		.post(request_url, request_body, { headers: headers })
 		.then((response) => {

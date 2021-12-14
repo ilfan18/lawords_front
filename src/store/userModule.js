@@ -36,10 +36,10 @@ export const userModule = {
 				(error) => {}
 			);
 		},
-		usernameEdit({ commit }, username) {
+		usernameEdit({ commit, dispatch }, username) {
 			userEditServices.editUsername(username).then(
 				(user) => {
-					console.log(user);
+					dispatch('getUserInfo');
 				},
 				(error) => {}
 			);
