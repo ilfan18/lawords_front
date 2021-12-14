@@ -28,10 +28,18 @@ export const userModule = {
 				(error) => {}
 			);
 		},
-		editName({ commit }, first_name) {
+		editName({ commit, dispatch }, first_name) {
 			userEditServices.editName(first_name).then(
-				(profile) => {
-					console.log(profile);
+				(user) => {
+					console.log(user);
+				},
+				(error) => {}
+			);
+		},
+		editEmail({ commit }, email) {
+			userEditServices.editEmail(email).then(
+				(user) => {
+					console.log(user);
 				},
 				(error) => {}
 			);
