@@ -4,7 +4,7 @@
         <div class="profile__cover"></div>
         <div class="profile__content">
             <div class="profile__card">
-                <profile-card :profile="profile" />
+                <profile-card :user="user" />
             </div>
         </div>
     </div>
@@ -18,7 +18,7 @@ export default {
     components: { VHeader, ProfileCard },
     computed: {
         ...mapState({
-            profile: (state) => state.user.profile,
+            user: (state) => state.user.user,
         })
     }
 }

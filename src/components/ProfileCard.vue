@@ -2,7 +2,7 @@
     <div v-if="!isProfileLoading" class="profile-card">
         <div class="profile-card__image">
             <image-loader
-                :src="profile.image"
+                :src="user.image"
                 alt="Ваш аватар"
                 width="340px"
                 height="145px"
@@ -13,11 +13,11 @@
             <div class="profile-card__name">{{ displayName }}</div>
             <div class="profile-card__info-item">
                 <div class="profile-card__info-item-title">Возраст</div>
-                <div class="profile-card__info-item-content">{{ profile.age }}</div>
+                <div class="profile-card__info-item-content">{{ user.age }}</div>
             </div>
             <div class="profile-card__info-item">
                 <div class="profile-card__info-item-title">Уровень</div>
-                <div class="profile-card__info-item-content">{{ profile.level }}</div>
+                <div class="profile-card__info-item-content">{{ user.level }}</div>
             </div>
             <button
                 @click.prevent="editProfile"
@@ -38,7 +38,7 @@ export default {
     components: { ProfileCardSkeleton },
     name: 'profile-card',
     props: {
-        profile: {
+        user: {
             type: Object,
             required: true,
         }
@@ -48,10 +48,10 @@ export default {
             isProfileLoading: state => state.user.isProfileLoading,
         }),
         displayName() {
-            if (this.profile.user.first_name) {
-                return this.profile.user.first_name + ' ' + this.profile.user.last_name
+            if (this.user.first_name) {
+                return this.user.first_name + ' ' + this.user.last_name
             } else {
-                return this.profile.user.username
+                return this.user.username
             }
 
         },

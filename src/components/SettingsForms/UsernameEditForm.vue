@@ -17,7 +17,7 @@ export default {
     name: 'username-edit-form',
     data() {
         return {
-            username: this.$store.state.user.profile.user.username,
+            username: this.$store.state.user.user.username,
         }
     },
     methods: {

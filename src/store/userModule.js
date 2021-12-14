@@ -3,7 +3,7 @@ import { userInfoServices, userEditServices } from '@/services';
 export const userModule = {
 	namespaced: true,
 	state: {
-		profile: {
+		user: {
 			age: null,
 			courses: [],
 			image: '',
@@ -15,15 +15,15 @@ export const userModule = {
 				username: '',
 			},
 		},
-		isProfileLoading: null,
+		isUserLoading: null,
 	},
 	actions: {
-		setProfile({ commit }) {
-			commit('profileLoding', true);
+		getUserInfo({ commit }) {
+			commit('isUserLoading', true);
 			userInfoServices.getUserInfo().then(
-				(profile) => {
-					commit('setProfile', profile);
-					commit('profileLoding', false);
+				(user) => {
+					commit('setUser', user);
+					commit('isUserLoading', false);
 				},
 				(error) => {}
 			);
@@ -54,11 +54,11 @@ export const userModule = {
 		},
 	},
 	mutations: {
-		setProfile(state, profile) {
-			state.profile = profile;
+		setUser(state, user) {
+			state.user = user;
 		},
-		profileLoding(state, isLoading) {
-			state.isProfileLoading = isLoading;
+		isUserLoading(state, isLoading) {
+			state.isUserLoading = isLoading;
 		},
 	},
 };

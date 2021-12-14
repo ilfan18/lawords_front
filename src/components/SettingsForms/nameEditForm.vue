@@ -22,8 +22,8 @@ export default {
     name: 'name-edit-form',
     data() {
         return {
-            firstName: this.$store.state.user.profile.user.first_name,
-            lastName: this.$store.state.user.profile.user.last_name
+            firstName: this.$store.state.user.user.first_name,
+            lastName: this.$store.state.user.user.last_name
         }
     },
     methods: {

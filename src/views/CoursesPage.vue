@@ -25,7 +25,7 @@ export default {
         ...mapState({
             isCoursesLoading: state => state.courses.isCoursesLoding,
             courses: state => state.courses.courses_list,
-            active_courses: state => state.user.profile.courses,
+            active_courses: state => state.user.user.courses,
         })
     },
     mounted() {

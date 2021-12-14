@@ -6,14 +6,17 @@
 </template>
 
 <script>
+import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
 import VHeader from '@/components/VHeader.vue'
 export default {
     components: { VHeader },
     computed: {
+        ...mapState({
+            first_name: (state) => state.user.user.first_name,
+        }),
         greeting() {
-            const first_name = this.$store.state.user.profile.user.first_name
-            if (first_name) {
-                return `Привет, ${first_name}!`
+            if (this.first_name) {
+                return `Привет, ${this.first_name}!`
             }
             return 'Привет!'
 

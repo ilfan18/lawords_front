@@ -15,6 +15,7 @@ export const authModule = {
 			userAuthServices.login(username, password).then(
 				(user) => {
 					commit('loginSuccess', user);
+					dispatch('user/getUserInfo', null, { root: true });
 					router.push('/courses');
 				},
 				(error) => {

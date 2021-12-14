@@ -19,22 +19,20 @@ export default {
         return {}
     },
     computed: {
-        isAuth() {
-            return this.$store.state.auth.status.loggedIn;
-        },
-        user() {
-            return this.$store.state.auth.user;
-        },
+        ...mapState({
+            isAuth: state => state.auth.status.loggedIn,
+            tokens: state => state.auth.user,
+        }),
         theme() {
             return this.$store.state.ui.theme == 'light' ? '' : 'dark-theme';
         }
     },
     mounted() {
-        this.setProfile()
+        this.getUserInfo()
     },
     methods: {
         ...mapActions({
-            setProfile: 'user/setProfile',
+            getUserInfo: 'user/getUserInfo',
         }),
     },
 }
