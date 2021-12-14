@@ -1,17 +1,17 @@
 <template>
-    <div class="name-form">
-        <div class="name-form__heading">Имя</div>
-        <div class="name-form__body">
-            <form @submit.prevent="handleNameSubmit" class="name-form__form">
-                <div class="name-form__item">
-                    <label for="first_name">Имя</label>
+    <div class="name-form settings-form">
+        <div class="settings-form__heading">Имя</div>
+        <div class="settings-form__body">
+            <form @submit.prevent="handleNameSubmit" class="settings-form__form">
+                <div class="settings-form__item">
+                    <label for="first_name">Имя:</label>
                     <input v-model="firstName" type="text" id="first_name" />
                 </div>
-                <div class="name-form__item">
-                    <label for="last_name">Фамилия</label>
+                <div class="settings-form__item">
+                    <label for="last_name">Фамилия:</label>
                     <input v-model="lastName" type="text" id="last_name" />
                 </div>
-                <button class="name-form__button">Сохранить</button>
+                <button class="settings-form__button">Сохранить</button>
             </form>
         </div>
     </div>
@@ -26,7 +26,6 @@ export default {
             lastName: this.$store.state.user.profile.user.last_name
         }
     },
-    // !Похоже вся эта лабуда временная, до того как я сделаю loader
     methods: {
         handleNameSubmit() {
             console.log('дада');
@@ -35,5 +34,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+.name-form {
+}
 </style>

@@ -72,6 +72,8 @@ body {
     }
     --background-primary: #ffffff;
     --background-secandary: #f8f8f8;
+    --settings-form-background-secandary: #f5f5f5;
+    --settings-form-border: #e6e6e6;
     --text-primary: #000000;
     --text-second: #737373;
     --text-third: #2e2e2e;
@@ -80,6 +82,8 @@ body {
     &.dark-theme {
         --background-primary: #1c1c1c;
         --background-secandary: #000000;
+        --settings-form-background-secandary: #303030;
+        --settings-form-border: #3a3a3a;
         --text-primary: #ffffff;
         --text-second: #737373;
         --text-third: #b8b8b8;
