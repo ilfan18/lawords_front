@@ -4,7 +4,7 @@ import axios from 'axios';
 export const userEditServices = {
 	editName,
 	editEmail,
-	editUserName,
+	editUsername,
 };
 
 async function editName(first_name) {
@@ -39,14 +39,18 @@ async function editEmail(email) {
 			return Promise.reject('Некорректный email.');
 		});
 }
-async function editUserName(username) {
-	const request_url = process.env.VUE_APP_API_URL + 'auth/users/me/';
+async function editUsername(username) {
+	const request_url =
+		process.env.VUE_APP_API_URL + 'auth/users/set_username/';
 	const headers = await authHeader();
 	const request_body = {
-		username: username,
+		new_username: username,
+		// !Это убрать
+		current_password: '123',
 	};
+	console.log(request_body);
 	return axios
-		.patch(request_url, request_body, { headers: headers })
+		.post(request_url, request_body, { headers: headers })
 		.then((response) => {
 			return response.data;
 		})

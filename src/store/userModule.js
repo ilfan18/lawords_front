@@ -28,7 +28,7 @@ export const userModule = {
 				(error) => {}
 			);
 		},
-		editName({ commit, dispatch }, first_name) {
+		nameEdit({ commit, dispatch }, first_name) {
 			userEditServices.editName(first_name).then(
 				(user) => {
 					console.log(user);
@@ -36,15 +36,15 @@ export const userModule = {
 				(error) => {}
 			);
 		},
-		editUserName({ commit }, username) {
-			userEditServices.editUserName(username).then(
+		usernameEdit({ commit }, username) {
+			userEditServices.editUsername(username).then(
 				(user) => {
 					console.log(user);
 				},
 				(error) => {}
 			);
 		},
-		editEmail({ commit }, email) {
+		emailEdit({ commit }, email) {
 			userEditServices.editEmail(email).then(
 				(user) => {
 					console.log(user);

@@ -3,6 +3,7 @@
         <v-header>Настройки</v-header>
         <div v-if="!isProfileLoading" class="settings__body">
             <name-edit-form />
+            <username-edit-form />
         </div>
         <settings-page-loader v-else />
     </div>
@@ -11,10 +12,11 @@
 <script>
 import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
 import VHeader from '@/components/VHeader.vue'
-import NameEditForm from '@/components/SettingsForms/NameEditForm.vue'
 import SettingsPageLoader from '../components/Loaders/SettingsPageLoader.vue'
+import NameEditForm from '@/components/SettingsForms/NameEditForm.vue'
+import UsernameEditForm from '@/components/SettingsForms/UsernameEditForm.vue'
 export default {
-    components: { VHeader, NameEditForm, SettingsPageLoader },
+    components: { VHeader, NameEditForm, SettingsPageLoader, UsernameEditForm },
     computed: {
         ...mapState({
             isProfileLoading: state => state.user.isProfileLoading,
@@ -35,6 +37,7 @@ export default {
     border-radius: 10px;
     background: var(--background-primary);
     overflow: hidden;
+    margin-bottom: 30px;
     &__heading {
         border-bottom: 1px solid var(--settings-form-border);
         background: var(--settings-form-background-secandary);
