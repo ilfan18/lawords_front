@@ -4,7 +4,7 @@
         <div class="settings-form__body">
             <form @submit.prevent="handleUsernameSubmit" class="settings-form__form">
                 <div class="settings-form__item">
-                    <label for="username">Новый логин:</label>
+                    <label for="username">Ваш логин:</label>
                     <input v-model="username" type="text" id="username" />
                 </div>
                 <button class="settings-form__button">Сохранить</button>
