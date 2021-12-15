@@ -31,7 +31,7 @@ export const userModule = {
 		emailEdit({ commit }, email) {
 			userEditServices.emailEdit(email).then(
 				(user) => {
-					console.log(user);
+					dispatch('getUserInfo');
 				},
 				(error) => {}
 			);
@@ -53,9 +53,9 @@ export const userModule = {
 			);
 		},
 		userPropertyEdit({ commit, dispatch }, property) {
-			userEditServices.nameEdit(property).then(
+			userEditServices.userPropertyEdit(property).then(
 				(user) => {
-					console.log(user);
+					dispatch('getUserInfo');
 				},
 				(error) => {}
 			);
