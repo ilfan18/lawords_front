@@ -53,40 +53,10 @@ export default {
         padding: 12px;
     }
 
-    &__form {
-    }
-
     &__item {
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 17px;
-        display: flex;
-        align-items: center;
         margin-bottom: 10px;
         &:last-of-type {
             margin-bottom: 25px;
-        }
-        label {
-            width: 150px;
-        }
-        input {
-            padding: 12px 40px 12px 17px;
-            background: var(--settings-form-background-secandary);
-            border: 1px solid var(--settings-form-border);
-            border-radius: 8px;
-            outline: none;
-            font-size: 15px;
-            line-height: 22px;
-            letter-spacing: 0.323577px;
-            color: inherit;
-            &:focus,
-            &:active,
-            &:focus-visible {
-                border: 1px solid #b0b1b3;
-            }
-            &.is-invalid {
-                border: 1px solid #f05555;
-            }
         }
     }
 

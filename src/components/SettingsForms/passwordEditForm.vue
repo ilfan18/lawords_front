@@ -3,18 +3,33 @@
         <div class="settings-form__heading">Пароль</div>
         <div class="settings-form__body">
             <form @submit.prevent="handlePasswordSubmit" class="settings-form__form">
-                <div class="settings-form__item">
-                    <label for="new_password">Новый пароль:</label>
-                    <input v-model="new_password" type="password" id="new_password" />
-                </div>
-                <div class="settings-form__item">
-                    <label for="re_new_password">Повторите новый пароль:</label>
-                    <input v-model="re_new_password" type="password" id="re_new_password" />
-                </div>
-                <div class="settings-form__item">
-                    <label for="current_password">Текущий пароль:</label>
-                    <input v-model="current_password" type="password" id="current_password" />
-                </div>
+                <edit-form-input
+                    v-model="new_password"
+                    name="new_password"
+                    label="Новый пароль:"
+                    type="password"
+                    placeholder="Введите пароль"
+                    :submitted="submitted"
+                    class="settings-form__item"
+                />
+                <edit-form-input
+                    v-model="re_new_password"
+                    name="re_new_password"
+                    label="Новый пароль еще раз:"
+                    type="password"
+                    placeholder="Введите пароль"
+                    :submitted="submitted"
+                    class="settings-form__item"
+                />
+                <edit-form-input
+                    v-model="current_password"
+                    name="current_password"
+                    label="Текущий пароль:"
+                    type="password"
+                    placeholder="Введите пароль"
+                    :submitted="submitted"
+                    class="settings-form__item"
+                />
                 <button class="settings-form__button">Сохранить</button>
             </form>
         </div>
@@ -22,13 +37,16 @@
 </template>
 
 <script>
+import editFormInput from './SettingsFormsComponents/editFormInput.vue';
 export default {
+    components: { editFormInput },
     name: 'password-edit-form',
     data() {
         return {
             new_password: '',
             re_new_password: '',
-            current_password: ''
+            current_password: '',
+            submitted: false
         }
     },
     methods: {
