@@ -106,6 +106,9 @@ export default {
         line-height: 22px;
         letter-spacing: 0.323577px;
         color: inherit;
+        &[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+        }
         &:focus,
         &:active,
         &:focus-visible {

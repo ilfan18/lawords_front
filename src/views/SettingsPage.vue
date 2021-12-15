@@ -6,6 +6,7 @@
             <username-edit-form />
             <password-edit-form />
             <name-edit-form />
+            <age-edit-form />
         </div>
         <settings-page-loader v-else />
     </div>
@@ -19,6 +20,7 @@ import NameEditForm from '@/components/SettingsForms/NameEditForm.vue'
 import UsernameEditForm from '@/components/SettingsForms/UsernameEditForm.vue'
 import PasswordEditForm from '@/components/SettingsForms/PasswordEditForm.vue'
 import EmailEditForm from '@/components/SettingsForms/EmailEditForm.vue'
+import AgeEditForm from '@/components/SettingsForms/AgeEditForm.vue'
 export default {
     components: {
         VHeader,
@@ -26,6 +28,7 @@ export default {
         UsernameEditForm,
         PasswordEditForm,
         EmailEditForm,
+        AgeEditForm,
         SettingsPageLoader,
     },
     computed: {
