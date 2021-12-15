@@ -7,6 +7,7 @@ export const userEditServices = {
 	passwordEdit,
 	userPropertyEdit,
 };
+
 async function emailEdit(email) {
 	const request_url = process.env.VUE_APP_API_URL + 'auth/users/me/';
 	const headers = await authHeader();

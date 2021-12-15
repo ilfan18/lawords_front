@@ -2,9 +2,10 @@
     <div class="settings content">
         <v-header>Настройки</v-header>
         <div v-if="!isUserLoading" class="settings__body">
-            <name-edit-form />
+            <email-edit-form />
             <username-edit-form />
             <password-edit-form />
+            <name-edit-form />
         </div>
         <settings-page-loader v-else />
     </div>
@@ -13,12 +14,20 @@
 <script>
 import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
 import VHeader from '@/components/VHeader.vue'
-import SettingsPageLoader from '../components/Loaders/SettingsPageLoader.vue'
+import SettingsPageLoader from '@/components/Loaders/SettingsPageLoader.vue'
 import NameEditForm from '@/components/SettingsForms/NameEditForm.vue'
 import UsernameEditForm from '@/components/SettingsForms/UsernameEditForm.vue'
 import PasswordEditForm from '@/components/SettingsForms/PasswordEditForm.vue'
+import EmailEditForm from '@/components/SettingsForms/EmailEditForm.vue'
 export default {
-    components: { VHeader, NameEditForm, SettingsPageLoader, UsernameEditForm, PasswordEditForm },
+    components: {
+        VHeader,
+        NameEditForm,
+        UsernameEditForm,
+        PasswordEditForm,
+        EmailEditForm,
+        SettingsPageLoader,
+    },
     computed: {
         ...mapState({
             isUserLoading: state => state.user.isUserLoading,
