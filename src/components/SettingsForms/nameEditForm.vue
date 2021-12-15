@@ -42,7 +42,8 @@ export default {
     methods: {
         handleNameSubmit() {
             this.submitted = true;
-            this.$store.dispatch('user/nameEdit', this.firstName);
+            const property = { first_name: this.firstName, last_name: this.lastName }
+            this.$store.dispatch('user/userPropertyEdit', property);
         }
     },
 }
