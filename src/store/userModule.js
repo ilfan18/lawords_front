@@ -36,8 +36,8 @@ export const userModule = {
 				(error) => {}
 			);
 		},
-		usernameEdit({ commit, dispatch }, username) {
-			userEditServices.usernameEdit(username).then(
+		usernameEdit({ commit, dispatch }, username_request) {
+			userEditServices.usernameEdit(username_request).then(
 				(user) => {
 					dispatch('getUserInfo');
 				},

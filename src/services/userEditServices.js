@@ -24,15 +24,12 @@ async function emailEdit(email) {
 		});
 }
 
-async function usernameEdit(username) {
+async function usernameEdit(username_request) {
 	const request_url =
 		process.env.VUE_APP_API_URL + 'auth/users/set_username/';
 	const headers = await authHeader();
-	const request_body = {
-		new_username: username,
-		// !Это убрать
-		current_password: '123',
-	};
+	const request_body = username_request;
+	console.log(request_body);
 	return axios
 		.post(request_url, request_body, { headers: headers })
 		.then((response) => {

@@ -66,7 +66,7 @@ export default {
         border: 1px solid var(--settings-form-border);
         border-radius: 10px;
         padding: 10px 30px;
-        margin-left: 150px;
+        margin-left: 120px;
         color: inherit;
         font-weight: 500;
         font-size: 14px;

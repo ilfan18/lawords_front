@@ -85,7 +85,7 @@ export default {
     display: flex;
     align-items: center;
     &__label {
-        width: 150px;
+        width: 180px;
     }
     &__control {
         position: relative;
