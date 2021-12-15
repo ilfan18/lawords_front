@@ -2,7 +2,7 @@
     <div class="email-form settings-form">
         <div class="settings-form__heading">Почта</div>
         <div class="settings-form__body">
-            <form @submit.prevent="handleUsernameSubmit" class="settings-form__form">
+            <form @submit.prevent="handleEmailSubmit" class="settings-form__form">
                 <edit-form-input
                     v-model="email"
                     name="email"
@@ -30,7 +30,7 @@ export default {
         }
     },
     methods: {
-        handleUsernameSubmit() {
+        handleEmailSubmit() {
             this.submitted = true;
             this.$store.dispatch('user/emailEdit', email);
         }
