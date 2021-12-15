@@ -6,6 +6,7 @@
                 v-model="modelValue"
                 @input="updateInput"
                 :name="name"
+                :id="name"
                 :type="internalInputType"
                 :placeholder="placeholder"
                 class="form-item__input"
