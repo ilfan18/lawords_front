@@ -27,7 +27,7 @@
                 stroke="#9FA2B4"
             ></vue-feather>
         </div>
-        <div v-if="submitted && !modelValue" class="password-input__error">Это обязательное поле</div>
+        <div v-if="submitted && !modelValue" class="password-input__error">Заполните это поле.</div>
     </div>
 </template>
 

@@ -4,7 +4,7 @@
         <div class="settings-form__body">
             <form @submit.prevent="handlePasswordSubmit" class="settings-form__form">
                 <edit-form-input
-                    v-model="new_password"
+                    v-model="newPassword"
                     name="new_password"
                     label="Новый пароль:"
                     type="password"
@@ -13,7 +13,7 @@
                     class="settings-form__item"
                 />
                 <edit-form-input
-                    v-model="re_new_password"
+                    v-model="reNewPassword"
                     name="re_new_password"
                     label="Новый пароль еще раз:"
                     type="password"
@@ -22,7 +22,7 @@
                     class="settings-form__item"
                 />
                 <edit-form-input
-                    v-model="current_password"
+                    v-model="currentPassword"
                     name="current_password"
                     label="Текущий пароль:"
                     type="password"
@@ -43,16 +43,17 @@ export default {
     name: 'password-edit-form',
     data() {
         return {
-            new_password: '',
-            re_new_password: '',
-            current_password: '',
+            newPassword: '',
+            reNewPassword: '',
+            currentPassword: '',
             submitted: false
         }
     },
     methods: {
         handlePasswordSubmit() {
-            if (this.new_password == this.re_new_password) {
-                const passwords = { new_password: this.new_password, current_password: this.current_password }
+            this.submitted = true;
+            if (this.newPassword == this.reNewPassword) {
+                const passwords = { new_password: this.newPassword, current_password: this.currentPassword }
                 this.$store.dispatch('user/passwordEdit', passwords);
             }
         }

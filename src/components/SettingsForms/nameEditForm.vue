@@ -3,14 +3,24 @@
         <div class="settings-form__heading">Имя</div>
         <div class="settings-form__body">
             <form @submit.prevent="handleNameSubmit" class="settings-form__form">
-                <div class="settings-form__item">
-                    <label for="first_name">Имя:</label>
-                    <input v-model="firstName" type="text" id="first_name" />
-                </div>
-                <div class="settings-form__item">
-                    <label for="last_name">Фамилия:</label>
-                    <input v-model="lastName" type="text" id="last_name" />
-                </div>
+                <edit-form-input
+                    v-model="firstName"
+                    name="first_name"
+                    label="Имя:"
+                    type="text"
+                    placeholder="Введите имя"
+                    :submitted="submitted"
+                    class="settings-form__item"
+                />
+                <edit-form-input
+                    v-model="lastName"
+                    name="last_name"
+                    label="Фамилия:"
+                    type="text"
+                    placeholder="Введите фамилию"
+                    :submitted="submitted"
+                    class="settings-form__item"
+                />
                 <button class="settings-form__button">Сохранить</button>
             </form>
         </div>
@@ -18,18 +28,21 @@
 </template>
 
 <script>
+import editFormInput from './SettingsFormsComponents/editFormInput.vue';
 export default {
+    components: { editFormInput },
     name: 'name-edit-form',
     data() {
         return {
             firstName: this.$store.state.user.user.first_name,
-            lastName: this.$store.state.user.user.last_name
+            lastName: this.$store.state.user.user.last_name,
+            submitted: false
         }
     },
     methods: {
         handleNameSubmit() {
-            console.log('object');
-            this.$store.dispatch('user/nameEdit', this.first_name);
+            this.submitted = true;
+            this.$store.dispatch('user/nameEdit', this.firstName);
         }
     },
 }
