@@ -28,8 +28,8 @@ export const userModule = {
 				(error) => {}
 			);
 		},
-		nameEdit({ commit, dispatch }, first_name) {
-			userEditServices.nameEdit(first_name).then(
+		emailEdit({ commit }, email) {
+			userEditServices.emailEdit(email).then(
 				(user) => {
 					console.log(user);
 				},
@@ -44,18 +44,18 @@ export const userModule = {
 				(error) => {}
 			);
 		},
-		emailEdit({ commit }, email) {
-			userEditServices.emailEdit(email).then(
-				(user) => {
-					console.log(user);
-				},
-				(error) => {}
-			);
-		},
 		passwordEdit({ commit, dispatch }, { new_password, current_password }) {
 			userEditServices.passwordEdit(new_password, current_password).then(
 				(user) => {
 					dispatch('getUserInfo');
+				},
+				(error) => {}
+			);
+		},
+		userPropertyEdit({ commit, dispatch }, property) {
+			userEditServices.nameEdit(property).then(
+				(user) => {
+					console.log(user);
 				},
 				(error) => {}
 			);
