@@ -60,6 +60,14 @@ export const userModule = {
 				(error) => {}
 			);
 		},
+		imageEdit({ commit, dispatch }, image_file) {
+			userEditServices.imageEdit(image_file).then(
+				(user) => {
+					dispatch('getUserInfo');
+				},
+				(error) => {}
+			);
+		},
 	},
 	mutations: {
 		setUser(state, user) {

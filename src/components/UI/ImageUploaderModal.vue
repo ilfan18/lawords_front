@@ -36,10 +36,13 @@ export default {
     },
     methods: {
         ...mapActions({
-            hideUploadImageModal: 'ui/hideUploadImageModal'
+            hideUploadImageModal: 'ui/hideUploadImageModal',
+            imageEdit: 'user/imageEdit'
         }),
         onImageInput(event) {
             this.imageFileName = event.target.value
+            this.imageEdit(event.target.files[0])
+            this.hideUploadImageModal()
         }
     },
 }
