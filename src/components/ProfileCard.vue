@@ -1,13 +1,16 @@
 <template>
     <div v-if="!isProfileLoading" class="profile-card">
-        <div class="profile-card__image">
-            <image-loader
-                :src="user.image"
-                alt="Ваш аватар"
-                width="340px"
-                height="145px"
-                radius="0px"
-            />
+        <div class="profile-card__header">
+            <div class="profile-card__image">
+                <image-loader
+                    :src="user.image"
+                    alt="Ваш аватар"
+                    width="340px"
+                    height="145px"
+                    radius="0px"
+                />
+            </div>
+            <image-uploader-btn />
         </div>
         <div class="profile-card__content">
             <div class="profile-card__name">{{ displayName }}</div>
@@ -78,10 +81,17 @@ export default {
     border-radius: 15px;
     overflow: hidden;
     width: 340px;
+    &__header {
+        position: relative;
+        .image-uploader-btn {
+            right: 25px;
+        }
+    }
     &__image {
         max-height: 145px;
         font-size: 0;
         overflow: hidden;
+
         img {
             width: 100%;
             max-height: 100%;

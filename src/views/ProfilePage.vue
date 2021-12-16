@@ -13,7 +13,7 @@
 <script>
 import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
 import VHeader from '@/components/VHeader.vue'
-import ProfileCard from '../components/ProfileCard.vue'
+import ProfileCard from '@/components/ProfileCard.vue'
 export default {
     components: { VHeader, ProfileCard },
     computed: {

@@ -5,6 +5,7 @@ export const UIModule = {
 	state: {
 		theme: default_theme,
 		right_panel_visible: false,
+		upload_image_modal_visible: false,
 		course_info_id: null,
 	},
 	actions: {
@@ -17,11 +18,17 @@ export const UIModule = {
 		showRightPanel({ commit }) {
 			commit('setRightPanel', true);
 		},
+		hideRightPanel({ commit }) {
+			commit('setRightPanel', false);
+		},
 		showCourseInfo({ commit }, course_id) {
 			commit('setCourseInfoId', course_id);
 		},
-		hideRightPanel({ commit }) {
-			commit('setRightPanel', false);
+		showUploadImageModal({ commit }) {
+			commit('setUploadImageModal', true);
+		},
+		hideUploadImageModal({ commit }) {
+			commit('setUploadImageModal', false);
 		},
 	},
 	mutations: {
@@ -33,6 +40,9 @@ export const UIModule = {
 		},
 		setCourseInfoId(state, course_id) {
 			state.course_info_id = course_id;
+		},
+		setUploadImageModal(state, visibility) {
+			state.upload_image_modal_visible = visibility;
 		},
 	},
 };
