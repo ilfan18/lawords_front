@@ -83,6 +83,7 @@ export default {
     font-size: 14px;
     line-height: 17px;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     &__label {
         width: 180px;

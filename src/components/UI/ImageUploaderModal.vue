@@ -2,16 +2,13 @@
     <div class="image-uploader-modal">
         <div class="image-uploader-modal__content">
             <button @click.prevent="hideUploadImageModal" class="image-uploader-modal__close">
-                <vue-feather type="x" size="24" stroke="#000000" />
+                <vue-feather type="x" size="24" :stroke="stroke" />
             </button>
-            <div class="image-uploader-modal__title">Загрузите изображение</div>
+            <div class="image-uploader-modal__title">{{ title }}</div>
             <div class="image-uploader-modal__image">
                 <img src="@/assets/upload_background.png" alt />
             </div>
-            <image-uploader-progress-bar
-                v-if="isProgressBarVisible"
-                :percentCompleted="percentCompleted"
-            />
+            <image-uploader-progress-bar v-if="isUploading" :percentCompleted="percentCompleted" />
             <form v-else action class="image-uploader-modal__form">
                 <input
                     @input="onImageInput"
@@ -35,7 +32,15 @@ export default {
     data() {
         return {
             percentCompleted: 0,
-            isProgressBarVisible: false,
+            isUploading: false,
+        }
+    },
+    computed: {
+        stroke() {
+            return this.$store.state.ui.theme == 'light' ? '#000000' : '#FFFFFF';
+        },
+        title() {
+            return this.isUploading ? 'Загрузка...' : 'Загрузите изображение'
         }
     },
     methods: {
@@ -44,7 +49,7 @@ export default {
             imageEdit: 'user/imageEdit'
         }),
         onImageInput(event) {
-            this.isProgressBarVisible = true
+            this.isUploading = true
             this.imageEdit(
                 {
                     imageFile: event.target.files[0],
