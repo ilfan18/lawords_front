@@ -4,9 +4,9 @@ export const UIModule = {
 	namespaced: true,
 	state: {
 		theme: default_theme,
-		right_panel_visible: false,
-		upload_image_modal_visible: false,
-		course_info_id: null,
+		rightPanelVisible: false,
+		uploadImageModalVisible: false,
+		courseInfoId: null,
 	},
 	actions: {
 		setTheme({ commit }, theme) {
@@ -36,13 +36,13 @@ export const UIModule = {
 			state.theme = theme;
 		},
 		setRightPanel(state, visibility) {
-			state.right_panel_visible = visibility;
+			state.rightPanelVisible = visibility;
 		},
 		setCourseInfoId(state, course_id) {
-			state.course_info_id = course_id;
+			state.courseInfoId = course_id;
 		},
 		setUploadImageModal(state, visibility) {
-			state.upload_image_modal_visible = visibility;
+			state.uploadImageModalVisible = visibility;
 		},
 	},
 };

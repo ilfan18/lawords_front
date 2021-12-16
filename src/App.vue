@@ -5,7 +5,7 @@
             <router-view />
         </div>
         <right-panel v-if="isAuth" />
-        <image-uploader-modal v-if="isImageIploadModalVisible" />
+        <image-uploader-modal v-if="uploadImageModalVisible" />
     </div>
 </template>
 
@@ -23,7 +23,7 @@ export default {
         ...mapState({
             isAuth: state => state.auth.status.loggedIn,
             tokens: state => state.auth.user,
-            isImageIploadModalVisible: state => state.ui.upload_image_modal_visible
+            uploadImageModalVisible: state => state.ui.uploadImageModalVisible
         }),
         theme() {
             return this.$store.state.ui.theme == 'light' ? '' : 'dark-theme';

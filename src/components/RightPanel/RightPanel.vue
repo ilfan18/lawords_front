@@ -34,10 +34,10 @@ export default {
     },
     computed: {
         isVisible() {
-            return this.$store.state.ui.right_panel_visible;
+            return this.$store.state.ui.rightPanelVisible;
         },
         CourseInfoId() {
-            return this.$store.state.ui.course_info_id;
+            return this.$store.state.ui.courseInfoId;
         },
     },
     methods: {
