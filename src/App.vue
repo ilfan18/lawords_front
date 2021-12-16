@@ -5,6 +5,7 @@
             <router-view />
         </div>
         <right-panel v-if="isAuth" />
+        <image-uploader-modal v-if="isImageIploadModalVisible" />
     </div>
 </template>
 
@@ -22,6 +23,7 @@ export default {
         ...mapState({
             isAuth: state => state.auth.status.loggedIn,
             tokens: state => state.auth.user,
+            isImageIploadModalVisible: state => state.ui.upload_image_modal_visible
         }),
         theme() {
             return this.$store.state.ui.theme == 'light' ? '' : 'dark-theme';
@@ -65,13 +67,14 @@ body {
     height: 100%;
     display: flex;
     align-items: stretch;
+    position: relative;
     &__main {
         flex: 1 1 auto;
     }
     --background-primary: #ffffff;
     --background-secandary: #f8f8f8;
-    --settings-form-background-secandary: #f5f5f5;
-    --settings-form-border: #e6e6e6;
+    --background-third: #f5f5f5;
+    --border-first: #e6e6e6;
     --text-primary: #000000;
     --text-second: #737373;
     --text-third: #2e2e2e;
@@ -80,8 +83,8 @@ body {
     &.dark-theme {
         --background-primary: #1c1c1c;
         --background-secandary: #000000;
-        --settings-form-background-secandary: #303030;
-        --settings-form-border: #3a3a3a;
+        --background-third: #303030;
+        --border-first: #3a3a3a;
         --text-primary: #ffffff;
         --text-second: #737373;
         --text-third: #b8b8b8;

@@ -98,8 +98,8 @@ export default {
     }
     &__input {
         padding: 12px 40px 12px 17px;
-        background: var(--settings-form-background-secandary);
-        border: 1px solid var(--settings-form-border);
+        background: var(--background-third);
+        border: 1px solid var(--border-first);
         border-radius: 8px;
         outline: none;
         font-size: 15px;

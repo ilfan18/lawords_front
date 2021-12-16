@@ -47,14 +47,14 @@ export default {
 </style>
 <style lang="scss">
 .settings-form {
-    border: 1px solid var(--settings-form-border);
+    border: 1px solid var(--border-first);
     border-radius: 10px;
     background: var(--background-primary);
     overflow: hidden;
     margin-bottom: 30px;
     &__heading {
-        border-bottom: 1px solid var(--settings-form-border);
-        background: var(--settings-form-background-secandary);
+        border-bottom: 1px solid var(--border-first);
+        background: var(--background-third);
         padding: 12px 20px;
         font-weight: 600;
         font-size: 16px;
@@ -75,7 +75,7 @@ export default {
     &__button {
         cursor: pointer;
         background: var(--background-primary);
-        border: 1px solid var(--settings-form-border);
+        border: 1px solid var(--border-first);
         border-radius: 10px;
         padding: 10px 30px;
         margin-left: 120px;
@@ -84,7 +84,7 @@ export default {
         font-size: 14px;
         line-height: 17px;
         &:hover {
-            background: var(--settings-form-background-secandary);
+            background: var(--background-third);
         }
     }
 }
