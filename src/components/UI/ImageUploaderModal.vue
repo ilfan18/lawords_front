@@ -8,7 +8,10 @@
             <div class="image-uploader-modal__image">
                 <img src="@/assets/upload_background.png" alt />
             </div>
-            <progress-bar v-if="isProgressBarVisible" :percentCompleted="percentCompleted" />
+            <image-uploader-progress-bar
+                v-if="isProgressBarVisible"
+                :percentCompleted="percentCompleted"
+            />
             <form v-else action class="image-uploader-modal__form">
                 <input
                     @input="onImageInput"
@@ -106,8 +109,10 @@ export default {
     &__image {
         display: flex;
         justify-content: center;
+        height: 220px;
+        font-size: 0;
         img {
-            width: 350px;
+            width: 352px;
         }
     }
 

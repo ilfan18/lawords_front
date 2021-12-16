@@ -32,7 +32,7 @@ export default {
         margin-top: -110px;
     }
     &__cover {
-        height: 170px;
+        height: 165px;
         background: linear-gradient(91.18deg, #6792ff 0%, #acffeb 100%);
         margin: 0 -40px;
     }

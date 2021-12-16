@@ -88,7 +88,7 @@ export default {
         }
     }
     &__image {
-        max-height: 145px;
+        max-height: 190px;
         font-size: 0;
         overflow: hidden;
 

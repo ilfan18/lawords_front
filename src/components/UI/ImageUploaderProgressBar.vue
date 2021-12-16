@@ -1,12 +1,12 @@
 <template>
     <div class="progress">
-        <progress id="progress" :value="percentCompleted" max="100">32%</progress>
+        <progress id="progress" :value="percentCompleted" max="100">{{ percentCompleted }}%</progress>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'progress-bar',
+    name: 'image-uploader-progress-bar',
     props: {
         percentCompleted: 0
     }
