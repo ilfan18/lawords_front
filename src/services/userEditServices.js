@@ -73,14 +73,26 @@ async function userPropertyEdit(property) {
 		});
 }
 
-async function imageEdit(image_file) {
+async function imageEdit(imageFile, onProgress) {
 	const requestUrl = process.env.VUE_APP_API_URL + 'auth/users/me/';
 	const headers = await authHeader();
 	headers['Content-Type'] = 'multipart/form-data';
+	const config = {
+		headers: headers,
+		onUploadProgress: function (progressEvent) {
+			const percentCompleted = Math.round(
+				(progressEvent.loaded * 100) / progressEvent.total
+			);
+
+			onProgress(percentCompleted);
+
+			return percentCompleted;
+		},
+	};
 	const requestBody = new FormData();
-	requestBody.append('image', image_file);
+	requestBody.append('image', imageFile);
 	return axios
-		.patch(requestUrl, requestBody, { headers: headers })
+		.patch(requestUrl, requestBody, config)
 		.then((response) => {
 			return response.data;
 		})

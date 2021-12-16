@@ -60,10 +60,11 @@ export const userModule = {
 				(error) => {}
 			);
 		},
-		imageEdit({ commit, dispatch }, image_file) {
-			userEditServices.imageEdit(image_file).then(
+		imageEdit({ commit, dispatch }, { imageFile, onProgress }) {
+			userEditServices.imageEdit(imageFile, onProgress).then(
 				(user) => {
 					dispatch('getUserInfo');
+					dispatch('ui/hideUploadImageModal', null, { root: true });
 				},
 				(error) => {}
 			);

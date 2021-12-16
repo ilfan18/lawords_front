@@ -8,7 +8,8 @@
             <div class="image-uploader-modal__image">
                 <img src="@/assets/upload_background.png" alt />
             </div>
-            <form action class="image-uploader-modal__form">
+            <progress-bar v-if="isProgressBarVisible" :percentCompleted="percentCompleted" />
+            <form v-else action class="image-uploader-modal__form">
                 <input
                     @input="onImageInput"
                     type="file"
@@ -16,7 +17,6 @@
                     name="image"
                     accept=".png, .jpg, .jpeg"
                 />
-                <div class="image-uploader-modal__file-name">{{ imageFileName }}</div>
                 <label class="image-uploader-modal__choose" for="image">Обзор</label>
                 <div class="image-uploader-modal__or">или перетащите файл сюда.</div>
                 <!-- <button class="image-uploader-modal__submit">Загрузить</button> -->
@@ -31,7 +31,8 @@ export default {
     name: 'image-uploader-modal',
     data() {
         return {
-            imageFileName: ''
+            percentCompleted: 0,
+            isProgressBarVisible: false,
         }
     },
     methods: {
@@ -40,9 +41,16 @@ export default {
             imageEdit: 'user/imageEdit'
         }),
         onImageInput(event) {
-            this.imageFileName = event.target.value
-            this.imageEdit(event.target.files[0])
-            this.hideUploadImageModal()
+            this.isProgressBarVisible = true
+            this.imageEdit(
+                {
+                    imageFile: event.target.files[0],
+                    onProgress: this.onUploadProgress
+                }
+            )
+        },
+        onUploadProgress(percentCompleted) {
+            this.percentCompleted = percentCompleted
         }
     },
 }
