@@ -8,7 +8,7 @@
 export default {
     name: 'progress-bar',
     props: {
-        percentCompleted: 50
+        percentCompleted: 0
     }
 }
 </script>
