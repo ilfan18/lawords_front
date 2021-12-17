@@ -64,7 +64,6 @@ function getToken() {
 			return user.access;
 		})
 		.catch((error) => {
-			// console.log(error);
 			return refreshToken();
 		});
 }
@@ -85,7 +84,6 @@ function refreshToken() {
 			return user.access;
 		})
 		.catch((error) => {
-			console.log(error);
 			return Promise.reject('Неверный refresh.');
 		});
 }
