@@ -14,7 +14,6 @@ function register(email, username, password) {
 		username,
 		password,
 	};
-	console.log(request_body);
 	return axios
 		.post(request_url, request_body)
 		.then((response) => {

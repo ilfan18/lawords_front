@@ -14,7 +14,6 @@ async function getUserInfo() {
 			return response.data;
 		})
 		.catch((error) => {
-			console.log(error);
 			return Promise.reject('Неверный id пользователя.');
 		});
 }
