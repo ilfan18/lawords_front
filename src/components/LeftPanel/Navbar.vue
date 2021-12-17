@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import router from '@/router';
 import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
 import NavbarItem from './NavbarItem.vue'
 export default {
@@ -24,7 +25,7 @@ export default {
         }),
         handleLogout() {
             this.logout()
-            console.log('object');
+            router.push('/login')
         }
     }
 }

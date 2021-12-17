@@ -27,7 +27,6 @@ export const authModule = {
 		logout({ dispatch, commit }) {
 			userAuthServices.logout();
 			commit('logout');
-			router.push('/login');
 			dispatch('ui/setTheme', 'light', { root: true });
 		},
 		register({ dispatch, commit }, { email, username, password }) {
