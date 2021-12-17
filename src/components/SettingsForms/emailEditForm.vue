@@ -32,7 +32,7 @@ export default {
     methods: {
         handleEmailSubmit() {
             this.submitted = true;
-            this.$store.dispatch('user/emailEdit', email);
+            this.$store.dispatch('user/emailEdit', this.email);
         }
     },
 }

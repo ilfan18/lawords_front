@@ -28,7 +28,7 @@ export const userModule = {
 				(error) => {}
 			);
 		},
-		emailEdit({ commit }, email) {
+		emailEdit({ commit, dispatch }, email) {
 			userEditServices.emailEdit(email).then(
 				(user) => {
 					dispatch('getUserInfo');
