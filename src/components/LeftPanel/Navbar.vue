@@ -7,19 +7,24 @@
         </ul>
         <ul class="nav__bottom">
             <navbar-item url="/settings" title="Настройки" type="settings" />
-            <navbar-item @click="handleLogout" url="/logout" title="Выйти" type="log-out" />
+            <navbar-item @click="handleLogout" title="Выйти" type="log-out" />
         </ul>
     </nav>
 </template>
 
 <script>
+import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
 import NavbarItem from './NavbarItem.vue'
 export default {
     name: 'navbar',
     components: { NavbarItem },
     methods: {
+        ...mapActions({
+            logout: 'auth/logout'
+        }),
         handleLogout() {
-            console.log(object);
+            this.logout()
+            console.log('object');
         }
     }
 }

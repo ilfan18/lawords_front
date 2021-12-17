@@ -43,7 +43,6 @@ function login(username, password) {
 			return user;
 		})
 		.catch((error) => {
-			console.log(error);
 			return Promise.reject('Неверный логин или пароль.');
 		});
 }

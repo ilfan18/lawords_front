@@ -1,9 +1,12 @@
 <!-- !Цвет иконок от темы сделать  -->
 <template>
     <li class="nav__item">
-        <router-link :to="url" class="nav__link" active-class="active" :title="title">
+        <router-link v-if="url" :to="url" class="nav__link" active-class="active" :title="title">
             <vue-feather size="28" :type="type" :stroke="stroke" />
         </router-link>
+        <button v-else class="nav__link" :title="title">
+            <vue-feather size="28" :type="type" :stroke="stroke" />
+        </button>
     </li>
 </template>
 
@@ -17,7 +20,6 @@ export default {
         },
         url: {
             type: String,
-            required: true
         },
         title: {
             type: String,
@@ -49,6 +51,9 @@ export default {
     height: 60px;
     text-decoration: none;
     border-radius: 50%;
+    background: none;
+    border: none;
+    cursor: pointer;
     &.active {
         background-color: #3bafda;
     }
