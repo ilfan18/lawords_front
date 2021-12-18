@@ -8,7 +8,7 @@ export const userAuthServices = {
 };
 
 function register(email, username, password) {
-	const request_url = process.env.VUE_APP_API_URL + 'auth/users/';
+	const request_url = process.env.VUE_APP_API_URL + 'users/';
 	const request_body = {
 		email,
 		username,
@@ -27,7 +27,7 @@ function register(email, username, password) {
 }
 
 function login(username, password) {
-	const request_url = process.env.VUE_APP_API_URL + 'auth/jwt/create/';
+	const request_url = process.env.VUE_APP_API_URL + 'auth/token/';
 	const request_body = {
 		username,
 		password,
@@ -51,7 +51,7 @@ function logout() {
 }
 
 function getToken() {
-	const request_url = process.env.VUE_APP_API_URL + 'auth/jwt/verify/';
+	const request_url = process.env.VUE_APP_API_URL + 'auth/token/verify/';
 	let user = JSON.parse(localStorage.getItem('user'));
 	const request_body = {
 		token: user.access,
@@ -67,7 +67,7 @@ function getToken() {
 }
 
 function refreshToken() {
-	const request_url = process.env.VUE_APP_API_URL + 'auth/jwt/refresh/';
+	const request_url = process.env.VUE_APP_API_URL + 'auth/token/refresh/';
 	let user = JSON.parse(localStorage.getItem('user'));
 	const request_body = {
 		refresh: user.refresh,

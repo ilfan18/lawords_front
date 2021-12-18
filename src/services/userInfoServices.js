@@ -6,7 +6,7 @@ export const userInfoServices = {
 };
 
 async function getUserInfo() {
-	const request_url = process.env.VUE_APP_API_URL + 'auth/users/me/';
+	const request_url = process.env.VUE_APP_API_URL + 'users/me/';
 	const headers = await authHeader();
 	return axios
 		.get(request_url, { headers: headers })

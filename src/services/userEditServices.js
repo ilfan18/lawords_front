@@ -10,7 +10,7 @@ export const userEditServices = {
 };
 
 async function emailEdit(email) {
-	const requestUrl = process.env.VUE_APP_API_URL + 'auth/users/me/';
+	const requestUrl = process.env.VUE_APP_API_URL + 'users/me/';
 	const headers = await authHeader();
 	const requestBody = {
 		email: email,
@@ -27,7 +27,7 @@ async function emailEdit(email) {
 }
 
 async function usernameEdit(username_request) {
-	const requestUrl = process.env.VUE_APP_API_URL + 'auth/users/set_username/';
+	const requestUrl = process.env.VUE_APP_API_URL + 'users/me/set_username/';
 	const headers = await authHeader();
 	const requestBody = username_request;
 	return axios
@@ -42,6 +42,7 @@ async function usernameEdit(username_request) {
 }
 
 async function passwordEdit(new_password, current_password) {
+	// ! Исправить url
 	const requestUrl = process.env.VUE_APP_API_URL + 'auth/users/set_password/';
 	const headers = await authHeader();
 	const requestBody = {
@@ -59,7 +60,7 @@ async function passwordEdit(new_password, current_password) {
 		});
 }
 async function userPropertyEdit(property) {
-	const requestUrl = process.env.VUE_APP_API_URL + 'auth/users/me/';
+	const requestUrl = process.env.VUE_APP_API_URL + 'users/me/';
 	const headers = await authHeader();
 	const requestBody = property;
 	return axios
@@ -74,7 +75,7 @@ async function userPropertyEdit(property) {
 }
 
 async function imageEdit(imageFile, onProgress) {
-	const requestUrl = process.env.VUE_APP_API_URL + 'auth/users/me/';
+	const requestUrl = process.env.VUE_APP_API_URL + 'users/me/';
 	const headers = await authHeader();
 	headers['Content-Type'] = 'multipart/form-data';
 	const config = {
