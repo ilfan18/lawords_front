@@ -1,7 +1,7 @@
 <template>
-    <div class="cofirm-info">
+    <div class="confirm">
         <div class="cofirm-info__content">
-            <h1 class="cofirm-info__title">Проверьте свою почту!</h1>
+            <h1 class="cofirm-info__title">Спасибо за регистрацию!</h1>
             <div class="cofirm-info__img">
                 <img src="@/assets/pre1.png" alt />
             </div>
@@ -10,9 +10,17 @@
 </template>
 
 <script>
-
+import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
 export default {
-
+    name: 'confirm',
+    methods: {
+        ...mapActions({
+            emailConfirm: 'user/emailConfirm',
+        })
+    },
+    mounted() {
+        this.emailConfirm(this.$route.params)
+    }
 }
 </script>
 

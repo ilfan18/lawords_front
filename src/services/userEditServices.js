@@ -7,6 +7,7 @@ export const userEditServices = {
 	passwordEdit,
 	userPropertyEdit,
 	imageEdit,
+	emailConfirm,
 	emailResendActivation,
 };
 
@@ -75,13 +76,27 @@ async function userPropertyEdit(property) {
 		});
 }
 
+function emailConfirm(request) {
+	const requestUrl = process.env.VUE_APP_API_URL + 'users/activate/';
+	const requestBody = request;
+	return axios
+		.post(requestUrl, requestBody)
+		.then((response) => {
+			return response;
+		})
+		.catch((error) => {
+			console.log(error);
+			return Promise.reject('Неверное свойство.');
+		});
+}
+
 function emailResendActivation(uid) {
-	const request_url = process.env.VUE_APP_API_URL + 'users/resend/';
-	const request_body = {
+	const requestUrl = process.env.VUE_APP_API_URL + 'users/resend/';
+	const requestBody = {
 		uid: uid,
 	};
 	return axios
-		.post(request_url, request_body)
+		.post(requestUrl, requestBody)
 		.then((response) => {
 			return response;
 		})

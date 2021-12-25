@@ -44,6 +44,11 @@ const routes = [
 		name: 'ConfirmInfo',
 		component: () => import('@/views/ConfirmInfo.vue'),
 	},
+	{
+		path: '/activate/:uid/:token',
+		name: 'Confirm',
+		component: () => import('@/views/Confirm.vue'),
+	},
 ];
 
 const router = createRouter({
@@ -53,8 +58,8 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
 	// Перенаправляет на страницу входа если не выполнен вход
-	const publicPages = ['/login', '/register', '/cofirm-info'];
-	const authRequired = !publicPages.includes(to.path);
+	const publicPages = ['Login', 'Register', 'ConfirmInfo', 'Confirm'];
+	const authRequired = !publicPages.includes(to.name);
 	const loggedIn = localStorage.getItem('user');
 
 	if (authRequired && !loggedIn) {

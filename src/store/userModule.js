@@ -38,6 +38,14 @@ export const userModule = {
 				(error) => {}
 			);
 		},
+		emailConfirm({ commit, dispatch }, request) {
+			userEditServices.emailConfirm(request).then(
+				(response) => {
+					router.push('/login');
+				},
+				(error) => {}
+			);
+		},
 		emailResendActivation({ commit, dispatch }, uid) {
 			userEditServices.emailResendActivation(uid).then(
 				(response) => {
