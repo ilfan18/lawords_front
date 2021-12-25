@@ -2,7 +2,8 @@
     <div class="form">
         <div class="form__title">
             Войдите в
-            <span class="red">la</span>words
+            <span class="red">la</span>
+            <span>words</span>
             <span class="red">.</span>
         </div>
         <div class="form__subtitle">Введите вашу почту и пароль ниже</div>

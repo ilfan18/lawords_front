@@ -9,6 +9,9 @@
                     Повышайте свой уровень английского языка
                     <span class="red">вместе с нами!</span>
                 </div>
+                <div class="login__image">
+                    <img src="@/assets/pre2.png" alt />
+                </div>
             </div>
         </div>
     </div>
@@ -59,6 +62,15 @@ export default {
         .red {
             font: inherit;
             color: #f05555;
+        }
+    }
+    &__image {
+        display: flex;
+        justify-content: center;
+        height: 330px;
+        font-size: 0;
+        img {
+            max-width: 100%;
         }
     }
 }
