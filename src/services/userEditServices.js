@@ -7,6 +7,7 @@ export const userEditServices = {
 	passwordEdit,
 	userPropertyEdit,
 	imageEdit,
+	emailResendActivation,
 };
 
 async function emailEdit(email) {
@@ -71,6 +72,21 @@ async function userPropertyEdit(property) {
 		.catch((error) => {
 			console.log(error);
 			return Promise.reject('Неверное свойство.');
+		});
+}
+
+function emailResendActivation(uid) {
+	const request_url = process.env.VUE_APP_API_URL + 'users/resend/';
+	const request_body = {
+		uid: uid,
+	};
+	return axios
+		.post(request_url, request_body)
+		.then((response) => {
+			return response;
+		})
+		.catch((error) => {
+			return Promise.reject('Неверный uid.');
 		});
 }
 

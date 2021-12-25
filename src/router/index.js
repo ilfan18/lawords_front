@@ -39,6 +39,11 @@ const routes = [
 		name: 'Settings',
 		component: () => import('@/views/SettingsPage.vue'),
 	},
+	{
+		path: '/cofirm-info',
+		name: 'ConfirmInfo',
+		component: () => import('@/views/ConfirmInfo.vue'),
+	},
 ];
 
 const router = createRouter({
@@ -48,7 +53,7 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
 	// Перенаправляет на страницу входа если не выполнен вход
-	const publicPages = ['/login', '/register'];
+	const publicPages = ['/login', '/register', '/cofirm-info'];
 	const authRequired = !publicPages.includes(to.path);
 	const loggedIn = localStorage.getItem('user');
 

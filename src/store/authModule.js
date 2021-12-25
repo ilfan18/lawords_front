@@ -35,7 +35,7 @@ export const authModule = {
 				(user) => {
 					dispatch('login', { username, password });
 					commit('registerSuccess', user);
-					router.push('/courses');
+					router.push('/cofirm-info');
 				},
 				(error) => {
 					commit('registerFailure', error);

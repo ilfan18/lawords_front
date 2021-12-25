@@ -1,4 +1,5 @@
 import { userInfoServices, userEditServices } from '@/services';
+import router from '@/router';
 
 export const userModule = {
 	namespaced: true,
@@ -32,6 +33,16 @@ export const userModule = {
 			userEditServices.emailEdit(email).then(
 				(user) => {
 					dispatch('getUserInfo');
+					dispatch('emailResendActivation', user.id);
+				},
+				(error) => {}
+			);
+		},
+		emailResendActivation({ commit, dispatch }, uid) {
+			userEditServices.emailResendActivation(uid).then(
+				(response) => {
+					dispatch('auth/logout', null, { root: true });
+					router.push('/cofirm-info');
 				},
 				(error) => {}
 			);
