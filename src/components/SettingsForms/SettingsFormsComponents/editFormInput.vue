@@ -13,6 +13,8 @@
                 :class="{ 'is-invalid': submitted && !modelValue }"
                 additionalProps
                 :required="required"
+                :min="min"
+                :max="max"
             />
             <vue-feather
                 @click="togglePassword"
@@ -69,7 +71,9 @@ export default {
         required: {
             type: Boolean,
             default: false
-        }
+        },
+        min: null,
+        max: null
     },
     data() {
         return {
