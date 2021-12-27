@@ -11,6 +11,7 @@
                     placeholder="Введите логин"
                     :submitted="submitted"
                     class="settings-form__item"
+                    :errors="newUsernameErrors"
                 />
                 <edit-form-input
                     v-model="password"
@@ -20,6 +21,7 @@
                     placeholder="Введите пароль"
                     :submitted="submitted"
                     class="settings-form__item"
+                    :errors="passwordErrors"
                 />
                 <button class="settings-form__button">Сохранить</button>
             </form>
@@ -27,6 +29,7 @@
     </div>
 </template>
 <script>
+import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
 import editFormInput from './SettingsFormsComponents/editFormInput.vue';
 export default {
     components: { editFormInput },
@@ -37,6 +40,12 @@ export default {
             password: '',
             submitted: false
         }
+    },
+    computed: {
+        ...mapState({
+            newUsernameErrors: state => state.alert.username_edit.new_username,
+            passwordErrors: state => state.alert.username_edit.current_password,
+        }),
     },
     methods: {
         handleUsernameSubmit() {

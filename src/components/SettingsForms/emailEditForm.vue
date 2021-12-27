@@ -10,6 +10,7 @@
                     type="email"
                     placeholder="Введите логин"
                     :submitted="submitted"
+                    :errors="emailError"
                     class="settings-form__item"
                 />
                 <button class="settings-form__button">Сохранить</button>
@@ -19,6 +20,7 @@
 </template>
 
 <script>
+import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
 import editFormInput from './SettingsFormsComponents/editFormInput.vue';
 export default {
     components: { editFormInput },
@@ -28,6 +30,12 @@ export default {
             email: this.$store.state.user.user.email,
             submitted: false
         }
+    },
+    computed: {
+        ...mapState({
+            emailError: state => state.alert.email_edit,
+        })
+
     },
     methods: {
         handleEmailSubmit() {

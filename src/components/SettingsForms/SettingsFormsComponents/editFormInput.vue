@@ -27,7 +27,7 @@
                 stroke="#9FA2B4"
             ></vue-feather>
         </div>
-        <div v-if="submitted && !modelValue" class="password-input__error">Заполните это поле.</div>
+        <div v-for="(error, index) in errors" :key="index" class="password-input__error">{{ error }}</div>
     </div>
 </template>
 
@@ -53,6 +53,9 @@ export default {
         },
         submitted: {
             type: Boolean,
+        },
+        errors: {
+            type: Array,
         },
         modelValue: [String, Number]
     },

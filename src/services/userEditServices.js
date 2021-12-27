@@ -24,7 +24,7 @@ async function emailEdit(email) {
 		})
 		.catch((error) => {
 			console.log(error);
-			return Promise.reject('Некорректный email.');
+			return Promise.reject(error.response.data.email[0]);
 		});
 }
 
@@ -38,8 +38,7 @@ async function usernameEdit(username_request) {
 			return response.data;
 		})
 		.catch((error) => {
-			console.log(error);
-			return Promise.reject('Некорректный логин.');
+			return Promise.reject(error.response.data);
 		});
 }
 

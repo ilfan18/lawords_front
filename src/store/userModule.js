@@ -33,9 +33,16 @@ export const userModule = {
 			userEditServices.emailEdit(email).then(
 				(user) => {
 					dispatch('getUserInfo');
+					dispatch('alert/clear', null, { root: true });
 					dispatch('emailResendActivation', user.id);
 				},
-				(error) => {}
+				(error) => {
+					const alert = {
+						type: 'error',
+						message: error,
+					};
+					dispatch('alert/emailEditAlertSet', alert, { root: true });
+				}
 			);
 		},
 		emailConfirm({ commit, dispatch }, request) {
@@ -59,8 +66,17 @@ export const userModule = {
 			userEditServices.usernameEdit(username_request).then(
 				(user) => {
 					dispatch('getUserInfo');
+					dispatch('alert/clear', null, { root: true });
 				},
-				(error) => {}
+				(error) => {
+					const alert = {
+						new_username: error.new_username,
+						current_password: error.current_password,
+					};
+					dispatch('alert/usernameEditAlertSet', alert, {
+						root: true,
+					});
+				}
 			);
 		},
 		passwordEdit({ commit, dispatch }, { new_password, current_password }) {
