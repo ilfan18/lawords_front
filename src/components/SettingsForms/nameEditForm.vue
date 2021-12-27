@@ -11,6 +11,7 @@
                     placeholder="Введите имя"
                     :submitted="submitted"
                     class="settings-form__item"
+                    :errors="firstNameErrors"
                 />
                 <edit-form-input
                     v-model="lastName"
@@ -20,6 +21,7 @@
                     placeholder="Введите фамилию"
                     :submitted="submitted"
                     class="settings-form__item"
+                    :errors="lastNameErrors"
                 />
                 <button class="settings-form__button">Сохранить</button>
             </form>
@@ -28,6 +30,7 @@
 </template>
 
 <script>
+import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
 import editFormInput from './SettingsFormsComponents/editFormInput.vue';
 export default {
     components: { editFormInput },
@@ -38,6 +41,12 @@ export default {
             lastName: this.$store.state.user.user.last_name,
             submitted: false
         }
+    },
+    computed: {
+        ...mapState({
+            firstNameErrors: state => state.alert.first_name,
+            lastNameErrors: state => state.alert.last_name,
+        }),
     },
     methods: {
         handleNameSubmit() {

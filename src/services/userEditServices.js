@@ -28,52 +28,6 @@ async function emailEdit(email) {
 		});
 }
 
-async function usernameEdit(username_request) {
-	const requestUrl = process.env.VUE_APP_API_URL + 'users/me/set_username/';
-	const headers = await authHeader();
-	const requestBody = username_request;
-	return axios
-		.post(requestUrl, requestBody, { headers: headers })
-		.then((response) => {
-			return response.data;
-		})
-		.catch((error) => {
-			return Promise.reject(error.response.data);
-		});
-}
-
-async function passwordEdit(new_password, current_password) {
-	// ! Исправить url
-	const requestUrl = process.env.VUE_APP_API_URL + 'users/me/set_password/';
-	const headers = await authHeader();
-	const requestBody = {
-		new_password: new_password,
-		current_password: current_password,
-	};
-	return axios
-		.post(requestUrl, requestBody, { headers: headers })
-		.then((response) => {
-			return response.data;
-		})
-		.catch((error) => {
-			return Promise.reject(error.response.data);
-		});
-}
-async function userPropertyEdit(property) {
-	const requestUrl = process.env.VUE_APP_API_URL + 'users/me/';
-	const headers = await authHeader();
-	const requestBody = property;
-	return axios
-		.patch(requestUrl, requestBody, { headers: headers })
-		.then((response) => {
-			return response.data;
-		})
-		.catch((error) => {
-			console.log(error);
-			return Promise.reject('Неверное свойство.');
-		});
-}
-
 function emailConfirm(request) {
 	const requestUrl = process.env.VUE_APP_API_URL + 'users/activate/';
 	const requestBody = request;
@@ -103,6 +57,51 @@ function emailResendActivation(uid) {
 		});
 }
 
+async function usernameEdit(username_request) {
+	const requestUrl = process.env.VUE_APP_API_URL + 'users/me/set_username/';
+	const headers = await authHeader();
+	const requestBody = username_request;
+	return axios
+		.post(requestUrl, requestBody, { headers: headers })
+		.then((response) => {
+			return response.data;
+		})
+		.catch((error) => {
+			return Promise.reject(error.response.data);
+		});
+}
+
+async function passwordEdit(new_password, current_password) {
+	const requestUrl = process.env.VUE_APP_API_URL + 'users/me/set_password/';
+	const headers = await authHeader();
+	const requestBody = {
+		new_password: new_password,
+		current_password: current_password,
+	};
+	return axios
+		.post(requestUrl, requestBody, { headers: headers })
+		.then((response) => {
+			return response.data;
+		})
+		.catch((error) => {
+			return Promise.reject(error.response.data);
+		});
+}
+
+async function userPropertyEdit(property) {
+	const requestUrl = process.env.VUE_APP_API_URL + 'users/me/';
+	const headers = await authHeader();
+	const requestBody = property;
+	return axios
+		.patch(requestUrl, requestBody, { headers: headers })
+		.then((response) => {
+			return response.data;
+		})
+		.catch((error) => {
+			return Promise.reject(error.response.data);
+		});
+}
+
 async function imageEdit(imageFile, onProgress) {
 	const requestUrl = process.env.VUE_APP_API_URL + 'users/me/';
 	const headers = await authHeader();
@@ -128,6 +127,6 @@ async function imageEdit(imageFile, onProgress) {
 		})
 		.catch((error) => {
 			console.log(error);
-			return Promise.reject('Неверное свойство.');
+			return Promise.reject(error.response.data);
 		});
 }

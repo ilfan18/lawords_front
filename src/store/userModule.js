@@ -83,6 +83,7 @@ export const userModule = {
 			userEditServices.passwordEdit(new_password, current_password).then(
 				(user) => {
 					dispatch('getUserInfo');
+					dispatch('alert/clear', null, { root: true });
 				},
 				(error) => {
 					const alert = {
@@ -99,8 +100,24 @@ export const userModule = {
 			userEditServices.userPropertyEdit(property).then(
 				(user) => {
 					dispatch('getUserInfo');
+					dispatch('alert/clear', null, { root: true });
 				},
-				(error) => {}
+				(error) => {
+					if (error.first_name) {
+						dispatch(
+							'alert/firstNameEditAlertSet',
+							error.first_name,
+							{ root: true }
+						);
+					} else if (error.last_name) {
+						print('fsdf');
+						dispatch(
+							'alert/lastNameEditAlertSet',
+							error.last_name,
+							{ root: true }
+						);
+					}
+				}
 			);
 		},
 		imageEdit({ commit, dispatch }, { imageFile, onProgress }) {

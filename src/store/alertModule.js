@@ -12,6 +12,8 @@ export const alertModule = {
 			new_password: null,
 			current_password: null,
 		},
+		first_name: null,
+		last_name: null,
 	},
 	actions: {
 		success({ commit }, message) {
@@ -31,6 +33,12 @@ export const alertModule = {
 		},
 		passwordEditAlertSet({ commit }, alert) {
 			commit('passwordEditAlertSet', alert);
+		},
+		firstNameEditAlertSet({ commit }, alert) {
+			commit('firstNameEditAlertSet', alert);
+		},
+		lastNameEditAlertSet({ commit }, alert) {
+			commit('lastNameEditAlertSet', alert);
 		},
 	},
 	mutations: {
@@ -59,6 +67,12 @@ export const alertModule = {
 		},
 		passwordEditAlertSet(state, alert) {
 			state.password_edit = alert;
+		},
+		firstNameEditAlertSet(state, alert) {
+			state.first_name = alert;
+		},
+		lastNameEditAlertSet(state, alert) {
+			state.last_name = alert;
 		},
 	},
 };
