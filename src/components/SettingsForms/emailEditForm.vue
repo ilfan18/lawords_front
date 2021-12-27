@@ -12,6 +12,7 @@
                     :submitted="submitted"
                     :errors="emailError"
                     class="settings-form__item"
+                    :required="true"
                 />
                 <button class="settings-form__button">Сохранить</button>
             </form>

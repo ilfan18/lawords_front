@@ -11,6 +11,8 @@
                 :placeholder="placeholder"
                 class="password-input__input"
                 :class="{ 'is-invalid': submitted && !modelValue }"
+                additionalProps
+                :required="required"
             />
             <vue-feather
                 @click="togglePassword"
@@ -63,7 +65,11 @@ export default {
         errors: {
             type: Array,
         },
-        modelValue: [String, Number]
+        modelValue: [String, Number],
+        required: {
+            type: Boolean,
+            default: false
+        }
     },
     data() {
         return {

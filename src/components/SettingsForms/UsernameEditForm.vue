@@ -12,6 +12,7 @@
                     :submitted="submitted"
                     class="settings-form__item"
                     :errors="newUsernameErrors"
+                    :required="true"
                 />
                 <edit-form-input
                     v-model="password"
@@ -22,6 +23,7 @@
                     :submitted="submitted"
                     class="settings-form__item"
                     :errors="passwordErrors"
+                    :required="true"
                 />
                 <button class="settings-form__button">Сохранить</button>
             </form>

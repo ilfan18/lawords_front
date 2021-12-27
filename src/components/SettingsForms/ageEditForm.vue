@@ -11,6 +11,9 @@
                     placeholder="Введите возраст"
                     :submitted="submitted"
                     class="settings-form__item"
+                    min="1"
+                    max="100"
+                    :required="true"
                 />
                 <button class="settings-form__button">Сохранить</button>
             </form>

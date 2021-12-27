@@ -12,6 +12,7 @@
                     :submitted="submitted"
                     class="settings-form__item"
                     :errors="newPasswordErrors"
+                    :required="true"
                 />
                 <edit-form-input
                     v-model="reNewPassword"
@@ -22,6 +23,7 @@
                     :submitted="submitted"
                     class="settings-form__item"
                     :errors="reNewPasswordErrors"
+                    :required="true"
                 />
                 <edit-form-input
                     v-model="currentPassword"
@@ -32,6 +34,7 @@
                     :submitted="submitted"
                     class="settings-form__item"
                     :errors="currentPasswordErrors"
+                    :required="true"
                 />
                 <button class="settings-form__button">Сохранить</button>
             </form>
