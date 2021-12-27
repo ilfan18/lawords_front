@@ -11,6 +11,7 @@
                     placeholder="Введите пароль"
                     :submitted="submitted"
                     class="settings-form__item"
+                    :errors="newPasswordErrors"
                 />
                 <edit-form-input
                     v-model="reNewPassword"
@@ -20,6 +21,7 @@
                     placeholder="Введите пароль"
                     :submitted="submitted"
                     class="settings-form__item"
+                    :errors="reNewPasswordErrors"
                 />
                 <edit-form-input
                     v-model="currentPassword"
@@ -29,6 +31,7 @@
                     placeholder="Введите пароль"
                     :submitted="submitted"
                     class="settings-form__item"
+                    :errors="currentPasswordErrors"
                 />
                 <button class="settings-form__button">Сохранить</button>
             </form>
@@ -37,6 +40,7 @@
 </template>
 
 <script>
+import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
 import editFormInput from './SettingsFormsComponents/editFormInput.vue';
 export default {
     components: { editFormInput },
@@ -46,8 +50,15 @@ export default {
             newPassword: '',
             reNewPassword: '',
             currentPassword: '',
+            reNewPasswordErrors: [],
             submitted: false
         }
+    },
+    computed: {
+        ...mapState({
+            newPasswordErrors: state => state.alert.password_edit.new_password,
+            currentPasswordErrors: state => state.alert.password_edit.current_password,
+        }),
     },
     methods: {
         handlePasswordSubmit() {
@@ -55,6 +66,8 @@ export default {
             if (this.newPassword == this.reNewPassword) {
                 const passwords = { new_password: this.newPassword, current_password: this.currentPassword }
                 this.$store.dispatch('user/passwordEdit', passwords);
+            } else {
+                this.reNewPasswordErrors.push('Новый пароль не совпадает.')
             }
         }
     },

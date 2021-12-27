@@ -44,7 +44,7 @@ async function usernameEdit(username_request) {
 
 async function passwordEdit(new_password, current_password) {
 	// ! Исправить url
-	const requestUrl = process.env.VUE_APP_API_URL + 'auth/users/set_password/';
+	const requestUrl = process.env.VUE_APP_API_URL + 'users/me/set_password/';
 	const headers = await authHeader();
 	const requestBody = {
 		new_password: new_password,
@@ -56,8 +56,7 @@ async function passwordEdit(new_password, current_password) {
 			return response.data;
 		})
 		.catch((error) => {
-			console.log(error);
-			return Promise.reject('Некорректный пароль.');
+			return Promise.reject(error.response.data);
 		});
 }
 async function userPropertyEdit(property) {

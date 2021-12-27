@@ -27,7 +27,13 @@
                 stroke="#9FA2B4"
             ></vue-feather>
         </div>
-        <div v-for="(error, index) in errors" :key="index" class="password-input__error">{{ error }}</div>
+        <div class="password-input__errors-list">
+            <div
+                v-for="(error, index) in errors"
+                :key="index"
+                class="password-input__error-item"
+            >{{ error }}</div>
+        </div>
     </div>
 </template>
 
@@ -123,7 +129,7 @@ export default {
         }
     }
 
-    &__error {
+    &__error-item {
         margin-left: 15px;
         color: #f05555;
         font-size: 12px;

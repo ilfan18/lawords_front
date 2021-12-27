@@ -84,7 +84,15 @@ export const userModule = {
 				(user) => {
 					dispatch('getUserInfo');
 				},
-				(error) => {}
+				(error) => {
+					const alert = {
+						new_password: error.new_password,
+						current_password: error.current_password,
+					};
+					dispatch('alert/passwordEditAlertSet', alert, {
+						root: true,
+					});
+				}
 			);
 		},
 		userPropertyEdit({ commit, dispatch }, property) {
