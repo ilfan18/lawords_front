@@ -39,6 +39,14 @@ export default {
             courseInfo: state => state.ui.courseInfo
         })
     },
+    watch: {
+        $route(to, from) {
+            // hide right panel on location change
+            this.$store.dispatch('ui/hideRightPanel');
+            this.courseInfoIsVisible = true
+            this.lessonsListIsVisible = false
+        }
+    },
     methods: {
         showLessonsList() {
             this.courseInfoIsVisible = false

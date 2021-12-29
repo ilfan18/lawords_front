@@ -29,12 +29,6 @@ export default {
             return this.$store.state.ui.theme == 'light' ? '' : 'dark-theme';
         }
     },
-    watch: {
-        $route(to, from) {
-            // hide right panel on location change
-            this.$store.dispatch('ui/hideRightPanel');
-        }
-    },
     mounted() {
         this.getUserInfo()
     },
