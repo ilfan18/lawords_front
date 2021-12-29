@@ -1,6 +1,5 @@
 import axios from 'axios';
-import { authHeader } from '@/helpers';
-
+import { coursesSirvices } from '@/services';
 export const coursesModule = {
 	namespaced: true,
 	state: () => ({
@@ -8,17 +7,15 @@ export const coursesModule = {
 		isCoursesLoding: false,
 	}),
 	actions: {
-		async fetchCourses({ state, commit }) {
+		fetchCourses({ state, commit }) {
 			commit('coursesLoding', true);
-			const headers = await authHeader();
-			const response = await axios.get(
-				process.env.VUE_APP_API_URL + 'api/v1/courses/',
-				{
-					headers: headers,
-				}
+			coursesSirvices.getCoursesList().then(
+				(data) => {
+					commit('coursesLoding', false);
+					commit('setCourses', data);
+				},
+				(error) => {}
 			);
-			commit('coursesLoding', false);
-			commit('setCourses', response.data);
 		},
 	},
 	mutations: {
