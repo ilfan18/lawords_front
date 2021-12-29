@@ -15,7 +15,7 @@
 
 <script>
 export default {
-    name: 'settings-page-loader',
+    name: 'page-loader',
 }
 </script>
 

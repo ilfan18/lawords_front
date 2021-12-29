@@ -8,14 +8,14 @@
             <name-edit-form />
             <age-edit-form />
         </div>
-        <settings-page-loader v-else />
+        <page-loader v-else />
     </div>
 </template>
 
 <script>
 import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
 import VHeader from '@/components/VHeader.vue'
-import SettingsPageLoader from '@/components/Loaders/SettingsPageLoader.vue'
+import PageLoader from '@/components/Loaders/PageLoader.vue'
 import NameEditForm from '@/components/SettingsForms/NameEditForm.vue'
 import UsernameEditForm from '@/components/SettingsForms/UsernameEditForm.vue'
 import PasswordEditForm from '@/components/SettingsForms/PasswordEditForm.vue'
@@ -29,7 +29,7 @@ export default {
         PasswordEditForm,
         EmailEditForm,
         AgeEditForm,
-        SettingsPageLoader,
+        PageLoader,
     },
     computed: {
         ...mapState({
