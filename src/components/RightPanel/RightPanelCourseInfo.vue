@@ -44,10 +44,10 @@
             <div class="course-info__info-txt">Уроков: {{ course.lessons.length }}</div>
         </div>
         <button @click.prevent="showLessonsList" class="course-info__all-lessons">Перейти к урокам</button>
-        <button class="course-info__continue">
+        <router-link :to="activeLessonUrl" class="course-info__continue">
             <vue-feather type="play-circle" size="24" stroke="#FFFFFF" />
             <span>Продолжить урок</span>
-        </button>
+        </router-link>
     </div>
     <course-info-skeleton v-else />
 </template>
@@ -68,6 +68,24 @@ export default {
         ...mapState({
             isCoursesLoading: state => state.courses.isCoursesLoding,
         }),
+        lessons() {
+            return this.course.lessons
+        },
+        userLessons() {
+            return this.$store.state.user.user.lessons
+        },
+        activeLesson() {
+            let activeLessonIndex = null
+            this.lessons.forEach((element, index) => {
+                if (this.userLessons.includes(element.id)) {
+                    activeLessonIndex = index
+                }
+            });
+            return this.lessons[activeLessonIndex + 1]
+        },
+        activeLessonUrl() {
+            return '/lessons/' + this.activeLesson.id
+        },
         stroke() {
             return this.$store.state.ui.theme == 'light' ? '#272727' : '#FFFFFF';
         }
@@ -225,6 +243,7 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
+        text-decoration: none;
         span {
             margin-left: 14px;
         }
