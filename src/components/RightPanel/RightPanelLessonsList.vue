@@ -36,12 +36,19 @@ export default {
             })
         },
         lessons() {
-
             return this.course.lessons
         },
+        // user_courses() {
+        //     return this.$store.state.user.user.courses
+        // },
+        // lessons_done() {
+        //     return this.user_courses.find((item) => {
+        //         return item.id == this.course_id
+        //     })
+        // },
         stroke() {
             return this.$store.state.ui.theme == 'light' ? '#272727' : '#FFFFFF';
-        }
+        },
     },
     methods: {
         goToCourseInfo() {
@@ -92,6 +99,9 @@ export default {
         display: flex;
         align-items: center;
         color: #262626;
+        .done {
+            background: #bbfab1;
+        }
     }
     &__num {
         margin-right: 17px;
