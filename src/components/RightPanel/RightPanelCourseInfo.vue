@@ -85,6 +85,7 @@ export default {
 
 <style lang="scss" scoped>
 .course-info {
+    width: 370px;
     padding: 35px 30px;
     transition: opacity 0.2s linear;
     &__header {

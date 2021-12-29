@@ -68,6 +68,7 @@ export default {
 .lessons-list {
     padding: 35px 30px;
     transition: opacity 0.2s linear;
+    width: 370px;
     &__header {
         display: flex;
         align-items: center;

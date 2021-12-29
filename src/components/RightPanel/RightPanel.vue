@@ -64,7 +64,8 @@ export default {
 .right-panel {
     flex: 0 0 370px;
     background: var(--background-primary);
-    overflow-x: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
     transition: flex 0.3s linear;
     &.visible {
         flex: 0 0 370px;
