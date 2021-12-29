@@ -1,4 +1,4 @@
-import setCookie from './setCookie';
+import { setCookie } from '@/helpers';
 
 export function deleteCookie(name) {
 	setCookie(name, '', {
