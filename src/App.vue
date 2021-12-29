@@ -29,7 +29,7 @@ export default {
             return this.$store.state.ui.theme == 'light' ? '' : 'dark-theme';
         }
     },
-    mounted() {
+    beforeMount() {
         this.getUserInfo()
     },
     methods: {

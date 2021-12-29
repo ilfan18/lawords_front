@@ -5,7 +5,7 @@ export const userModule = {
 	namespaced: true,
 	state: {
 		user: {
-			age: null,
+			age: '',
 			courses: [],
 			image: '',
 			level: '',

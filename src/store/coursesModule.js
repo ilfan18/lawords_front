@@ -5,8 +5,8 @@ export const coursesModule = {
 	state: () => ({
 		courses_list: [],
 		currentLesson: null,
-		isCoursesLoding: false,
-		isLessonLoading: false,
+		isCoursesLoding: null,
+		isLessonLoading: null,
 	}),
 	actions: {
 		fetchCourses({ state, commit }) {
@@ -20,9 +20,10 @@ export const coursesModule = {
 			);
 		},
 		fetchLesson({ state, commit }, lessonId) {
+			commit('lessonLoding', true);
 			coursesSirvices.getLesson(lessonId).then(
 				(data) => {
-					commit('coursesLoding', false);
+					commit('lessonLoding', false);
 					commit('setCurrentLesson', data);
 				},
 				(error) => {}

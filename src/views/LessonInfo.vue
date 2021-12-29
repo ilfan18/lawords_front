@@ -18,13 +18,12 @@ export default {
     computed: {
         ...mapState({
             isLessonLoading: state => state.courses.isLessonLoading,
-
         }),
         lesson() {
             return this.$store.state.courses.currentLesson
         }
     },
-    mounted() {
+    beforeMount() {
         this.fetchLesson(this.$route.params.lessonId)
     },
     methods: {
