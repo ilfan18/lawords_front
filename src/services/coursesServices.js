@@ -3,7 +3,7 @@ import { authHeader } from '@/helpers';
 
 export const coursesSirvices = {
 	getCoursesList,
-	getLessonsOfCourse,
+	getLesson,
 };
 
 async function getCoursesList() {
@@ -19,9 +19,9 @@ async function getCoursesList() {
 		});
 }
 
-async function getLessonsOfCourse(course_id) {
+async function getLesson(lessonId) {
 	const requestUrl =
-		process.env.VUE_APP_API_URL + 'api/v1/lesson/' + course_id + '/';
+		process.env.VUE_APP_API_URL + 'api/v1/lessons/' + lessonId + '/';
 	const headers = await authHeader();
 	return axios
 		.get(requestUrl, { headers: headers })

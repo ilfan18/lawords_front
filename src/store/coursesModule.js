@@ -4,7 +4,9 @@ export const coursesModule = {
 	namespaced: true,
 	state: () => ({
 		courses_list: [],
+		currentLesson: null,
 		isCoursesLoding: false,
+		isLessonLoading: false,
 	}),
 	actions: {
 		fetchCourses({ state, commit }) {
@@ -17,13 +19,28 @@ export const coursesModule = {
 				(error) => {}
 			);
 		},
+		fetchLesson({ state, commit }, lessonId) {
+			coursesSirvices.getLesson(lessonId).then(
+				(data) => {
+					commit('coursesLoding', false);
+					commit('setCurrentLesson', data);
+				},
+				(error) => {}
+			);
+		},
 	},
 	mutations: {
 		setCourses(state, courses) {
 			state.courses_list = courses;
 		},
+		setCurrentLesson(state, lesson) {
+			state.currentLesson = lesson;
+		},
 		coursesLoding(state, isLoading) {
 			state.isCoursesLoding = isLoading;
+		},
+		lessonLoding(state, isLoading) {
+			state.isLessonLoading = isLoading;
 		},
 	},
 };

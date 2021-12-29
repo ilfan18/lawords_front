@@ -1,19 +1,25 @@
 <template>
     <li class="lessons-list-item">
-        <a
-            @click.prevent="goToLesson"
+        <router-link
+            v-if="isDone || isActive"
+            :to="lessonUrl"
             class="lessons-list-item__link"
             :class="{ done: isDone, active: isActive }"
-            href="#"
         >
             <span class="lessons-list-item__num">{{ index + 1 }}.</span>
             <span class="lessons-list-item__name">{{ lesson.name }}</span>
             <span class="lessons-list-item__icon">
                 <vue-feather v-if="isDone" size="24" type="check-circle" stroke="#5CBC6B" />
                 <vue-feather v-else-if="isActive" size="24" type="clock" stroke="#A8A8A8" />
-                <vue-feather v-else size="24" type="x-circle" stroke="#A8A8A8" />
             </span>
-        </a>
+        </router-link>
+        <div v-else class="lessons-list-item__link" :class="{ done: isDone, active: isActive }">
+            <span class="lessons-list-item__num">{{ index + 1 }}.</span>
+            <span class="lessons-list-item__name">{{ lesson.name }}</span>
+            <span class="lessons-list-item__icon">
+                <vue-feather size="24" type="x-circle" stroke="#A8A8A8" />
+            </span>
+        </div>
     </li>
 </template>
 
@@ -38,15 +44,11 @@ export default {
             required: true
         },
     },
-    methods: {
-        goToLesson() {
-            if (this.isActive) {
-                console.log('object');
-            } else if (this.isDone) {
-                console.log('object1');
-            }
+    computed: {
+        lessonUrl() {
+            return '/lessons/' + this.lesson.id
         }
-    }
+    },
 }
 </script>
 
