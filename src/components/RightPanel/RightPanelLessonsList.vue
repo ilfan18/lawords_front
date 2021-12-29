@@ -12,6 +12,8 @@
                 :key="index"
                 :lesson="lesson"
                 :index="index"
+                :is-done="isLessonDone(lesson.id)"
+                :is-active="isLessonActive(lesson.id)"
             />
         </ul>
     </div>
@@ -35,14 +37,14 @@ export default {
         userLessons() {
             return this.$store.state.user.user.lessons
         },
-        lessonsDone() {
-            const lessonsDone = []
-            this.lessons.forEach(element => {
+        activeLesson() {
+            let activeLessonIndex = null
+            this.lessons.forEach((element, index) => {
                 if (this.userLessons.includes(element.id)) {
-                    lessonsDone.push(element)
+                    activeLessonIndex = index
                 }
             });
-            return lessonsDone
+            return this.lessons[activeLessonIndex + 1]
         },
         stroke() {
             return this.$store.state.ui.theme == 'light' ? '#272727' : '#FFFFFF';
@@ -52,6 +54,12 @@ export default {
         goToCourseInfo() {
             this.$emit('goToCourseInfo')
         },
+        isLessonDone(lessonId) {
+            return this.userLessons.includes(lessonId)
+        },
+        isLessonActive(lessonId) {
+            return this.activeLesson.id == lessonId
+        }
     }
 }
 </script>

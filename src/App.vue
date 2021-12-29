@@ -80,20 +80,24 @@ body {
     --background-primary: #ffffff;
     --background-secandary: #f8f8f8;
     --background-third: #f5f5f5;
+    --background-fourth: #efefef;
     --border-first: #e6e6e6;
     --text-primary: #000000;
     --text-second: #737373;
     --text-third: #2e2e2e;
+    --text-fourth: #272727;
     --scrollbar-color: #ededed;
     --nav-item-round: #ececec;
     &.dark-theme {
         --background-primary: #1c1c1c;
         --background-secandary: #000000;
         --background-third: #303030;
+        --background-fourth: #000000;
         --border-first: #3a3a3a;
         --text-primary: #ffffff;
         --text-second: #737373;
         --text-third: #b8b8b8;
+        --text-fourth: #ffffff;
         --scrollbar-color: #5b5b5b;
         --nav-item-round: #101010;
     }
