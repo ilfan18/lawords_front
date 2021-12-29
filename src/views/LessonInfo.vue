@@ -3,7 +3,7 @@
         <v-header>Текущий курс</v-header>
         <div class="lesson-info__content">
             <div class="lesson-info__top"></div>
-            <div class="lesson-info__bottom"></div>
+            <div v-html="lesson.main_text" class="lesson-info__bottom"></div>
         </div>
     </div>
 </template>
