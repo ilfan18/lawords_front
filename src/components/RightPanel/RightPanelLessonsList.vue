@@ -7,45 +7,43 @@
             <div class="lessons-list__title">Все уроки</div>
         </div>
         <ul class="lessons-list__list">
-            <li v-for="(lesson, index) in lessons" :key="index" class="lessons-list__item">
-                <a class="lessons-list__link" href="#">
-                    <span class="lessons-list__num">{{ index + 1 }}.</span>
-                    <span class="lessons-list__name">{{ lesson.name }}</span>
-                    <span class="lessons-list__icon">
-                        <vue-feather size="24" type="check-circle" stroke="#5CBC6B" />
-                    </span>
-                </a>
-            </li>
+            <right-panel-lessons-list-item
+                v-for="(lesson, index) in lessons"
+                :key="index"
+                :lesson="lesson"
+                :index="index"
+            />
         </ul>
     </div>
 </template>
 
 <script>
+import RightPanelLessonsListItem from './RightPanelLessonsListItem.vue'
 export default {
+    components: { RightPanelLessonsListItem },
     name: 'right-panel-course-info',
     props: {
-        course_id: {
-            type: Number,
+        course: {
+            type: Object,
             required: true
         }
     },
     computed: {
-        course() {
-            return this.$store.state.courses.courses_list.find((item) => {
-                return item.id == this.course_id
-            })
-        },
         lessons() {
             return this.course.lessons
         },
-        // user_courses() {
-        //     return this.$store.state.user.user.courses
-        // },
-        // lessons_done() {
-        //     return this.user_courses.find((item) => {
-        //         return item.id == this.course_id
-        //     })
-        // },
+        userLessons() {
+            return this.$store.state.user.user.lessons
+        },
+        lessonsDone() {
+            const lessonsDone = []
+            this.lessons.forEach(element => {
+                if (this.userLessons.includes(element.id)) {
+                    lessonsDone.push(element)
+                }
+            });
+            return lessonsDone
+        },
         stroke() {
             return this.$store.state.ui.theme == 'light' ? '#272727' : '#FFFFFF';
         },
@@ -53,7 +51,7 @@ export default {
     methods: {
         goToCourseInfo() {
             this.$emit('goToCourseInfo')
-        }
+        },
     }
 }
 </script>
@@ -83,34 +81,6 @@ export default {
     }
     &__list {
         list-style: none;
-    }
-
-    &__item {
-        margin-bottom: 20px;
-    }
-    &__link {
-        text-decoration: none;
-        padding: 17px 20px;
-        font-weight: 500;
-        font-size: 18px;
-        line-height: 22px;
-        background: #bbfab1;
-        border-radius: 10px;
-        display: flex;
-        align-items: center;
-        color: #262626;
-        .done {
-            background: #bbfab1;
-        }
-    }
-    &__num {
-        margin-right: 17px;
-    }
-    &__name {
-    }
-    &__icon {
-        display: flex;
-        margin-left: auto;
     }
 }
 </style>

@@ -59,8 +59,8 @@ export default {
     components: { CourseInfoSkeleton },
     name: 'right-panel-course-info',
     props: {
-        course_id: {
-            type: Number,
+        course: {
+            type: Object,
             required: true
         }
     },
@@ -68,11 +68,6 @@ export default {
         ...mapState({
             isCoursesLoading: state => state.courses.isCoursesLoding,
         }),
-        course() {
-            return this.$store.state.courses.courses_list.find((item) => {
-                return item.id == this.course_id
-            })
-        },
         stroke() {
             return this.$store.state.ui.theme == 'light' ? '#272727' : '#FFFFFF';
         }

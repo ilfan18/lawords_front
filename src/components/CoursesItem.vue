@@ -1,6 +1,6 @@
 <template>
     <li
-        @click="showRightPanel(course.id)"
+        @click="showRightPanel(course)"
         class="courses-item"
         :class="[{ 'not-active': !is_active }, theme]"
     >
@@ -57,10 +57,10 @@ export default {
         },
     },
     methods: {
-        showRightPanel(course_id) {
+        showRightPanel(course) {
             if (this.is_active) {
                 this.$store.dispatch('ui/showRightPanel')
-                this.$store.dispatch('ui/showCourseInfo', course_id)
+                this.$store.dispatch('ui/showCourseInfo', course)
             }
 
         }

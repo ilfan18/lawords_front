@@ -5,7 +5,7 @@
                 <right-panel-course-info
                     v-on:show-lessons-list="showLessonsList"
                     v-if="courseInfoIsVisible"
-                    :course_id="CourseInfoId"
+                    :course="courseInfo"
                 />
             </transition>
 
@@ -13,7 +13,7 @@
                 <right-panel-lessons-list
                     v-on:go-to-course-info="goToCourseInfo"
                     v-if="lessonsListIsVisible"
-                    :course_id="CourseInfoId"
+                    :course="courseInfo"
                 />
             </transition>
         </div>
@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
 import RightPanelCourseInfo from './RightPanelCourseInfo.vue'
 import RightPanelLessonsList from './RightPanelLessonsList.vue';
 export default {
@@ -33,12 +34,10 @@ export default {
         }
     },
     computed: {
-        isVisible() {
-            return this.$store.state.ui.rightPanelVisible;
-        },
-        CourseInfoId() {
-            return this.$store.state.ui.courseInfoId;
-        },
+        ...mapState({
+            isVisible: state => state.ui.rightPanelVisible,
+            courseInfo: state => state.ui.courseInfo
+        })
     },
     methods: {
         showLessonsList() {
