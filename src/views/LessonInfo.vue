@@ -4,7 +4,7 @@
         <div v-if="!isLessonLoading" class="lesson-info__content">
             <div class="lesson-info__top">
                 <div class="lesson-info__left">
-                    <div v-html="lesson.top_text" class="lesson-info__top-text"></div>
+                    <div v-html="lesson.top_text" class="lesson-info__top-text text"></div>
                 </div>
                 <div class="lesson-info__right">
                     <div class="lesson-info__cover">
@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="lesson-info__bottom">
-                <div v-html="lesson.main_text" class="lesson-info__main-text"></div>
+                <div v-html="lesson.main_text" class="lesson-info__main-text text"></div>
             </div>
         </div>
         <page-loader v-else />
@@ -54,7 +54,7 @@ export default {
 }
 </script>
 
-<style  lang="scss" scoped>
+<style  lang="scss">
 .lesson-info {
     &__content {
         font-size: 18px;
@@ -64,24 +64,25 @@ export default {
 
     &__top {
         display: flex;
+        justify-content: space-between;
         margin-bottom: 50px;
     }
 
     &__left {
-        margin-right: 100px;
-        flex: 1 1 100%;
+        flex: 1 1 400px;
+        margin-right: 90px;
     }
 
     &__top-text {
     }
 
     &__right {
-        flex: 0 0 450px;
+        flex: 1 1 450px;
     }
 
     &__cover {
-        width: 455px;
-        height: 320px;
+        width: 100%;
+        aspect-ratio: 16/10;
         font-size: 0;
         overflow: hidden;
         border-radius: 20px;

@@ -114,4 +114,15 @@ button {
         border-radius: 10px;
     }
 }
+.text {
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    ul,
+    ol {
+        margin-bottom: 15px;
+    }
+}
 </style>
