@@ -46,13 +46,13 @@ const routes = [
 	},
 	{
 		path: '/cofirm-info',
-		name: 'ConfirmInfo',
-		component: () => import('@/views/ConfirmInfo.vue'),
+		name: 'ConfirmInfoPage',
+		component: () => import('@/views/ConfirmInfoPage.vue'),
 	},
 	{
 		path: '/activate/:uid/:token',
-		name: 'Confirm',
-		component: () => import('@/views/Confirm.vue'),
+		name: 'ConfirmPage',
+		component: () => import('@/views/ConfirmPage.vue'),
 	},
 ];
 
