@@ -16,6 +16,7 @@
                     :course="courseInfo"
                 />
             </transition>
+            <right-panel-exercise-info />
         </div>
     </transition>
 </template>
@@ -24,13 +25,15 @@
 import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
 import RightPanelCourseInfo from './RightPanelCourseInfo.vue'
 import RightPanelLessonsList from './RightPanelLessonsList.vue';
+import RightPanelExerciseInfo from './RightPanelExerciseInfo.vue';
 export default {
     name: "right-panel",
-    components: { RightPanelCourseInfo, RightPanelLessonsList },
+    components: { RightPanelCourseInfo, RightPanelLessonsList, RightPanelExerciseInfo },
     data() {
         return {
-            courseInfoIsVisible: true,
-            lessonsListIsVisible: false
+            courseInfoIsVisible: false,
+            lessonsListIsVisible: false,
+            exerciseInfoIsVisible: false
         }
     },
     computed: {
@@ -45,6 +48,7 @@ export default {
             this.$store.dispatch('ui/hideRightPanel');
             this.courseInfoIsVisible = true
             this.lessonsListIsVisible = false
+            this.exerciseInfoIsVisible = false
         }
     },
     methods: {

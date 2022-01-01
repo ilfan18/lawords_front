@@ -62,7 +62,6 @@ export default {
                 this.$store.dispatch('ui/showRightPanel')
                 this.$store.dispatch('ui/showCourseInfo', course)
             }
-
         }
     }
 }
