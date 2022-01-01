@@ -60,7 +60,8 @@ export default {
         showRightPanel(course) {
             if (this.is_active) {
                 this.$store.dispatch('ui/showRightPanel')
-                this.$store.dispatch('ui/showCourseInfo', course)
+                this.$store.dispatch('ui/showRightPanelCourseInfo')
+                this.$store.dispatch('ui/setCourseInfo', course)
             }
         }
     }

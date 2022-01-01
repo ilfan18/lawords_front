@@ -31,34 +31,32 @@ export default {
     components: { RightPanelCourseInfo, RightPanelLessonsList, RightPanelExerciseInfo },
     data() {
         return {
-            courseInfoIsVisible: false,
-            lessonsListIsVisible: false,
-            exerciseInfoIsVisible: false
         }
     },
     computed: {
         ...mapState({
             isVisible: state => state.ui.rightPanelVisible,
-            courseInfo: state => state.ui.courseInfo
+            courseInfo: state => state.ui.courseInfo,
+            courseInfoIsVisible: state => state.ui.rightPanelCourseInfoVisible,
+            lessonsListIsVisible: state => state.ui.rightPanelLessonsListVisible,
+            exerciseInfoIsVisible: state => state.ui.rightPanelExerciseInfoVisible
         })
     },
     watch: {
         $route(to, from) {
             // hide right panel on location change
             this.$store.dispatch('ui/hideRightPanel');
-            this.courseInfoIsVisible = true
-            this.lessonsListIsVisible = false
-            this.exerciseInfoIsVisible = false
         }
     },
     methods: {
         showLessonsList() {
-            this.courseInfoIsVisible = false
-            this.lessonsListIsVisible = true
+            this.$store.dispatch('ui/hideRightPanelCourseInfo');
+            this.$store.dispatch('ui/showRightPanelLessonsList');
         },
         goToCourseInfo() {
-            this.courseInfoIsVisible = true
-            this.lessonsListIsVisible = false
+            console.log('object');
+            this.$store.dispatch('ui/showRightPanelCourseInfo');
+            this.$store.dispatch('ui/hideRightPanelLessonsList');
         }
     }
 }

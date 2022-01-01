@@ -5,6 +5,9 @@ export const UIModule = {
 	state: {
 		theme: default_theme,
 		rightPanelVisible: false,
+		rightPanelCourseInfoVisible: false,
+		rightPanelLessonsListVisible: false,
+		rightPanelExerciseInfoVisible: false,
 		uploadImageModalVisible: false,
 		courseInfo: null,
 	},
@@ -16,13 +19,31 @@ export const UIModule = {
 			commit('setTheme', theme);
 		},
 		showRightPanel({ commit }) {
-			commit('setRightPanel', true);
+			commit('showRightPanel');
 		},
 		hideRightPanel({ commit }) {
-			commit('setRightPanel', false);
+			commit('hideRightPanel');
 		},
-		showCourseInfo({ commit }, course) {
+		showRightPanelCourseInfo({ commit }) {
+			commit('setRightPanelCourseInfo', true);
+		},
+		hideRightPanelCourseInfo({ commit }) {
+			commit('setRightPanelCourseInfo', false);
+		},
+		setCourseInfo({ commit }, course) {
 			commit('setCourseInfo', course);
+		},
+		showRightPanelLessonsList({ commit }) {
+			commit('setRightPanelLessonsList', true);
+		},
+		hideRightPanelLessonsList({ commit }) {
+			commit('setRightPanelLessonsList', false);
+		},
+		showRightPanelExerciseInfo({ commit }) {
+			commit('setRightPanelExerciseInfo', true);
+		},
+		hideRightPanelExerciseInfo({ commit }) {
+			commit('setRightPanelExerciseInfo', false);
 		},
 		showUploadImageModal({ commit }) {
 			commit('setUploadImageModal', true);
@@ -35,11 +56,27 @@ export const UIModule = {
 		setTheme(state, theme) {
 			state.theme = theme;
 		},
-		setRightPanel(state, visibility) {
-			state.rightPanelVisible = visibility;
+		showRightPanel(state) {
+			state.rightPanelVisible = true;
+		},
+		hideRightPanel(state) {
+			state.rightPanelVisible = false;
+			state.rightPanelCourseInfoVisible = false;
+			state.rightPanelLessonsListVisible = false;
+			state.rightPanelExerciseInfoVisible = false;
+			state.courseInfo = false;
+		},
+		setRightPanelCourseInfo(state, visibility) {
+			state.rightPanelCourseInfoVisible = visibility;
 		},
 		setCourseInfo(state, course) {
 			state.courseInfo = course;
+		},
+		setRightPanelLessonsList(state, visibility) {
+			state.rightPanelLessonsListVisible = visibility;
+		},
+		showRightPanelExerciseInfo(state, visibility) {
+			state.rightPanelExerciseInfoVisible = visibility;
 		},
 		setUploadImageModal(state, visibility) {
 			state.uploadImageModalVisible = visibility;
