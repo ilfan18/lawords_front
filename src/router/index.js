@@ -26,7 +26,7 @@ const routes = [
 	},
 	{
 		path: '/lessons/:lessonId/',
-		name: 'LessonInfo',
+		name: 'LessonInfoPage',
 		component: () => import('@/views/LessonInfo.vue'),
 	},
 	{
