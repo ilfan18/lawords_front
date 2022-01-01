@@ -21,7 +21,7 @@
             <div class="lesson-info__bottom">
                 <div v-html="lesson.main_text" class="lesson-info__main-text text"></div>
                 <div class="lesson-info__to-exercise">
-                    <router-link to="exercise/" class="lesson-info__link">Пройти упражнение</router-link>
+                    <router-link to="/exercise" class="lesson-info__link">Пройти упражнение</router-link>
                 </div>
             </div>
         </div>

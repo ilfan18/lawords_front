@@ -25,9 +25,14 @@ const routes = [
 		component: () => import('@/views/CoursesPage.vue'),
 	},
 	{
-		path: '/lessons/:lessonId/',
+		path: '/lessons/:lessonId',
 		name: 'LessonInfoPage',
 		component: () => import('@/views/LessonInfoPage.vue'),
+	},
+	{
+		path: '/exercise',
+		name: 'ExercisePage',
+		component: () => import('@/views/ExercisePage.vue'),
 	},
 	{
 		path: '/profile',
