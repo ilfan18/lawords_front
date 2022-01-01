@@ -16,7 +16,7 @@
                     :course="courseInfo"
                 />
             </transition>
-            <right-panel-exercise-info />
+            <right-panel-exercise-info v-if="exerciseInfoIsVisible" />
         </div>
     </transition>
 </template>
@@ -54,7 +54,6 @@ export default {
             this.$store.dispatch('ui/showRightPanelLessonsList');
         },
         goToCourseInfo() {
-            console.log('object');
             this.$store.dispatch('ui/showRightPanelCourseInfo');
             this.$store.dispatch('ui/hideRightPanelLessonsList');
         }

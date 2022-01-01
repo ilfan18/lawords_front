@@ -1,6 +1,6 @@
 <template>
     <div class="exercise-info">
-        <div class="exercise-info__header"></div>
+        <div class="exercise-info__header">ГГВП</div>
         <div class="exercise-info__cover"></div>
         <div class="exercise-info__type"></div>
         <div class="exercise-info__result"></div>

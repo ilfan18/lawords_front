@@ -75,7 +75,7 @@ export const UIModule = {
 		setRightPanelLessonsList(state, visibility) {
 			state.rightPanelLessonsListVisible = visibility;
 		},
-		showRightPanelExerciseInfo(state, visibility) {
+		setRightPanelExerciseInfo(state, visibility) {
 			state.rightPanelExerciseInfoVisible = visibility;
 		},
 		setUploadImageModal(state, visibility) {
