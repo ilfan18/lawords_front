@@ -20,6 +20,9 @@
             </div>
             <div class="lesson-info__bottom">
                 <div v-html="lesson.main_text" class="lesson-info__main-text text"></div>
+                <div class="lesson-info__to-exercise">
+                    <router-link to="exercise/" class="lesson-info__link">Пройти упражнение</router-link>
+                </div>
             </div>
         </div>
         <page-loader v-else />
@@ -92,6 +95,24 @@ export default {
     }
 
     &__main-text {
+        margin-bottom: 50px;
+    }
+
+    &__to-exercise {
+        text-align: center;
+    }
+
+    &__link {
+        padding: 20px;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 19px;
+        color: #ffffff;
+        background: #fc8451;
+        border-radius: 10px;
+        text-decoration: none;
+        margin: 0 auto;
+        display: inline-block;
     }
 }
 </style>
