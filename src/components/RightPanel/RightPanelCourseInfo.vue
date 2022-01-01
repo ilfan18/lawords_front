@@ -231,9 +231,6 @@ export default {
     &__continue {
         width: 100%;
         padding: 20px;
-        background: none;
-        border: none;
-        cursor: pointer;
         font-weight: 600;
         font-size: 16px;
         line-height: 19px;
