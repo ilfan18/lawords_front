@@ -27,7 +27,7 @@ const routes = [
 	{
 		path: '/lessons/:lessonId/',
 		name: 'LessonInfoPage',
-		component: () => import('@/views/LessonInfo.vue'),
+		component: () => import('@/views/LessonInfoPage.vue'),
 	},
 	{
 		path: '/profile',
