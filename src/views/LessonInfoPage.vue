@@ -20,9 +20,10 @@
             </div>
             <div class="lesson-info__bottom">
                 <div v-html="lesson.main_text" class="lesson-info__main-text text"></div>
-                <div class="lesson-info__to-exercise">
+                <div v-if="isLessonActive" class="lesson-info__to-exercise">
                     <router-link to="/exercise" class="lesson-info__link">Пройти упражнение</router-link>
                 </div>
+                <div v-else class="lesson-info__done">Урок уже пройден!</div>
             </div>
         </div>
         <page-loader v-else />
@@ -38,12 +39,16 @@ export default {
     computed: {
         ...mapState({
             isLessonLoading: state => state.courses.isLessonLoading,
+            userLessons: state => state.user.user.lessons
         }),
         lesson() {
             return this.$store.state.courses.currentLesson
         },
         lessonName() {
             return this.isLessonLoading ? '' : this.$store.state.courses.currentLesson.name
+        },
+        isLessonActive() {
+            return !this.userLessons.includes(this.lesson.id)
         }
     },
     beforeMount() {
@@ -113,6 +118,12 @@ export default {
         text-decoration: none;
         margin: 0 auto;
         display: inline-block;
+    }
+    &__done {
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 29px;
+        text-align: center;
     }
 }
 </style>
