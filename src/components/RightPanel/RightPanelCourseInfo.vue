@@ -125,12 +125,9 @@ export default {
         height: 44px;
         border-radius: 10px;
         overflow: hidden;
-        margin-right: 5px;
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        margin-right: 15px;
+        padding: 6px;
+        background: var(--background-secandary);
     }
 
     &__title {
@@ -141,7 +138,7 @@ export default {
 
     &__cover {
         width: 300px;
-        max-height: 180px;
+        height: 180px;
         border-radius: 10px;
         overflow: hidden;
         margin-bottom: 10px;

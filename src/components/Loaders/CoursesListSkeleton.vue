@@ -12,7 +12,7 @@
                 </div>
                 <div class="courses-item__right">
                     <div class="courses-item__icon">
-                        <skeleton-loader width="48px" height="48px" radius="10px" />
+                        <skeleton-loader width="68px" height="68px" radius="15px" />
                     </div>
                 </div>
             </div>
@@ -42,7 +42,7 @@ export default {
     flex-wrap: wrap;
     margin: -13px -15px 0;
     padding-bottom: 17px;
-    max-height: 420px;
+    max-height: 430px;
     overflow-x: auto;
 }
 .courses-item {

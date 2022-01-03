@@ -107,15 +107,12 @@ export default {
     }
 
     &__icon {
-        width: 48px;
-        height: 48px;
-        border-radius: 10px;
+        width: 68px;
+        height: 68px;
+        border-radius: 15px;
         overflow: hidden;
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        padding: 10px;
+        background: var(--background-secandary);
     }
 
     &__fraction {

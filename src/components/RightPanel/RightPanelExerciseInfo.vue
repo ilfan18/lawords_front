@@ -75,7 +75,9 @@ export default {
         height: 44px;
         border-radius: 10px;
         overflow: hidden;
-        margin-right: 5px;
+        margin-right: 15px;
+        padding: 6px;
+        background: var(--background-secandary);
     }
 
     &__title {
