@@ -17,6 +17,11 @@ export const userModule = {
 			},
 		},
 		isUserLoading: null,
+		exerciseResult: {
+			totalExercises: null,
+			rightAnswers: null,
+			score: null,
+		},
 	},
 	actions: {
 		getUserInfo({ commit }) {
@@ -129,6 +134,9 @@ export const userModule = {
 				(error) => {}
 			);
 		},
+		setExerciseResult({ commit, dispatch }, result) {
+			dispatch('setExerciseResult', result);
+		},
 	},
 	mutations: {
 		setUser(state, user) {
@@ -136,6 +144,12 @@ export const userModule = {
 		},
 		isUserLoading(state, isLoading) {
 			state.isUserLoading = isLoading;
+		},
+		setExerciseResult(state, result) {
+			state.exerciseResult = {
+				...state.exerciseResult,
+				...result,
+			};
 		},
 	},
 };
