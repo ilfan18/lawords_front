@@ -5,13 +5,15 @@
                 <vue-feather type="arrow-left" size="24" :stroke="stroke" />
             </button>
             <div class="course-info__icon">
-                <image-loader
-                    :src="course.icon"
-                    :alt="course.name"
-                    width="44px"
-                    height="44px"
-                    radius="10px"
-                />
+                <div class="course-info__icon-wrapper">
+                    <image-loader
+                        :src="course.icon"
+                        :alt="course.name"
+                        width="44px"
+                        height="44px"
+                        radius="10px"
+                    />
+                </div>
             </div>
             <div class="course-info__title">{{ course.id }} Курс</div>
         </div>
@@ -128,6 +130,12 @@ export default {
         margin-right: 15px;
         padding: 6px;
         background: var(--background-secandary);
+    }
+    &__icon-wrapper {
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+        overflow: hidden;
     }
 
     &__title {

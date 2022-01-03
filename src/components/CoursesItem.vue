@@ -11,13 +11,15 @@
             </div>
             <div class="courses-item__right">
                 <div class="courses-item__icon">
-                    <image-loader
-                        :src="course.icon"
-                        :alt="course.name"
-                        width="48px"
-                        height="48px"
-                        radius="10px"
-                    />
+                    <div class="courses-item__icon-wrapper">
+                        <image-loader
+                            :src="course.icon"
+                            :alt="course.name"
+                            width="48px"
+                            height="48px"
+                            radius="10px"
+                        />
+                    </div>
                 </div>
             </div>
         </div>
@@ -113,6 +115,12 @@ export default {
         overflow: hidden;
         padding: 10px;
         background: var(--background-secandary);
+    }
+    &__icon-wrapper {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        overflow: hidden;
     }
 
     &__fraction {

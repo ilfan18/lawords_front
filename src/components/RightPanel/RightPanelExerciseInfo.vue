@@ -13,13 +13,15 @@
             <div class="exercise-info__title">{{ lesson.name }}</div>
         </div>
         <div class="exercise-info__cover">
-            <image-loader
-                :src="lesson.cover"
-                :alt="lesson.name"
-                width="300px"
-                height="180px"
-                radius="10px"
-            />
+            <div class="exercise-info__icon-wrapper">
+                <image-loader
+                    :src="lesson.cover"
+                    :alt="lesson.name"
+                    width="300px"
+                    height="180px"
+                    radius="10px"
+                />
+            </div>
         </div>
         <div class="exercise-info__type">
             <span class="exercise-info__type-name">Перевод с картики</span>
@@ -78,6 +80,13 @@ export default {
         margin-right: 15px;
         padding: 6px;
         background: var(--background-secandary);
+    }
+
+    &__icon-wrapper {
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+        overflow: hidden;
     }
 
     &__title {
