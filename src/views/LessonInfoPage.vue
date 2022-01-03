@@ -21,7 +21,7 @@
             <div class="lesson-info__bottom">
                 <div v-html="lesson.main_text" class="lesson-info__main-text text"></div>
                 <div v-if="isLessonActive" class="lesson-info__to-exercise">
-                    <router-link to="/exercise" class="lesson-info__link">Пройти упражнение</router-link>
+                    <router-link :to="lessonLink" class="lesson-info__link">Пройти упражнение</router-link>
                 </div>
                 <div v-else class="lesson-info__done">Урок уже пройден!</div>
             </div>
@@ -49,6 +49,10 @@ export default {
         },
         isLessonActive() {
             return !this.userLessons.includes(this.lesson.id)
+        },
+        lessonLink() {
+
+            return this.lesson.id ? '/exercise/' + this.lesson.id : ''
         }
     },
     beforeMount() {
