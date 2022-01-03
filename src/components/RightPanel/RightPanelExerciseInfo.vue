@@ -1,5 +1,5 @@
 <template>
-    <div class="exercise-info">
+    <div v-if="!isLessonLoading" class="exercise-info">
         <div class="exercise-info__header">
             <div class="exercise-info__icon">
                 <image-loader
@@ -39,18 +39,18 @@
         </div>
         <router-link to="/" class="exercise-info__stop">Прервать урок</router-link>
     </div>
+    <exercise-info-skeleton v-else />
 </template>
 
 <script>
 import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
+import ExerciseInfoSkeleton from '../Loaders/ExerciseInfoSkeleton.vue'
 export default {
-    data() {
-        return {
-        }
-    },
+    components: { ExerciseInfoSkeleton },
     computed: {
         ...mapState({
             lesson: state => state.courses.currentLesson,
+            isLessonLoading: state => state.courses.isLessonLoading,
         }),
     }
 }
@@ -85,8 +85,8 @@ export default {
     }
 
     &__cover {
-        width: 300px;
-        max-height: 180px;
+        width: 100%;
+        flex: 0 0 180px;
         border-radius: 10px;
         overflow: hidden;
         margin-bottom: 35px;

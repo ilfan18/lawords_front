@@ -1,5 +1,5 @@
 <template>
-    <div class="settings-loader">
+    <div class="page-loader">
         <div class="lds-roller">
             <div></div>
             <div></div>
@@ -20,7 +20,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.settings-loader {
+.page-loader {
+    height: 100%;
     flex: 1 1 100%;
     display: flex;
     justify-content: center;
