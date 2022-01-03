@@ -30,7 +30,7 @@ const routes = [
 		component: () => import('@/views/LessonInfoPage.vue'),
 	},
 	{
-		path: '/exercise/:exercise_id',
+		path: '/exercise/:exerciseId',
 		name: 'ExercisePage',
 		component: () => import('@/views/ExercisePage.vue'),
 	},
