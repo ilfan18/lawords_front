@@ -1,11 +1,43 @@
 <template>
     <div class="exercise-info">
-        <div class="exercise-info__header">ГГВП</div>
-        <div class="exercise-info__cover"></div>
-        <div class="exercise-info__type"></div>
-        <div class="exercise-info__result"></div>
-        <div class="exercise-info__score"></div>
-        <router-link to="/" class="exercise-info__stop" />
+        <div class="exercise-info__header">
+            <div class="exercise-info__icon">
+                <image-loader
+                    :src="lesson.icon"
+                    :alt="lesson.name"
+                    width="44px"
+                    height="44px"
+                    radius="10px"
+                />
+            </div>
+            <div class="exercise-info__title">{{ lesson.name }}</div>
+        </div>
+        <div class="exercise-info__cover">
+            <image-loader
+                :src="lesson.cover"
+                :alt="lesson.name"
+                width="300px"
+                height="180px"
+                radius="10px"
+            />
+        </div>
+        <div class="exercise-info__type">
+            <span class="exercise-info__type-name">Перевод с картики</span>
+            <vue-feather type="clock" size="45" stroke="#A8A8A8" />
+        </div>
+        <div class="exercise-info__result">
+            <div class="exercise-info__result-counter">
+                <span class="exercise-info__current">1</span>
+                /
+                <span class="exercise-info__total">25</span>
+            </div>
+            <div class="exercise-info__result-label">Правильных ответов</div>
+        </div>
+        <div class="exercise-info__score">
+            0 баллов
+            <div class="exercise-info__score-spoler">+9</div>
+        </div>
+        <router-link to="/" class="exercise-info__stop">Прервать урок</router-link>
     </div>
 </template>
 
@@ -24,5 +56,110 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+.exercise-info {
+    width: 370px;
+    height: 100%;
+    padding: 35px 30px;
+    transition: opacity 0.2s linear;
+    display: flex;
+    flex-direction: column;
+    &__header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    &__icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-right: 5px;
+    }
+
+    &__title {
+        font-weight: 600;
+        font-size: 21px;
+        line-height: 25px;
+    }
+
+    &__cover {
+        width: 300px;
+        max-height: 180px;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 35px;
+    }
+
+    &__type {
+        background: var(--background-third);
+        border-radius: 10px;
+        padding: 15px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+    &__type-name {
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 22px;
+        margin-right: 20px;
+    }
+
+    &__result {
+        font-weight: 600;
+        font-size: 48px;
+        line-height: 58px;
+        display: flex;
+        align-items: center;
+    }
+
+    &__result-counter {
+        flex: 1 1 100%;
+    }
+
+    &__result-label {
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    &__current {
+    }
+
+    &__total {
+    }
+
+    &__score {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 19px;
+        margin-bottom: 20px;
+        text-align: center;
+        margin-top: auto;
+    }
+
+    &__score-spoler {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 19px;
+        color: #59dd43;
+    }
+
+    &__stop {
+        display: block;
+        background: linear-gradient(92.52deg, #fb7e7e 0%, #ee4747 100%);
+        border-radius: 10px;
+        text-decoration: none;
+        padding: 20px;
+        text-align: center;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 22px;
+        color: #ffffff;
+    }
+}
 </style>
