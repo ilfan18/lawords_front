@@ -7,9 +7,15 @@ export const coursesModule = {
 		currentLesson: null,
 		isCoursesLoding: null,
 		isLessonLoading: null,
+		exerciseResult: {
+			answeredExercises: 0,
+			totalExercises: 0,
+			score: 0,
+			maxScore: 0,
+		},
 	}),
 	actions: {
-		fetchCourses({ state, commit }) {
+		fetchCourses({ commit, dispatch }) {
 			commit('coursesLoding', true);
 			coursesSirvices.getCoursesList().then(
 				(data) => {
@@ -19,15 +25,22 @@ export const coursesModule = {
 				(error) => {}
 			);
 		},
-		fetchLesson({ state, commit }, lessonId) {
+		fetchLesson({ commit, dispatch, getters }, lessonId) {
 			commit('lessonLoding', true);
 			coursesSirvices.getLesson(lessonId).then(
 				(data) => {
 					commit('lessonLoding', false);
 					commit('setCurrentLesson', data);
+					dispatch('setExerciseResult', {
+						totalExercises: getters.totalExercises,
+						maxScore: getters.maxScore,
+					});
 				},
 				(error) => {}
 			);
+		},
+		setExerciseResult({ commit, dispatch }, result) {
+			commit('setExerciseResult', result);
 		},
 	},
 	mutations: {
@@ -42,6 +55,30 @@ export const coursesModule = {
 		},
 		lessonLoding(state, isLoading) {
 			state.isLessonLoading = isLoading;
+		},
+		setExerciseResult(state, result) {
+			state.exerciseResult = {
+				...state.exerciseResult,
+				...result,
+			};
+		},
+	},
+	getters: {
+		totalExercises(state) {
+			return state.currentLesson.exercises.length;
+		},
+		maxScore(state) {
+			let maxScore = 0;
+			state.currentLesson.exercises.forEach((exercise) => {
+				let exerciseMaxScore = 0;
+				exercise.answers.forEach((answer) => {
+					if (answer.right) {
+						exerciseMaxScore++;
+					}
+				});
+				maxScore += exerciseMaxScore;
+			});
+			return maxScore;
 		},
 	},
 };
