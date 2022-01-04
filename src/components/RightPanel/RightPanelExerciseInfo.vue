@@ -28,16 +28,21 @@
             <vue-feather type="clock" size="45" stroke="#A8A8A8" />
         </div>
         <div class="exercise-info__result">
+            <div class="exercise-info__result-label">Всего ответов</div>
             <div class="exercise-info__result-counter">
-                <span class="exercise-info__current">1</span>
+                <span class="exercise-info__current">{{ answeredExercises }}</span>
                 /
-                <span class="exercise-info__total">25</span>
+                <span class="exercise-info__total">{{ totalExercises }}</span>
             </div>
-            <div class="exercise-info__result-label">Правильных ответов</div>
         </div>
         <div class="exercise-info__score">
-            0 баллов
-            <div class="exercise-info__score-spoler">+9</div>
+            Баллов - {{ score }}
+            <transition name="score-spoiler">
+                <div
+                    v-if="scoreSpoilerValue"
+                    class="exercise-info__score-spoler"
+                >+{{ scoreSpoilerValue }}</div>
+            </transition>
         </div>
         <router-link to="/" class="exercise-info__stop">Прервать урок</router-link>
     </div>
@@ -49,11 +54,30 @@ import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
 import ExerciseInfoSkeleton from '../Loaders/ExerciseInfoSkeleton.vue'
 export default {
     components: { ExerciseInfoSkeleton },
+    data() {
+        return {
+            scoreSpoilerValue: null
+        }
+    },
     computed: {
         ...mapState({
-            lesson: state => state.courses.currentLesson,
             isLessonLoading: state => state.courses.isCurrentLessonLoading,
+            lesson: state => state.courses.currentLesson,
+            totalExercises: state => state.courses.exerciseResult.totalExercises,
+            answeredExercises: state => state.courses.exerciseResult.answeredExercises,
+            score: state => state.courses.exerciseResult.score,
         }),
+    },
+    watch: {
+        score(newScore, oldScore) {
+            this.scoreSpoilerValue = null
+            setTimeout(() => {
+                this.scoreSpoilerValue = newScore - oldScore
+            }, 200)
+            setTimeout(() => {
+                this.scoreSpoilerValue = null
+            }, 5000)
+        }
     }
 }
 </script>
@@ -136,6 +160,7 @@ export default {
         font-weight: 600;
         font-size: 18px;
         line-height: 22px;
+        margin-right: 20px;
     }
 
     &__current {
@@ -151,6 +176,8 @@ export default {
         margin-bottom: 20px;
         text-align: center;
         margin-top: auto;
+        position: relative;
+        margin-top: 25px;
     }
 
     &__score-spoler {
@@ -158,6 +185,10 @@ export default {
         font-size: 16px;
         line-height: 19px;
         color: #59dd43;
+        position: absolute;
+        bottom: 100%;
+        left: calc(50% - 20px);
+        transition: all 0.2s linear;
     }
 
     &__stop {
@@ -171,6 +202,13 @@ export default {
         font-size: 18px;
         line-height: 22px;
         color: #ffffff;
+    }
+    .score-spoiler-enter-from,
+    .score-spoiler-leave-to {
+        opacity: 0.5;
+    }
+    .score-spoiler-enter-from {
+        transform: translateY(10px);
     }
 }
 </style>
