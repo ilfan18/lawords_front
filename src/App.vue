@@ -74,6 +74,7 @@ button {
     position: relative;
     &__main {
         flex: 1 1 auto;
+        position: relative;
     }
     --background-primary: #ffffff;
     --background-secandary: #f8f8f8;

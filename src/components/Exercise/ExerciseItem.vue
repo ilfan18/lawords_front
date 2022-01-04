@@ -95,6 +95,7 @@ export default {
     justify-content: space-between;
     margin-bottom: 50px;
     &.answered {
+        transition: opacity 0.2s linear;
         opacity: 0.5;
     }
     &__image {
