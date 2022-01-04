@@ -38,7 +38,11 @@ export default {
             maxScore: 'courses/maxScore',
         }),
         percentCompleted() {
-            return Math.floor(this.answeredExercises * 100 / this.totalExercises)
+            if (this.totalExercises != 0) {
+                return Math.floor(this.answeredExercises * 100 / this.totalExercises)
+            } else {
+                return 0
+            }
         }
     },
     watch: {

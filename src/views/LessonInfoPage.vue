@@ -38,7 +38,7 @@ export default {
     components: { VHeader, PageLoader },
     computed: {
         ...mapState({
-            isLessonLoading: state => state.courses.isLessonLoading,
+            isLessonLoading: state => state.courses.isCurrentLessonLoading,
             userLessons: state => state.user.user.lessons
         }),
         lesson() {
@@ -56,11 +56,11 @@ export default {
         }
     },
     beforeMount() {
-        this.fetchLesson(this.$route.params.lessonId)
+        this.fetchCurrentLesson(this.$route.params.lessonId)
     },
     methods: {
         ...mapActions({
-            fetchLesson: 'courses/fetchLesson',
+            fetchCurrentLesson: 'courses/fetchCurrentLesson',
         }),
     },
 }

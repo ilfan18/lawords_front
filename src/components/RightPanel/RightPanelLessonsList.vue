@@ -38,13 +38,20 @@ export default {
             return this.$store.state.user.user.lessons
         },
         activeLesson() {
+            // ! Сделать нормально
             let activeLessonIndex = null
             this.lessons.forEach((element, index) => {
                 if (this.userLessons.includes(element.id)) {
                     activeLessonIndex = index
                 }
             });
-            return this.lessons[activeLessonIndex + 1]
+            if (this.userLessons.length == 0) {
+                return this.lessons[0]
+            } else if (this.lessons.length == activeLessonIndex + 1) {
+                return this.lessons[activeLessonIndex]
+            } else {
+                return this.lessons[activeLessonIndex + 1]
+            }
         },
         stroke() {
             return this.$store.state.ui.theme == 'light' ? '#272727' : '#FFFFFF';

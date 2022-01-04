@@ -150,10 +150,12 @@ export default {
         line-height: 58px;
         display: flex;
         align-items: center;
+        margin-bottom: 20px;
     }
 
     &__result-counter {
         flex: 1 1 100%;
+        text-align: right;
     }
 
     &__result-label {
@@ -177,7 +179,6 @@ export default {
         text-align: center;
         margin-top: auto;
         position: relative;
-        margin-top: 25px;
     }
 
     &__score-spoler {
