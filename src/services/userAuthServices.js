@@ -37,6 +37,7 @@ function login(username, password) {
 		.then((response) => {
 			const user = response.data;
 			if (user.access) {
+				//! Сделать экспирацию
 				localStorage.setItem('user', JSON.stringify(user));
 			}
 			return user;
