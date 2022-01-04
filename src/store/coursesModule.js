@@ -6,7 +6,7 @@ export const coursesModule = {
 		courses_list: [],
 		currentLesson: null,
 		isCoursesLoding: null,
-		isLessonLoading: null,
+		isCurrentLessonLoading: null,
 		exerciseResult: {
 			answeredExercises: 0,
 			totalExercises: 0,
@@ -25,12 +25,12 @@ export const coursesModule = {
 				(error) => {}
 			);
 		},
-		fetchLesson({ commit, dispatch, getters }, lessonId) {
-			commit('lessonLoding', true);
+		fetchCurrentLesson({ commit, dispatch, getters }, lessonId) {
+			commit('currentLessonLoding', true);
 			coursesSirvices.getLesson(lessonId).then(
 				(data) => {
-					commit('lessonLoding', false);
 					commit('setCurrentLesson', data);
+					commit('currentLessonLoding', false);
 					dispatch('setExerciseResult', {
 						totalExercises: getters.totalExercises,
 						maxScore: getters.maxScore,
@@ -53,8 +53,8 @@ export const coursesModule = {
 		coursesLoding(state, isLoading) {
 			state.isCoursesLoding = isLoading;
 		},
-		lessonLoding(state, isLoading) {
-			state.isLessonLoading = isLoading;
+		currentLessonLoding(state, isLoading) {
+			state.isCurrentLessonLoading = isLoading;
 		},
 		setExerciseResult(state, result) {
 			state.exerciseResult = {

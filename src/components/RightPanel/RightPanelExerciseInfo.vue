@@ -52,7 +52,7 @@ export default {
     computed: {
         ...mapState({
             lesson: state => state.courses.currentLesson,
-            isLessonLoading: state => state.courses.isLessonLoading,
+            isLessonLoading: state => state.courses.isCurrentLessonLoading,
         }),
     }
 }

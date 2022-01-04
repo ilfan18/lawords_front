@@ -31,7 +31,7 @@ export default {
     computed: {
         ...mapState({
             lesson: state => state.courses.currentLesson,
-            isLessonLoading: state => state.courses.isLessonLoading,
+            isLessonLoading: state => state.courses.isCurrentLessonLoading,
         }),
         ...mapGetters({
             totalExercises: 'courses/totalExercises',
@@ -53,7 +53,7 @@ export default {
     },
     methods: {
         ...mapActions({
-            fetchLesson: 'courses/fetchLesson',
+            fetchLesson: 'courses/fetchCurrentLesson',
             setExerciseResult: 'courses/setExerciseResult'
         }),
         handleExerciseAnswered(score) {
@@ -71,6 +71,9 @@ export default {
             // ! Как то по другому сделать оценивание
             if (this.score > this.maxScore * 0.55) {
                 console.log(this.score);
+            }
+            if (this.score <= this.maxScore * 0.55) {
+                console.log('bad');
             }
         }
     },
