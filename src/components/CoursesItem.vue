@@ -63,6 +63,7 @@ export default {
             if (this.is_active) {
                 this.$store.dispatch('ui/showRightPanel')
                 this.$store.dispatch('ui/showRightPanelCourseInfo')
+                this.$store.dispatch('ui/hideRightPanelLessonsList')
                 this.$store.dispatch('ui/setCourseInfo', course)
             }
         }

@@ -46,7 +46,7 @@
             <div class="course-info__info-txt">Уроков: {{ course.lessons.length }}</div>
         </div>
         <button @click.prevent="showLessonsList" class="course-info__all-lessons">Перейти к урокам</button>
-        <router-link :to="activeLessonUrl" class="course-info__continue">
+        <router-link v-if="!allLessonsDone" :to="activeLessonUrl" class="course-info__continue">
             <vue-feather type="play-circle" size="24" stroke="#FFFFFF" />
             <span>Продолжить урок</span>
         </router-link>
@@ -72,6 +72,13 @@ export default {
         }),
         lessons() {
             return this.course.lessons
+        },
+        lessonsIds() {
+            let lessonsIds = []
+            this.lessons.forEach((element) => {
+                lessonsIds.push(element.id)
+            })
+            return lessonsIds
         },
         userLessons() {
             return this.$store.state.user.user.lessons
@@ -101,6 +108,14 @@ export default {
         },
         activeLessonUrl() {
             return '/lessons/' + this.activeLesson.id
+        },
+        allLessonsDone() {
+            let allLessonsDone = false
+            const intersectLessons = this.lessonsIds.filter(value => this.userLessonsIds.includes(value));
+            if (this.lessonsIds.length == intersectLessons.length) {
+                return true
+            }
+            return false
         },
         stroke() {
             return this.$store.state.ui.theme == 'light' ? '#272727' : '#FFFFFF';
