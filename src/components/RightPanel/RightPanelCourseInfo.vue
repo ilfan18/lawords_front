@@ -100,10 +100,6 @@ export default {
             }
         },
         activeLessonUrl() {
-            if (this.lessons.length == 0) {
-                console.log(this.lessons.length);
-                return ''
-            }
             return '/lessons/' + this.activeLesson.id
         },
         stroke() {

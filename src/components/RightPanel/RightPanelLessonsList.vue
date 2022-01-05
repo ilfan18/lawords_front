@@ -37,6 +37,13 @@ export default {
         userLessons() {
             return this.$store.state.user.user.lessons
         },
+        userLessonsIds() {
+            let userLessonsIds = []
+            this.userLessons.forEach((element) => {
+                userLessonsIds.push(element.id)
+            })
+            return userLessonsIds
+        },
         activeLesson() {
             // ! Сделать нормально
             let activeLessonIndex = 0
@@ -52,13 +59,6 @@ export default {
             } else {
                 return this.lessons[activeLessonIndex + 1]
             }
-        },
-        userLessonsIds() {
-            let userLessonsIds = []
-            this.userLessons.forEach((element) => {
-                userLessonsIds.push(element.id)
-            })
-            return userLessonsIds
         },
         stroke() {
             return this.$store.state.ui.theme == 'light' ? '#272727' : '#FFFFFF';
