@@ -85,7 +85,7 @@ export default {
         },
         activeLesson() {
             // ! Сделать нормально
-            let activeLessonIndex = null
+            let activeLessonIndex = 0
             this.lessons.forEach((element, index) => {
                 if (this.userLessonsIds.includes(element.id)) {
                     activeLessonIndex = index
@@ -100,6 +100,10 @@ export default {
             }
         },
         activeLessonUrl() {
+            if (this.lessons.length == 0) {
+                console.log(this.lessons.length);
+                return ''
+            }
             return '/lessons/' + this.activeLesson.id
         },
         stroke() {
