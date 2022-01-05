@@ -2,7 +2,7 @@
     <div
         @click="handleAnswerClick"
         class="answer"
-        :class="[{ answered: answered }, additionalClass]"
+        :class="[{ answered: answered }, rightClass]"
     >{{ answer.text }}</div>
 </template>
 
@@ -17,21 +17,36 @@ export default {
         answered: {
             type: Boolean,
             default: false
+        },
+        showAllRight: {
+            type: Boolean,
+            default: false
         }
     },
     data() {
         return {
-            additionalClass: ''
+            showRight: false
+        }
+    },
+    computed: {
+        rightClass() {
+            let rightClass = ''
+            if (this.answer.right) {
+                rightClass = 'right'
+            } else {
+                rightClass = 'wrong'
+            }
+            if (this.showRight) {
+                return rightClass
+            } else if (this.showAllRight) {
+                return rightClass
+            }
         }
     },
     methods: {
         handleAnswerClick() {
             if (!this.answered) {
-                if (this.answer.right) {
-                    this.additionalClass = 'right'
-                } else {
-                    this.additionalClass = 'wrong'
-                }
+                this.showRight = true
                 this.$emit('answered', this.answer.right)
             }
         }
