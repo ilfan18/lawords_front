@@ -51,8 +51,24 @@ export default {
         lessonsCount() {
             return this.course.lessons.length
         },
+        userLessons() {
+            return this.$store.state.user.user.lessons
+        },
+        userLessonsIds() {
+            let userLessonsIds = []
+            this.userLessons.forEach((element) => {
+                userLessonsIds.push(element.id)
+            })
+            return userLessonsIds
+        },
         lessonsFinishedCount() {
-            return 1
+            let counter = 0
+            this.course.lessons.forEach(lesson => {
+                if (this.userLessonsIds.includes(lesson.id)) {
+                    counter++
+                }
+            });
+            return counter
         },
         theme() {
             return this.$store.state.ui.theme;
