@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="exercise-info__type">
-            <span class="exercise-info__type-name">Перевод с картики</span>
+            <span class="exercise-info__type-name">Не ограниченно</span>
             <vue-feather type="clock" size="45" stroke="#A8A8A8" />
         </div>
         <div class="exercise-info__result">
@@ -50,6 +50,7 @@
 </template>
 
 <script>
+// ! Сделать таймер
 import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
 import ExerciseInfoSkeleton from '../Loaders/ExerciseInfoSkeleton.vue'
 export default {
