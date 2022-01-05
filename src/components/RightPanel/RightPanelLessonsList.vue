@@ -41,17 +41,24 @@ export default {
             // ! Сделать нормально
             let activeLessonIndex = null
             this.lessons.forEach((element, index) => {
-                if (this.userLessons.includes(element.id)) {
+                if (this.userLessonsIds.includes(element.id)) {
                     activeLessonIndex = index
                 }
             });
-            if (this.userLessons.length == 0) {
+            if (this.userLessonsIds.length == 0) {
                 return this.lessons[0]
             } else if (this.lessons.length == activeLessonIndex + 1) {
                 return this.lessons[activeLessonIndex]
             } else {
                 return this.lessons[activeLessonIndex + 1]
             }
+        },
+        userLessonsIds() {
+            let userLessonsIds = []
+            this.userLessons.forEach((element) => {
+                userLessonsIds.push(element.id)
+            })
+            return userLessonsIds
         },
         stroke() {
             return this.$store.state.ui.theme == 'light' ? '#272727' : '#FFFFFF';
@@ -62,7 +69,7 @@ export default {
             this.$emit('goToCourseInfo')
         },
         isLessonDone(lessonId) {
-            return this.userLessons.includes(lessonId)
+            return this.userLessonsIds.includes(lessonId)
         },
         isLessonActive(lessonId) {
             return this.activeLesson.id == lessonId

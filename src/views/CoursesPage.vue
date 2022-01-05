@@ -7,7 +7,7 @@
                 :key="course.id"
                 :course="course"
                 :course_num="index + 1"
-                :is_active="active_courses.includes(course.id)"
+                :is_active="activeCourses.includes(course.id)"
             />
         </div>
         <courses-list-skeleton v-else />
@@ -25,8 +25,23 @@ export default {
         ...mapState({
             isCoursesLoading: state => state.courses.isCoursesLoding,
             courses: state => state.courses.courses_list,
-            active_courses: state => state.user.user.courses,
-        })
+            UserCourses: state => state.user.user.courses,
+        }),
+        activeCourses() {
+            if (this.UserCourses.length) {
+                let activeCourses = []
+                this.courses.forEach(course => {
+                    this.UserCourses.forEach(userCourse => {
+                        if (userCourse.id == course.id) {
+                            activeCourses.push(course.id)
+                        }
+                    });
+                });
+                return activeCourses
+            } else {
+                return [this.courses[0].id]
+            }
+        }
     },
     mounted() {
         this.fetchCourses()

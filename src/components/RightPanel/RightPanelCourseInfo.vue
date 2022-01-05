@@ -76,15 +76,22 @@ export default {
         userLessons() {
             return this.$store.state.user.user.lessons
         },
+        userLessonsIds() {
+            let userLessonsIds = []
+            this.userLessons.forEach((element) => {
+                userLessonsIds.push(element.id)
+            })
+            return userLessonsIds
+        },
         activeLesson() {
             // ! Сделать нормально
             let activeLessonIndex = null
             this.lessons.forEach((element, index) => {
-                if (this.userLessons.includes(element.id)) {
+                if (this.userLessonsIds.includes(element.id)) {
                     activeLessonIndex = index
                 }
             });
-            if (this.userLessons.length == 0) {
+            if (this.userLessonsIds.length == 0) {
                 return this.lessons[0]
             } else if (this.lessons.length == activeLessonIndex + 1) {
                 return this.lessons[activeLessonIndex]

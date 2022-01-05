@@ -48,12 +48,19 @@ export default {
             return this.isLessonLoading ? '' : this.$store.state.courses.currentLesson.name
         },
         isLessonActive() {
-            return !this.userLessons.includes(this.lesson.id)
+            return !this.userLessonsIds.includes(this.lesson.id)
         },
         lessonLink() {
 
             return this.lesson.id ? '/exercise/' + this.lesson.id : ''
-        }
+        },
+        userLessonsIds() {
+            let userLessonsIds = []
+            this.userLessons.forEach((element) => {
+                userLessonsIds.push(element.id)
+            })
+            return userLessonsIds
+        },
     },
     beforeMount() {
         this.fetchCurrentLesson(this.$route.params.lessonId)
