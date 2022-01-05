@@ -7,6 +7,7 @@ export const userModule = {
 		user: {
 			age: '',
 			courses: [],
+			lessons: [],
 			image: '',
 			level: '',
 			user: {
@@ -125,6 +126,16 @@ export const userModule = {
 				(user) => {
 					dispatch('getUserInfo');
 					dispatch('ui/hideUploadImageModal', null, { root: true });
+				},
+				(error) => {}
+			);
+		},
+		lessonsEdit({ commit, dispatch, state }, lesson) {
+			let lessons = state.user.lessons;
+			lessons.push(lesson);
+			userEditServices.lessonsEdit(lessons).then(
+				(response) => {
+					dispatch('getUserInfo');
 				},
 				(error) => {}
 			);

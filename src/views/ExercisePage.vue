@@ -58,7 +58,8 @@ export default {
     methods: {
         ...mapActions({
             fetchLesson: 'courses/fetchCurrentLesson',
-            setExerciseResult: 'courses/setExerciseResult'
+            setExerciseResult: 'courses/setExerciseResult',
+            lessonsEdit: 'user/lessonsEdit'
         }),
         handleExerciseAnswered(score) {
             this.answeredExercises++
@@ -74,7 +75,12 @@ export default {
         finishExercise() {
             // ! Как то по другому сделать оценивание
             if (this.score > this.maxScore * 0.55) {
-                console.log(this.score);
+                let lesson = {
+                    id: this.lesson.id,
+                    score: this.score
+                }
+                console.log(lesson);
+                this.lessonsEdit(lesson)
             }
             if (this.score <= this.maxScore * 0.55) {
                 console.log('bad');

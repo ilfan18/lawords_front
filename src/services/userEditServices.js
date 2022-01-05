@@ -9,6 +9,7 @@ export const userEditServices = {
 	imageEdit,
 	emailConfirm,
 	emailResendActivation,
+	lessonsEdit,
 };
 
 async function emailEdit(email) {
@@ -127,6 +128,22 @@ async function imageEdit(imageFile, onProgress) {
 		})
 		.catch((error) => {
 			console.log(error);
+			return Promise.reject(error.response.data);
+		});
+}
+
+async function lessonsEdit(lessons) {
+	const requestUrl = process.env.VUE_APP_API_URL + 'users/me/';
+	const headers = await authHeader();
+	const requestBody = {
+		lessons: lessons,
+	};
+	return axios
+		.patch(requestUrl, requestBody, { headers: headers })
+		.then((response) => {
+			return response.data;
+		})
+		.catch((error) => {
 			return Promise.reject(error.response.data);
 		});
 }
