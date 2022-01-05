@@ -7,7 +7,7 @@
                 :key="course.id"
                 :course="course"
                 :course_num="index + 1"
-                :is_active="activeCourses.includes(course.id)"
+                :is_active="activeCourses.includes(course.id) || course.id == nextCourse"
             />
         </div>
         <courses-list-skeleton v-else />
@@ -32,7 +32,7 @@ export default {
                 let activeCourses = []
                 this.courses.forEach(course => {
                     this.UserCourses.forEach(userCourse => {
-                        if (userCourse.id == course.id) {
+                        if (userCourse == course.id) {
                             activeCourses.push(course.id)
                         }
                     });
@@ -41,6 +41,17 @@ export default {
             } else {
                 return [this.courses[0].id]
             }
+        },
+        nextCourse() {
+            // ! Сделать обработку случая когда все курсы пройдены, хотя и так работает конечно
+            const lastCourse = this.activeCourses[this.activeCourses.length - 1]
+            let nextCourse = null
+            this.courses.forEach((course, index) => {
+                if (course.id == lastCourse) {
+                    nextCourse = this.courses[index + 1].id
+                }
+            })
+            return nextCourse
         }
     },
     mounted() {
