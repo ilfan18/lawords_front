@@ -66,6 +66,7 @@ export default {
     line-height: 24px;
     border-radius: 10px;
     cursor: pointer;
+    transition: all 0.2s linear;
     &.answered {
         cursor: default;
     }
