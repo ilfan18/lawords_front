@@ -40,7 +40,6 @@ export default {
                     }
                 })
             });
-            console.log(lastLessons);
             return lastLessons
         },
         greeting() {
