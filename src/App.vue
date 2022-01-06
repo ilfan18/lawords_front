@@ -80,6 +80,7 @@ button {
     --background-secandary: #f8f8f8;
     --background-third: #f5f5f5;
     --background-fourth: #efefef;
+    --background-fifth: #f1f1f1;
     --border-first: #e6e6e6;
     --text-primary: #000000;
     --text-second: #737373;
@@ -92,6 +93,7 @@ button {
         --background-secandary: #000000;
         --background-third: #303030;
         --background-fourth: #000000;
+        --background-fifth: #0d0d0d;
         --border-first: #3a3a3a;
         --text-primary: #ffffff;
         --text-second: #737373;

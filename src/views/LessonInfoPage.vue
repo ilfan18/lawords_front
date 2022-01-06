@@ -39,7 +39,7 @@ export default {
     computed: {
         ...mapState({
             isLessonLoading: state => state.courses.isCurrentLessonLoading,
-            userLessons: state => state.user.user.lessons
+            userLessons: state => state.user.user.lessons,
         }),
         lesson() {
             return this.$store.state.courses.currentLesson
@@ -105,6 +105,7 @@ export default {
         font-size: 0;
         overflow: hidden;
         border-radius: 20px;
+        margin-bottom: 20px;
     }
 
     &__bottom {

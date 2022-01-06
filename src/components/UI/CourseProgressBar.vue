@@ -24,7 +24,7 @@ export default {
         appearance: none;
         transition: all 0.2s linear;
         &[value]::-webkit-progress-bar {
-            background: #f1f1f1;
+            background: var(--background-fifth);
             border-radius: 10px;
         }
         &[value]::-webkit-progress-value {

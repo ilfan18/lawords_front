@@ -74,7 +74,7 @@ export default {
         flex-wrap: wrap;
         margin: -13px -15px 0;
         padding-bottom: 17px;
-        max-height: 430px;
+        max-height: 465px;
         overflow-x: auto;
         &::-webkit-scrollbar {
             width: 10px;

@@ -73,6 +73,9 @@ export default {
             return counter
         },
         percentCompleted() {
+            if (this.lessonsCount == 0) {
+                return 0
+            }
             return Math.floor(this.lessonsFinishedCount * 100 / this.lessonsCount)
         },
         theme() {
