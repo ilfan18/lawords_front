@@ -23,15 +23,17 @@
                 </div>
             </div>
         </div>
-        <div class="courses-item__progress">
-            <div class="courses-item__progress-bar">Прогресс</div>
-            <div class="courses-item__fraction">{{ lessonsFinishedCount }} / {{ lessonsCount }}</div>
+        <div class="courses-item__fraction">{{ lessonsFinishedCount }} / {{ lessonsCount }}</div>
+        <div class="courses-item__progress-bar">
+            <course-progress-bar :percentCompleted="percentCompleted" />
         </div>
     </li>
 </template>
 
 <script>
+import CourseProgressBar from './UI/CourseProgressBar.vue'
 export default {
+    components: { CourseProgressBar },
     name: 'courses-item',
     props: {
         course: {
@@ -69,6 +71,9 @@ export default {
                 }
             });
             return counter
+        },
+        percentCompleted() {
+            return Math.floor(this.lessonsFinishedCount * 100 / this.lessonsCount)
         },
         theme() {
             return this.$store.state.ui.theme;
@@ -142,6 +147,9 @@ export default {
 
     &__fraction {
         text-align: right;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 20px;
     }
 
     &__progress {
@@ -149,6 +157,7 @@ export default {
         justify-content: space-between;
     }
     &__progress-bar {
+        flex: 1 1 100%;
     }
 }
 </style>
