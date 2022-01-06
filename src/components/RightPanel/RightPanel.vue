@@ -22,6 +22,7 @@
 </template>
 
 <script>
+//! Сделать нормальную анимацию при переходе на другие страницы
 import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
 import RightPanelCourseInfo from './RightPanelCourseInfo.vue'
 import RightPanelLessonsList from './RightPanelLessonsList.vue';
