@@ -42,7 +42,7 @@ export default {
         display: flex;
         max-width: 1000px;
         margin: 0 auto;
-        padding: 90px 0;
+        padding: 65px 0 0;
     }
     &__left {
         flex: 1 0 410px;
