@@ -33,7 +33,6 @@ export const authModule = {
 			commit('registerRequest', { username });
 			userAuthServices.register(email, username, password).then(
 				(user) => {
-					dispatch('login', { username, password });
 					commit('registerSuccess', user);
 					router.push('/cofirm-info');
 				},
@@ -66,7 +65,7 @@ export const authModule = {
 			state.user = user;
 		},
 		registerSuccess(state, user) {
-			state.status = { loggedIn: true };
+			state.status = { emailConfirmation: true };
 			state.user = user;
 		},
 		registerFailure(state) {

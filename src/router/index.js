@@ -68,7 +68,7 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
 	// Перенаправляет на страницу входа если не выполнен вход
-	const publicPages = ['Login', 'Register', 'ConfirmInfo', 'Confirm'];
+	const publicPages = ['Login', 'Register', 'ConfirmInfoPage', 'ConfirmPage'];
 	const authRequired = !publicPages.includes(to.name);
 	const loggedIn = localStorage.getItem('user');
 
