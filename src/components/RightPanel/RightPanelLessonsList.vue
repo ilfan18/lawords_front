@@ -80,9 +80,12 @@ export default {
 
 <style lang="scss" scoped>
 .lessons-list {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 370px;
     padding: 35px 30px;
     transition: opacity 0.2s linear;
-    width: 370px;
     &__header {
         display: flex;
         align-items: center;

@@ -4,7 +4,7 @@
             <transition name="course-info">
                 <right-panel-course-info
                     v-on:show-lessons-list="showLessonsList"
-                    v-if="courseInfoIsVisible"
+                    v-if="courseInfoIsVisible && !lessonsListIsVisible"
                     :course="courseInfo"
                 />
             </transition>
@@ -12,7 +12,7 @@
             <transition name="lessons-list">
                 <right-panel-lessons-list
                     v-on:go-to-course-info="goToCourseInfo"
-                    v-if="lessonsListIsVisible"
+                    v-if="lessonsListIsVisible && !courseInfoIsVisible"
                     :course="courseInfo"
                 />
             </transition>
@@ -54,8 +54,8 @@ export default {
             this.$store.dispatch('ui/showRightPanelLessonsList');
         },
         goToCourseInfo() {
-            this.$store.dispatch('ui/showRightPanelCourseInfo');
             this.$store.dispatch('ui/hideRightPanelLessonsList');
+            this.$store.dispatch('ui/showRightPanelCourseInfo');
         }
     }
 }
@@ -63,6 +63,7 @@ export default {
 
 <style lang="scss" scoped>
 .right-panel {
+    position: relative;
     flex: 0 0 370px;
     background: var(--background-primary);
     overflow-x: hidden;
@@ -70,13 +71,6 @@ export default {
     transition: flex 0.3s linear;
     &.visible {
         flex: 0 0 370px;
-        .right-panel__inner {
-            width: 100%;
-        }
-    }
-    &__inner {
-        background: red;
-        width: 0;
     }
     &::-webkit-scrollbar {
         width: 10px;

@@ -134,6 +134,9 @@ export default {
 
 <style lang="scss" scoped>
 .course-info {
+    position: absolute;
+    left: 0;
+    top: 0;
     width: 370px;
     padding: 35px 30px;
     transition: opacity 0.2s linear;
