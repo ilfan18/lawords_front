@@ -43,16 +43,18 @@ export default {
             }
         },
         nextCourse() {
-            // ! Сделать обработку случая когда все курсы пройдены, хотя и так работает конечно
+            // ! Сделать обработку случая когда все курсы пройдены, или пройден только один
             let nextCourse = null
-            if (this.activeCourses.length != 1) {
-                const lastCourse = this.activeCourses[this.activeCourses.length - 1]
-                this.courses.forEach((course, index) => {
-                    if (course.id == lastCourse) {
-                        nextCourse = this.courses[index + 1].id
-                    }
-                })
-            }
+            const lastCourse = this.activeCourses[this.activeCourses.length - 1]
+            this.courses.forEach((course, index) => {
+                if (course.id == lastCourse) {
+                    nextCourse = this.courses[index + 1].id
+                } else if (this.activeCourses.length != 1) {
+                    nextCourse = this.courses[0].id
+                } else if (nextCourse == this.activeCourses[this.activeCourses.length]) {
+                    return this.courses[index].id
+                }
+            })
             return nextCourse
         }
     },
