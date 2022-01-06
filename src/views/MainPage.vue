@@ -36,10 +36,11 @@ export default {
                 course.lessons.forEach((lesson) => {
                     if (this.lastLessonsIDs.includes(String(lesson.id))) {
                         console.log('object');
-                        lastLessons.push(lesson)
+                        lastLessons.unshift(lesson)
                     }
                 })
             });
+            console.log(lastLessons);
             return lastLessons
         },
         greeting() {
