@@ -154,12 +154,9 @@ export default {
         font-size: 16px;
         line-height: 20px;
     }
-
-    &__progress {
-        display: flex;
-        justify-content: space-between;
-    }
     &__progress-bar {
+        font-size: 0;
+        margin-top: 15px;
         flex: 1 1 100%;
     }
 }

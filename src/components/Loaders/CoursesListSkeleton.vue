@@ -16,13 +16,11 @@
                     </div>
                 </div>
             </div>
-            <div class="courses-item__progress">
-                <div class="courses-item__progress-bar">
-                    <skeleton-loader width="200px" height="6px" radius="10px" />
-                </div>
-                <div class="courses-item__fraction">
-                    <skeleton-loader width="38px" height="17px" />
-                </div>
+            <div class="courses-item__fraction">
+                <skeleton-loader width="38px" height="17px" :style="{ marginLeft: 'auto' }" />
+            </div>
+            <div class="courses-item__progress-bar">
+                <skeleton-loader width="100%" height="6px" radius="10px" />
             </div>
         </div>
     </div>
@@ -70,14 +68,8 @@ export default {
         width: 48px;
         height: 48px;
     }
-
-    &__fraction {
-        text-align: right;
-    }
-
-    &__progress {
-        display: flex;
-        justify-content: space-between;
+    &__progress-bar {
+        margin-top: 15px;
     }
 }
 </style>
