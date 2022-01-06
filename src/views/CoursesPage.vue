@@ -44,13 +44,15 @@ export default {
         },
         nextCourse() {
             // ! Сделать обработку случая когда все курсы пройдены, хотя и так работает конечно
-            const lastCourse = this.activeCourses[this.activeCourses.length - 1]
             let nextCourse = null
-            this.courses.forEach((course, index) => {
-                if (course.id == lastCourse) {
-                    nextCourse = this.courses[index + 1].id
-                }
-            })
+            if (this.activeCourses.length != 1) {
+                const lastCourse = this.activeCourses[this.activeCourses.length - 1]
+                this.courses.forEach((course, index) => {
+                    if (course.id == lastCourse) {
+                        nextCourse = this.courses[index + 1].id
+                    }
+                })
+            }
             return nextCourse
         }
     },
