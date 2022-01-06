@@ -79,7 +79,6 @@ export default {
                     id: this.lesson.id,
                     score: this.score
                 }
-                console.log(lesson);
                 this.lessonsEdit(lesson)
             }
             if (this.score <= this.maxScore * 0.55) {
