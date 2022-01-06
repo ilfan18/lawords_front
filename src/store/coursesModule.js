@@ -1,5 +1,11 @@
 import axios from 'axios';
 import { coursesSirvices } from '@/services';
+import { getCookie, setCookie } from '@/helpers';
+
+const defaultlastLessons = getCookie('last_lessons')
+	? getCookie('last_lessons').split(',')
+	: [];
+
 export const coursesModule = {
 	namespaced: true,
 	state: () => ({
@@ -13,6 +19,7 @@ export const coursesModule = {
 			score: 0,
 			maxScore: 0,
 		},
+		lastLessons: defaultlastLessons,
 	}),
 	actions: {
 		fetchCourses({ commit, dispatch }) {
@@ -35,12 +42,24 @@ export const coursesModule = {
 						totalExercises: getters.totalExercises,
 						maxScore: getters.maxScore,
 					});
+					dispatch('setLastLesson', data.id);
 				},
 				(error) => {}
 			);
 		},
 		setExerciseResult({ commit, dispatch }, result) {
 			commit('setExerciseResult', result);
+		},
+		setLastLesson({ commit, dispatch }, lesson_id) {
+			let lessons = [];
+			if (getCookie('last_lessons')) {
+				lessons = lessons.concat(getCookie('last_lessons').split(','));
+			}
+			lessons.unshift(String(lesson_id));
+			lessons = [...new Set(lessons)];
+			lessons = lessons.slice(0, 3);
+			setCookie('last_lessons', lessons);
+			commit('setLastLessons', lessons);
 		},
 	},
 	mutations: {
@@ -61,6 +80,9 @@ export const coursesModule = {
 				...state.exerciseResult,
 				...result,
 			};
+		},
+		setLastLessons(state, lessons) {
+			state.lastLessons = lessons;
 		},
 	},
 	getters: {
