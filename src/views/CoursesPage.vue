@@ -48,7 +48,7 @@ export default {
             const lastCourse = this.activeCourses[this.activeCourses.length - 1]
             this.courses.forEach((course, index) => {
                 if (course.id == lastCourse) {
-                    nextCourse = this.courses[index].id
+                    nextCourse = this.courses[index + 1].id
                 } else if (this.UserCourses.length == 1) {
                     nextCourse = this.courses[1].id
                 }
