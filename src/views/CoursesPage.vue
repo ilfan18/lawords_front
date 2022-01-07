@@ -28,7 +28,7 @@ export default {
             UserCourses: state => state.user.user.courses,
         }),
         activeCourses() {
-            if (this.UserCourses.length) {
+            if (this.UserCourses.length != 0) {
                 let activeCourses = []
                 this.courses.forEach(course => {
                     this.UserCourses.forEach(userCourse => {
@@ -48,11 +48,12 @@ export default {
             const lastCourse = this.activeCourses[this.activeCourses.length - 1]
             this.courses.forEach((course, index) => {
                 if (course.id == lastCourse) {
-                    nextCourse = this.courses[index + 1].id
-                } else if (this.activeCourses.length == 1) {
+                    nextCourse = this.courses[index].id
+                } else if (this.UserCourses.length == 1) {
+                    nextCourse = this.courses[1].id
+                }
+                else if (this.UserCourses.length == 0) {
                     nextCourse = this.courses[0].id
-                } else if (nextCourse == this.activeCourses[this.activeCourses.length]) {
-                    return this.courses[index].id
                 }
             })
             return nextCourse
