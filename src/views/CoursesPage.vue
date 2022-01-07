@@ -11,6 +11,10 @@
             />
         </div>
         <courses-list-skeleton v-else />
+        <div v-if="notifications.length != 0" class="courses__notifications">
+            <h2 class="courses__notifications-title">Уведомления</h2>
+            <notifications-list :notifications="notifications" />
+        </div>
     </div>
 </template>
 
@@ -19,13 +23,15 @@ import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
 import VHeader from '@/components/VHeader.vue'
 import CoursesItem from '@/components/CoursesItem.vue'
 import CoursesListSkeleton from '@/components/Loaders/CoursesListSkeleton.vue'
+import NotificationsList from '../components/Notifications/NotificationsList.vue'
 export default {
-    components: { VHeader, CoursesItem, CoursesListSkeleton },
+    components: { VHeader, CoursesItem, CoursesListSkeleton, NotificationsList },
     computed: {
         ...mapState({
             isCoursesLoading: state => state.courses.isCoursesLoding,
             courses: state => state.courses.courses_list,
             UserCourses: state => state.user.user.courses,
+            notifications: state => state.notifications.notifications,
         }),
         activeCourses() {
             if (this.UserCourses.length != 0) {
@@ -57,7 +63,7 @@ export default {
                 }
             })
             return nextCourse
-        }
+        },
     },
     mounted() {
         this.fetchCourses()
@@ -72,13 +78,13 @@ export default {
 
 <style lang="scss" scoped>
 .courses {
+    position: relative;
     &__list {
         list-style: none;
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
         margin: -13px -15px 0;
-        padding-bottom: 17px;
         max-height: 475px;
         overflow-x: auto;
         &::-webkit-scrollbar {
@@ -88,6 +94,15 @@ export default {
             background: var(--scrollbar-color);
             border-radius: 10px;
         }
+    }
+    &__notifications {
+        margin-top: 20px;
+    }
+    &__notifications-title {
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 29px;
+        margin-bottom: 15px;
     }
 }
 </style>

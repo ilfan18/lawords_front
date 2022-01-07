@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import router from '@/router';
 import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
 import PageLoader from '@/components/Loaders/PageLoader.vue';
 import ExerciseItem from '@/components/Exercise/ExerciseItem.vue';
@@ -59,7 +60,8 @@ export default {
         ...mapActions({
             fetchLesson: 'courses/fetchCurrentLesson',
             setExerciseResult: 'courses/setExerciseResult',
-            lessonsEdit: 'user/lessonsEdit'
+            lessonsEdit: 'user/lessonsEdit',
+            addNotification: 'notifications/addNotification'
         }),
         handleExerciseAnswered(score) {
             this.answeredExercises++
@@ -80,10 +82,17 @@ export default {
                     score: this.score
                 }
                 this.lessonsEdit(lesson)
+                const notification = {
+                    title: 'Урок пройден',
+                    text: this.lesson.name,
+                    icon: this.lesson.icon
+                }
+                this.addNotification(notification)
+                router.push('/courses')
             }
-            if (this.score <= this.maxScore * 0.55) {
-                console.log('bad');
-            }
+            // if (this.score <= this.maxScore * 0.55) {
+            //     console.log('bad');
+            // }
         }
     },
 }

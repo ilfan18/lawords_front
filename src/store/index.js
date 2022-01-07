@@ -4,6 +4,7 @@ import { authModule } from './authModule';
 import { userModule } from './userModule';
 import { alertModule } from './alertModule';
 import { UIModule } from './UIModule';
+import { notificationsModule } from './notificationsModule';
 
 export default createStore({
 	state: {},
@@ -15,5 +16,6 @@ export default createStore({
 		user: userModule,
 		alert: alertModule,
 		ui: UIModule,
+		notifications: notificationsModule,
 	},
 });
