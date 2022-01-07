@@ -20,10 +20,9 @@
             </div>
             <div class="lesson-info__bottom">
                 <div v-html="lesson.main_text" class="lesson-info__main-text text"></div>
-                <div v-if="isLessonActive" class="lesson-info__to-exercise">
-                    <router-link :to="lessonLink" class="lesson-info__link">Пройти упражнение</router-link>
+                <div class="lesson-info__to-exercise">
+                    <router-link :to="lessonLink" class="lesson-info__link">{{ exerciseBtnText }}</router-link>
                 </div>
-                <div v-else class="lesson-info__done">Урок уже пройден!</div>
             </div>
         </div>
         <page-loader v-else />
@@ -47,8 +46,8 @@ export default {
         lessonName() {
             return this.isLessonLoading ? '' : this.$store.state.courses.currentLesson.name
         },
-        isLessonActive() {
-            return !this.userLessonsIds.includes(this.lesson.id)
+        exerciseBtnText() {
+            return this.userLessonsIds.includes(this.lesson.id) ? 'Пройти упражнение еще раз' : 'Пройти упражнение'
         },
         lessonLink() {
 
