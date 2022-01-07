@@ -58,7 +58,12 @@ export const coursesModule = {
 			lessons.unshift(String(lesson_id));
 			lessons = [...new Set(lessons)];
 			lessons = lessons.slice(0, 3);
-			setCookie('last_lessons', lessons);
+			let expires = new Date(Date.now() + 86400e3 * 7);
+			expires = expires.toUTCString();
+			setCookie('last_lessons', lessons, {
+				samesite: true,
+				expires: expires,
+			});
 			commit('setLastLessons', lessons);
 		},
 	},
