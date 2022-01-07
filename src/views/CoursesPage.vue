@@ -49,7 +49,7 @@ export default {
             this.courses.forEach((course, index) => {
                 if (course.id == lastCourse) {
                     nextCourse = this.courses[index + 1].id
-                } else if (this.activeCourses.length != 1) {
+                } else if (this.activeCourses.length == 1) {
                     nextCourse = this.courses[0].id
                 } else if (nextCourse == this.activeCourses[this.activeCourses.length]) {
                     return this.courses[index].id
