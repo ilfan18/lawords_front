@@ -47,7 +47,7 @@ html {
 html,
 body {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     overflow: hidden;
 }
 body {
@@ -65,7 +65,7 @@ button {
     font: inherit;
 }
 #app {
-    height: 100vh;
+    height: 100%;
 }
 .app {
     height: 100%;

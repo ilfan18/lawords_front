@@ -85,7 +85,6 @@ export default {
     top: 0;
     width: 370px;
     padding: 35px 30px;
-    height: 100%;
     display: flex;
     flex-direction: column;
     transition: opacity 0.2s linear;

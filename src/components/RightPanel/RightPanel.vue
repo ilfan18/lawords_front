@@ -68,7 +68,7 @@ export default {
     right: 0;
     top: 0;
     width: 370px;
-    height: 100vh;
+    height: 100%;
     background: rgba(var(--background-primary), 0.75);
     backdrop-filter: blur(40px);
     overflow-x: hidden;

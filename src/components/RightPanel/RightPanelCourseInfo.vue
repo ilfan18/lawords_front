@@ -137,13 +137,9 @@ export default {
     position: absolute;
     left: 0;
     top: 0;
-    height: 100%;
-    min-height: 720px;
     width: 370px;
     padding: 35px 30px;
     transition: opacity 0.2s linear;
-    display: flex;
-    flex-direction: column;
     &__header {
         display: flex;
         align-items: center;

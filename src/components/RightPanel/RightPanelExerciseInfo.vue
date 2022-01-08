@@ -86,12 +86,9 @@ export default {
 <style lang="scss" scoped>
 .exercise-info {
     width: 370px;
-    height: 100%;
-    min-height: 635px;
     padding: 35px 30px;
     transition: opacity 0.2s linear;
-    display: flex;
-    flex-direction: column;
+    height: 100%;
     background: var(--background-primary);
     &__header {
         display: flex;
