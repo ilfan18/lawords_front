@@ -5,8 +5,8 @@
                 <image-loader
                     :src="lesson.icon"
                     :alt="lesson.name"
-                    width="44px"
-                    height="44px"
+                    width="32px"
+                    height="32px"
                     radius="10px"
                 />
             </div>
@@ -87,10 +87,12 @@ export default {
 .exercise-info {
     width: 370px;
     height: 100%;
+    min-height: 635px;
     padding: 35px 30px;
     transition: opacity 0.2s linear;
     display: flex;
     flex-direction: column;
+    background: var(--background-primary);
     &__header {
         display: flex;
         align-items: center;

@@ -1,15 +1,17 @@
 <template>
-    <div v-if="!isLessonLoading" class="exercise content">
-        <div class="exercise__progress">
-            <exercise-progress-bar :percent-completed="percentCompleted" />
-        </div>
-        <div class="exercise__list">
-            <exercise-item
-                v-on:exerciseAnswered="handleExerciseAnswered"
-                v-for="exercise in lesson.exercises"
-                :key="exercise.id"
-                :exercise="exercise"
-            />
+    <div v-if="!isLessonLoading" class="exercise">
+        <div class="exercise__inner content">
+            <div class="exercise__progress">
+                <exercise-progress-bar :percent-completed="percentCompleted" />
+            </div>
+            <div class="exercise__list">
+                <exercise-item
+                    v-on:exerciseAnswered="handleExerciseAnswered"
+                    v-for="exercise in lesson.exercises"
+                    :key="exercise.id"
+                    :exercise="exercise"
+                />
+            </div>
         </div>
     </div>
     <page-loader v-else />
@@ -100,14 +102,19 @@ export default {
 
 <style lang="scss" scoped>
 .exercise {
-    overflow-x: auto;
     position: relative;
-    &::-webkit-scrollbar {
-        width: 10px;
-    }
-    &::-webkit-scrollbar-thumb {
-        background: var(--scrollbar-color);
-        border-radius: 10px;
+    height: 100%;
+    padding-right: 370px;
+    &__inner {
+        overflow-x: auto;
+
+        &::-webkit-scrollbar {
+            width: 10px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: var(--scrollbar-color);
+            border-radius: 10px;
+        }
     }
     &__progress {
     }

@@ -64,14 +64,18 @@ export default {
 
 <style lang="scss" scoped>
 .right-panel {
-    position: relative;
-    flex: 0 0 370px;
-    background: var(--background-primary);
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 370px;
+    height: 100vh;
+    background: rgba(var(--background-primary), 0.75);
+    backdrop-filter: blur(40px);
     overflow-x: hidden;
     overflow-y: auto;
-    transition: flex 0.3s linear;
+    transition: width 0.3s linear;
     &.visible {
-        flex: 0 0 370px;
+        width: 370px;
     }
     &::-webkit-scrollbar {
         width: 10px;
@@ -83,7 +87,7 @@ export default {
 }
 .right-panel-enter-from,
 .right-panel-leave-to {
-    flex: 0 0 0;
+    width: 0;
 }
 .lessons-list-enter-from,
 .lessons-list-leave-to {

@@ -35,7 +35,6 @@ export default {
             this.courses.forEach(course => {
                 course.lessons.forEach((lesson) => {
                     if (this.lastLessonsIDs.includes(String(lesson.id))) {
-                        console.log('object');
                         lastLessons.unshift(lesson)
                     }
                 })

@@ -70,7 +70,6 @@ button {
 .app {
     height: 100%;
     display: flex;
-    align-items: stretch;
     position: relative;
     &__main {
         flex: 1 1 auto;

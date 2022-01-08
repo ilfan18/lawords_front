@@ -137,9 +137,13 @@ export default {
     position: absolute;
     left: 0;
     top: 0;
+    height: 100%;
+    min-height: 720px;
     width: 370px;
     padding: 35px 30px;
     transition: opacity 0.2s linear;
+    display: flex;
+    flex-direction: column;
     &__header {
         display: flex;
         align-items: center;
@@ -179,6 +183,7 @@ export default {
     &__cover {
         width: 300px;
         height: 180px;
+        flex: 0 0 180px;
         border-radius: 10px;
         overflow: hidden;
         margin-bottom: 10px;
@@ -242,6 +247,7 @@ export default {
 
     &__lessons {
         background: #c7c6f1;
+        margin-bottom: auto;
         .course-info__info-icon {
             background: #9896cc;
         }
