@@ -2,7 +2,12 @@ export const alertModule = {
 	namespaced: true,
 	state: {
 		type: null,
-		message: null,
+		auth_errors: {
+			username: null,
+			email: null,
+			password: null,
+			detail: null,
+		},
 		email_edit: null,
 		username_edit: {
 			new_username: null,
@@ -48,7 +53,7 @@ export const alertModule = {
 		},
 		error(state, message) {
 			state.type = 'alert-danger';
-			state.message = message;
+			state.auth_errors = message;
 		},
 		clear(state) {
 			state.type = null;

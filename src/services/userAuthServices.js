@@ -21,8 +21,7 @@ function register(email, username, password) {
 			return user;
 		})
 		.catch((error) => {
-			console.log(error);
-			return Promise.reject(error);
+			return Promise.reject(error.response.data);
 		});
 }
 
@@ -43,7 +42,7 @@ function login(username, password) {
 			return user;
 		})
 		.catch((error) => {
-			return Promise.reject('Неверный логин или пароль.');
+			return Promise.reject(error.response.data);
 		});
 }
 

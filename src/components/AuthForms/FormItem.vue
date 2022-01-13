@@ -27,7 +27,8 @@
                 stroke="#9FA2B4"
             ></vue-feather>
         </div>
-        <div v-if="submitted && !modelValue" class="form-item__error">Это обязательное поле</div>
+        <div v-if="submitted && !modelValue" class="form-item__required">Это обязательное поле</div>
+        <div v-for="(error, index) in errors" :key="index" class="form-item__error">{{ error }}</div>
     </div>
 </template>
 
@@ -54,7 +55,11 @@ export default {
         submitted: {
             type: Boolean,
         },
-        modelValue: [String, Number]
+        modelValue: [String, Number],
+        errors: {
+            type: Array,
+            default: []
+        }
     },
     data() {
         return {
@@ -119,9 +124,15 @@ export default {
         }
     }
 
-    &__error {
+    &__required {
         position: absolute;
         bottom: -17px;
+        color: #f05555;
+        font-size: 12px;
+        line-height: 17px;
+        letter-spacing: 0.323577px;
+    }
+    &__error {
         color: #f05555;
         font-size: 12px;
         line-height: 17px;

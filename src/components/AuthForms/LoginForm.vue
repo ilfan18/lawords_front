@@ -8,7 +8,7 @@
         </div>
         <div class="form__subtitle">Введите вашу почту и пароль ниже</div>
         <form @submit.prevent="handleLoginSubmit" class="form__form">
-            <div v-if="alert.message" :class="`alert ${alert.type}`">{{ alert.message }}</div>
+            <div v-if="error" class="alert">{{ error }}</div>
             <form-item
                 v-model="username"
                 name="username"
@@ -54,9 +54,9 @@ export default {
         logingIn() {
             return this.$store.state.auth.loggingIn ? true : null;
         },
-        alert() {
-            return this.$store.state.alert
-        }
+        error() {
+            return this.$store.state.alert.auth_errors.detail
+        },
     },
     watch: {
         $route(to, from) {

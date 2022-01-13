@@ -3,7 +3,10 @@
         <div class="form__title">Создайте новый аккаунт</div>
         <div class="form__subtitle">Введите ваши данные ниже</div>
         <form @submit.prevent="handleRegisterSubmit" class="form__form">
-            <div v-if="alert.message" :class="`alert ${alert.type}`">{{ alert.message }}</div>
+            <div
+                v-if="non_field_errors_alert"
+                :class="`alert ${alert.type}`"
+            >{{ non_field_errors_alert }}</div>
             <form-item
                 v-model="username"
                 name="username"
@@ -12,6 +15,7 @@
                 placeholder="Введите имя пользователя"
                 style="margin-bottom: 26px;"
                 :submitted="submitted"
+                :errors="login_alert"
             />
             <form-item
                 v-model="email"
@@ -21,6 +25,7 @@
                 placeholder="Введите почту"
                 style="margin-bottom: 26px;"
                 :submitted="submitted"
+                :errors="email_alert"
             />
             <form-item
                 v-model="password"
@@ -30,6 +35,7 @@
                 placeholder="Введите пароль"
                 style="margin-bottom: 26px;"
                 :submitted="submitted"
+                :errors="password_alert"
             />
             <form-button :submitting="regestering">Войти</form-button>
         </form>
@@ -60,8 +66,20 @@ export default {
             return this.$store.state.auth.regestering ? true : null;
         },
         alert() {
-            return this.$store.state.alert
-        }
+            return this.$store.state.alert.auth_errors
+        },
+        login_alert() {
+            return this.alert.username
+        },
+        email_alert() {
+            return this.alert.email
+        },
+        password_alert() {
+            return this.alert.password
+        },
+        non_field_errors_alert() {
+            return this.alert.non_field_errors
+        },
     },
     watch: {
         $route(to, from) {
