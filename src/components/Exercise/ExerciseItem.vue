@@ -11,7 +11,7 @@
         </div>
         <div class="exercise-item__body">
             <div class="exercise-item__question">
-                {{ exercise.text }}
+                <div v-html="exercise.text" class="exercise-item__text"></div>
                 <div class="exercise-item__help">{{ helpText }}</div>
             </div>
             <div class="exercise-item__answers">
@@ -135,15 +135,20 @@ export default {
         background: var(--background-third);
         margin-bottom: 20px;
         padding: 20px 40px;
-        text-align: center;
+        border-radius: 10px;
+    }
+    &__text {
         font-weight: 500;
         font-size: 20px;
         line-height: 24px;
-        border-radius: 10px;
     }
 
     &__help {
         color: var(--text-second);
+        text-align: center;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 24px;
     }
 
     &__answers {

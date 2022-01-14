@@ -99,6 +99,7 @@ export default {
     &__icon {
         width: 44px;
         height: 44px;
+        flex: 0 0 44px;
         border-radius: 10px;
         overflow: hidden;
         margin-right: 15px;

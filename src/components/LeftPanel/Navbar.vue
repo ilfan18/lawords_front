@@ -3,7 +3,7 @@
         <ul class="nav__top">
             <navbar-item url="/" title="Главная" type="home" />
             <navbar-item url="/courses" title="Курсы" type="book-open" />
-            <navbar-item url="/about" title="#" type="bookmark" />
+            <navbar-item url="/about" title="О нас" type="bookmark" />
         </ul>
         <ul class="nav__bottom">
             <navbar-item url="/settings" title="Настройки" type="settings" />
